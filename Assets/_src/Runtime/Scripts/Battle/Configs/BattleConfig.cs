@@ -12,5 +12,14 @@ namespace DDTest.Battle
 
 		[SerializeField, ShowIf(nameof(_useFixedSeed)), GenPublicGetter]
 		private int _seed;
+
+		[SerializeField, Required, GenPublicGetter]
+		private TeamConfig _leftTeam;
+
+		[SerializeField, Required, GenPublicGetter]
+		private TeamConfig _rightTeam;
+
+		[SerializeField, GenPublicGetter]
+		private bool _reshuffleEqualSpeedEachRound;
 	}
 }

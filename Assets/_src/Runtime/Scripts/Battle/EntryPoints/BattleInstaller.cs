@@ -14,8 +14,13 @@ namespace DDTest.Battle
 
 		public override void InstallBindings()
 		{
+			Container.BindInstance(_battleConfig);
+
 			Container.Bind<IRandom>()
 				.FromInstance(new SystemRandom(ResolveSeed()));
+
+			Container.BindInterfacesAndSelfTo<BattleState>()
+				.AsSingle();
 
 			Container.BindInterfacesTo<BattleEntryPoint>()
 				.AsSingle();

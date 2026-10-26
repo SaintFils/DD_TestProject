@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.BattleConfig
   _useFixedSeed: 0
   _seed: 0
+  _leftTeam: {fileID: 11400000, guid: 81edee4d4ae248dc9e7c4fc67838aec0, type: 2}
+  _rightTeam: {fileID: 11400000, guid: e1e1c771801dfa8a05125b211f1cdafc, type: 2}
+  _reshuffleEqualSpeedEachRound: 0
