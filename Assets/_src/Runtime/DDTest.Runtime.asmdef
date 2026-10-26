@@ -1,0 +1,28 @@
+{
+    "name": "DDTest.Runtime",
+    "rootNamespace": "DDTest",
+    "references": [
+        "Zenject",
+        "UniTask",
+        "UniTask.DOTween",
+        "UniTask.Linq",
+        "UniTask.TextMeshPro",
+        "DOTween.Modules",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI",
+        "Unity.InputSystem",
+        "NaughtyAttributes.Core",
+        "Valhalla.PublicGettersGenerator",
+        "R3.Unity.TextMeshPro",
+        "R3.Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
