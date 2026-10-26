@@ -21,5 +21,20 @@ namespace DDTest.Battle
 
 		[SerializeField, GenPublicGetter]
 		private bool _reshuffleEqualSpeedEachRound;
+
+		[SerializeField, Required, GenPublicGetter]
+		private AbilityConfig _skipAbility;
+
+		[SerializeField, Range(0f, 1f), GenPublicGetter]
+		private float _baseHitChance = 0.75f;
+
+		[SerializeField, Range(0f, 1f), GenPublicGetter]
+		private float _hitChancePerPoint = 0.05f;
+
+		[SerializeField, Range(0f, 1f), GenPublicGetter]
+		private float _minHitChance = 0.1f;
+
+		[SerializeField, Range(0f, 1f), GenPublicGetter]
+		private float _maxHitChance = 0.95f;
 	}
 }

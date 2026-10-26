@@ -17,3 +17,8 @@ MonoBehaviour:
   _leftTeam: {fileID: 11400000, guid: 81edee4d4ae248dc9e7c4fc67838aec0, type: 2}
   _rightTeam: {fileID: 11400000, guid: e1e1c771801dfa8a05125b211f1cdafc, type: 2}
   _reshuffleEqualSpeedEachRound: 0
+  _skipAbility: {fileID: 11400000, guid: b9edf9a4cf0b94447bc1458d7fe637eb, type: 2}
+  _baseHitChance: 0.75
+  _hitChancePerPoint: 0.05
+  _minHitChance: 0.1
+  _maxHitChance: 0.95

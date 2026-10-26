@@ -46,6 +46,12 @@ namespace DDTest.Battle
 		}
 
 
+		public void TakeDamage(int amount)
+			=> _hp.Value = Math.Max(0, _hp.Value - amount);
+
+		public void Heal(int amount)
+			=> _hp.Value = Math.Min(MaxHp, _hp.Value + amount);
+
 		public void Dispose()
 			=> _hp.Dispose();
 

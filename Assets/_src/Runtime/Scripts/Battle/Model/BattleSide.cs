@@ -17,6 +17,9 @@ namespace DDTest.Battle
 		public BattleUnit Frontline
 			=> _units.FirstOrDefault(unit => unit.IsAlive);
 
+		public bool HasLivingUnits
+			=> _units.Any(unit => unit.IsAlive);
+
 
 		public BattleSide(BattleSideId id, TeamConfig team)
 		{
