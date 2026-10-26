@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a77a1b4a89824fb6df293099de3060daf2a432c1"
+    },
+    "com.svermeulen.extenject": {
+      "version": "https://github.com/Mathijs-Bakker/Extenject.git?path=UnityProject/Assets/Plugins/Zenject/Source#9.3.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8495d61cebe4175b358370a3599b32ae976d6de6"
+    },
     "com.unity.2d.animation": {
       "version": "13.0.4",
       "depth": 0,
@@ -282,6 +296,22 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.valhalla.public-getters-generator": {
+      "version": "https://gitlab.com/valhalla-for-unity/public-getters-generator.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.valhalla.source-generators": "1.1.5"
+      },
+      "hash": "5c4422e2d67bb42cb7b3e4ff58dada5c876c947e"
+    },
+    "com.valhalla.source-generators": {
+      "version": "https://gitlab.com/valhalla-for-unity/source-generators.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f0c4c109c3fb1c8c5c1480bcd0236a05ad6b529f"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
