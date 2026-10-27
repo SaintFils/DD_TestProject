@@ -8,12 +8,16 @@ namespace DDTest.Battle
 	{
 		private readonly BattlefieldView _battlefield;
 		private readonly ProjectileView _projectile;
+		private readonly InitiativeQueueView _initiativeQueue;
+		private readonly RoundBannerView _roundBanner;
 
 
-		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile)
+		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner)
 		{
 			_battlefield = battlefield;
 			_projectile = projectile;
+			_initiativeQueue = initiativeQueue;
+			_roundBanner = roundBanner;
 		}
 
 
@@ -21,7 +25,7 @@ namespace DDTest.Battle
 		{
 			Debug.Log($"Round {round}");
 
-			return UniTask.CompletedTask;
+			return _roundBanner.PlayAsync(round, cancellationToken);
 		}
 
 		public UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken)
@@ -56,7 +60,9 @@ namespace DDTest.Battle
 			if (!result.Target.IsAlive)
 			{
 				Debug.Log($"{result.Target} dies");
-				await targetView.PlayDeathAsync(cancellationToken);
+				await UniTask.WhenAll(
+					targetView.PlayDeathAsync(cancellationToken),
+					_initiativeQueue.PlayDeathAsync(result.Target, cancellationToken));
 			}
 		}
 

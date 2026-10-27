@@ -39,7 +39,10 @@ namespace DDTest.Battle
 				.Subscribe(_ => HighlightCurrentTurn(__battle.Queue.Current))
 				.AddTo(this);
 
-			__player.TargetableUnits.Subscribe(HighlightTargetable)
+			__player.TargetableUnits.Subscribe(_ => HighlightTargetFrames())
+				.AddTo(this);
+
+			__player.InspectedUnit.Subscribe(_ => HighlightTargetFrames())
 				.AddTo(this);
 
 			__player.HoveredTarget.Subscribe(HighlightHoveredTarget)
@@ -70,10 +73,13 @@ namespace DDTest.Battle
 				_currentTurnView.SetCurrentTurn(true);
 		}
 
-		private void HighlightTargetable(IReadOnlyList<BattleUnit> targetableUnits)
+		private void HighlightTargetFrames()
 		{
+			IReadOnlyList<BattleUnit> targetableUnits = __player.TargetableUnits.CurrentValue;
+			BattleUnit inspectedUnit = __player.InspectedUnit.CurrentValue;
+
 			foreach (KeyValuePair<BattleUnit, UnitView> pair in _views)
-				pair.Value.SetTargetable(targetableUnits.Contains(pair.Key));
+				pair.Value.SetTargetable(pair.Key == inspectedUnit || targetableUnits.Contains(pair.Key));
 		}
 
 		private void HighlightHoveredTarget(BattleUnit unit)

@@ -24,6 +24,12 @@ namespace DDTest.Battle
 		private ProjectileView _projectileView;
 
 		[SerializeField, Required]
+		private InitiativeQueueView _initiativeQueueView;
+
+		[SerializeField, Required]
+		private RoundBannerView _roundBannerView;
+
+		[SerializeField, Required]
 		private UnitView _unitViewPrefab;
 
 
@@ -67,6 +73,12 @@ namespace DDTest.Battle
 
 			Container.Bind<ProjectileView>()
 				.FromInstance(_projectileView);
+
+			Container.Bind<InitiativeQueueView>()
+				.FromInstance(_initiativeQueueView);
+
+			Container.Bind<RoundBannerView>()
+				.FromInstance(_roundBannerView);
 
 			Container.BindFactory<BattleUnit, UnitView, UnitView.Factory>()
 				.FromComponentInNewPrefab(_unitViewPrefab);

@@ -14,6 +14,7 @@ namespace DDTest.Battle
 		private readonly ReactiveProperty<AbilityConfig> _selectedAbility = new();
 		private readonly ReactiveProperty<IReadOnlyList<BattleUnit>> _targetableUnits = new(Array.Empty<BattleUnit>());
 		private readonly ReactiveProperty<BattleUnit> _hoveredTarget = new();
+		private readonly ReactiveProperty<BattleUnit> _inspectedUnit = new();
 		private AbilityConfig _previewedAbility;
 		private UniTaskCompletionSource<BattleCommand> _commandSource;
 
@@ -29,6 +30,9 @@ namespace DDTest.Battle
 
 		public ReadOnlyReactiveProperty<BattleUnit> HoveredTarget
 			=> _hoveredTarget;
+
+		public ReadOnlyReactiveProperty<BattleUnit> InspectedUnit
+			=> _inspectedUnit;
 
 
 		public PlayerController(BattleRules rules)
@@ -95,6 +99,18 @@ namespace DDTest.Battle
 		{
 			if (IsSelectableTarget(unit))
 				Submit(new BattleCommand(_awaitingActor.Value, _selectedAbility.Value, unit));
+		}
+
+		public void InspectUnit(BattleUnit unit)
+		{
+			if (_selectedAbility.Value == null)
+				_inspectedUnit.Value = unit;
+		}
+
+		public void UninspectUnit(BattleUnit unit)
+		{
+			if (_inspectedUnit.Value == unit)
+				_inspectedUnit.Value = null;
 		}
 
 		public void CancelSelection()

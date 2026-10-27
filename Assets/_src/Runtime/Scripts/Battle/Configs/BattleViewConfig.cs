@@ -86,6 +86,41 @@ namespace DDTest.Battle
 
 		[SerializeField, Min(0f), GenPublicGetter]
 		private float _hpSlowDuration = 0.6f;
+
+		[Header("Initiative Queue")]
+		[SerializeField, GenPublicGetter]
+		private Color _leftSideColor = new(0.3f, 0.6f, 1f, 1f);
+
+		[SerializeField, GenPublicGetter]
+		private Color _rightSideColor = new(1f, 0.35f, 0.3f, 1f);
+
+		[SerializeField, GenPublicGetter]
+		private Color _actedCardColor = new(0.4f, 0.4f, 0.4f, 1f);
+
+		[SerializeField, Range(1f, 1.5f), GenPublicGetter]
+		private float _currentCardScale = 1.2f;
+
+		[SerializeField, Range(1f, 1.5f), GenPublicGetter]
+		private float _cardDeathScale = 1.15f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _cardDeathPopDuration = 0.1f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _cardDeathDrop = 60f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _cardDeathDuration = 0.4f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _cardCollapseDuration = 0.25f;
+
+		[Header("Round Banner")]
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _roundBannerFadeDuration = 0.25f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _roundBannerHoldDuration = 0.6f;
 		
 		
 		public float ProjectileSpeed
