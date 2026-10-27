@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DDTest.Infrastructure;
 
 namespace DDTest.Battle
 {
@@ -10,12 +11,14 @@ namespace DDTest.Battle
 	{
 		private readonly BattleRules _rules;
 		private readonly AiConfig _config;
+		private readonly IRandom _random;
 
 
-		public AiController(BattleRules rules, AiConfig config)
+		public AiController(BattleRules rules, AiConfig config, IRandom random)
 		{
 			_rules = rules;
 			_config = config;
+			_random = random;
 		}
 
 
@@ -80,19 +83,34 @@ namespace DDTest.Battle
 		{
 			command = default;
 
-			(AbilityConfig Ability, BattleUnit Target) best = abilities
+			List<(AbilityConfig Ability, BattleUnit Target, float Score)> options = abilities
 				.Where(ability => ability.Effect == AbilityEffect.Damage)
-				.SelectMany(ability => _rules.GetTargets(actor, ability).Select(target => (Ability: ability, Target: target)))
-				.OrderByDescending(option => _rules.GetHitChance(actor, option.Target, option.Ability) * option.Ability.Power)
+				.SelectMany(ability => _rules.GetTargets(actor, ability).Select(target => (Ability: ability, Target: target, Score: GetAttackScore(actor, ability, target))))
+				.OrderByDescending(option => option.Score)
 				.ThenBy(option => option.Target.Hp.CurrentValue)
-				.FirstOrDefault();
+				.ToList();
 
-			if (best.Ability == null)
+			if (options.Count == 0)
 				return false;
 
-			command = new BattleCommand(actor, best.Ability, best.Target);
-			
+			float threshold = options[0].Score * (1f - _config.TargetTolerance);
+			int candidateCount = 1 + options.Skip(1).TakeWhile(option => option.Score > threshold).Count();
+			(AbilityConfig Ability, BattleUnit Target, float Score) choice = options[_random.Next(0, candidateCount)];
+
+			command = new BattleCommand(actor, choice.Ability, choice.Target);
+
 			return true;
+		}
+
+		private float GetAttackScore(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+		{
+			int hp = target.Hp.CurrentValue;
+			float value = Math.Min(ability.Power, hp);
+
+			if (ability.Power >= hp)
+				value += _config.KillBonus;
+
+			return _rules.GetHitChance(actor, target, ability) * value;
 		}
 
 		private static float GetHpRatio(BattleUnit unit)

@@ -68,11 +68,13 @@ namespace DDTest.Tests
 			});
 		}
 
-		public AiConfig Ai(float healThreshold = 0.5f)
+		public AiConfig Ai(float healThreshold = 0.5f, float killBonus = 0f, float targetTolerance = 0f)
 			=> Create<AiConfig>(serialized =>
 			{
 				serialized.FindProperty("_healThreshold").floatValue = healThreshold;
 				serialized.FindProperty("_thinkDuration").vector2Value = Vector2.zero;
+				serialized.FindProperty("_killBonus").floatValue = killBonus;
+				serialized.FindProperty("_targetTolerance").floatValue = targetTolerance;
 			});
 
 		public void Dispose()

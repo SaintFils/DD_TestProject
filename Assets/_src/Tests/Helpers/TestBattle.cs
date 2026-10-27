@@ -12,12 +12,15 @@ namespace DDTest.Tests
 
 		public BattleRules Rules { get; }
 
+		public IRandom Random { get; }
+
 
 		public TestBattle(BattleConfig config, IRandom random = null)
 		{
 			random ??= new StubRandom();
 
 			Config = config;
+			Random = random;
 			State = new BattleState(config, random);
 			Rules = new BattleRules(State, config, random);
 		}

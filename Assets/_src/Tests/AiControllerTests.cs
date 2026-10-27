@@ -74,6 +74,36 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void ChooseCommand_FinishesOffEnemy_WhenKillBonusOutweighsDamage()
+		{
+			AbilityConfig ranged = _configs.Ranged(power: 6);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { ranged })), _configs.Team(_configs.Unit(), _configs.Unit())));
+			battle.Right(1).TakeDamage(18);
+
+			BattleCommand withoutBonus = ChooseCommand(battle, battle.Left(0));
+			BattleCommand withBonus = ChooseCommand(battle, battle.Left(0), killBonus: 5f);
+
+			Assert.That(withoutBonus.Target, Is.SameAs(battle.Right(0)));
+			Assert.That(withBonus.Target, Is.SameAs(battle.Right(1)));
+		}
+
+		[Test]
+		public void ChooseCommand_PicksRandomTarget_WithinTolerance()
+		{
+			AbilityConfig ranged = _configs.Ranged();
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(new[] { ranged })),
+				_configs.Team(_configs.Unit(defense: 5), _configs.Unit(defense: 6), _configs.Unit(defense: 8))),
+				new StubRandom(nextOffset: TeamConfig.SlotCount));
+
+			BattleCommand strict = ChooseCommand(battle, battle.Left(0));
+			BattleCommand tolerant = ChooseCommand(battle, battle.Left(0), targetTolerance: 0.1f);
+
+			Assert.That(strict.Target, Is.SameAs(battle.Right(0)));
+			Assert.That(tolerant.Target, Is.SameAs(battle.Right(1)));
+		}
+
+		[Test]
 		public void ChooseCommand_Skips_WhenNoAbilityIsUsable()
 		{
 			AbilityConfig melee = _configs.Melee();
@@ -103,7 +133,10 @@ namespace DDTest.Tests
 			Assert.That(aggressive.Ability, Is.SameAs(weakRanged));
 		}
 
-		private BattleCommand ChooseCommand(TestBattle battle, BattleUnit actor, float healThreshold = 0.5f)
-			=> new AiController(battle.Rules, _configs.Ai(healThreshold)).ChooseCommandAsync(actor, CancellationToken.None).GetAwaiter().GetResult();
+		private BattleCommand ChooseCommand(TestBattle battle, BattleUnit actor, float healThreshold = 0.5f, float killBonus = 0f, float targetTolerance = 0f)
+			=> new AiController(battle.Rules, _configs.Ai(healThreshold, killBonus, targetTolerance), battle.Random)
+				.ChooseCommandAsync(actor, CancellationToken.None)
+				.GetAwaiter()
+				.GetResult();
 	}
 }

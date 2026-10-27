@@ -81,7 +81,7 @@ namespace DDTest.Tests
 		{
 			ScriptedController hero = new(actor => new BattleCommand(actor, _strike, battle.State.RightSide.Frontline));
 
-			return battle.CreateLoop(hero, new AiController(battle.Rules, _configs.Ai()), presenter);
+			return battle.CreateLoop(hero, new AiController(battle.Rules, _configs.Ai(), battle.Random), presenter);
 		}
 	}
 }
