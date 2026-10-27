@@ -23,7 +23,7 @@ namespace DDTest.Tests
 			BattleConfig config = _configs.Battle(
 				_configs.Team(_configs.Unit(speed: 3), _configs.Unit(speed: 7)),
 				_configs.Team(_configs.Unit(speed: 5)));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.State.Queue.StartRound();
 
@@ -37,7 +37,7 @@ namespace DDTest.Tests
 			BattleConfig config = _configs.Battle(
 				_configs.Team(_configs.Unit(), _configs.Unit()),
 				_configs.Team(_configs.Unit()));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 			battle.Kill(battle.Left(1));
 
 			battle.State.Queue.StartRound();
@@ -50,7 +50,7 @@ namespace DDTest.Tests
 		public void StartRound_IncrementsRound()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.State.Queue.StartRound();
 			battle.State.Queue.StartRound();
@@ -62,7 +62,7 @@ namespace DDTest.Tests
 		public void StartRound_KeepsEqualSpeedOrderBetweenRounds_WhenReshuffleIsOff()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()), reshuffleEqualSpeedEachRound: false);
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.State.Queue.StartRound();
 			BattleUnit[] firstRound = battle.State.Queue.Order.CurrentValue.ToArray();
@@ -75,7 +75,7 @@ namespace DDTest.Tests
 		public void StartRound_ReshufflesEqualSpeedOrderBetweenRounds_WhenReshuffleIsOn()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()), reshuffleEqualSpeedEachRound: true);
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.State.Queue.StartRound();
 			BattleUnit[] firstRound = battle.State.Queue.Order.CurrentValue.ToArray();
@@ -90,7 +90,7 @@ namespace DDTest.Tests
 			BattleConfig config = _configs.Battle(
 				_configs.Team(_configs.Unit(speed: 7)),
 				_configs.Team(_configs.Unit(speed: 5), _configs.Unit(speed: 3)));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 			InitiativeQueue queue = battle.State.Queue;
 			queue.StartRound();
 
@@ -106,7 +106,7 @@ namespace DDTest.Tests
 		public void TryMoveNext_ReturnsFalse_WhenRoundIsOver()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 			InitiativeQueue queue = battle.State.Queue;
 			queue.StartRound();
 

@@ -26,7 +26,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee();
 			UnitConfig fighter = _configs.Unit(new[] { melee });
-			using TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
+			TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
 
 			Assert.That(battle.Rules.CanUse(battle.Left(0), melee), Is.True);
 			Assert.That(battle.Rules.CanUse(battle.Left(1), melee), Is.False);
@@ -37,7 +37,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee();
 			UnitConfig fighter = _configs.Unit(new[] { melee });
-			using TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
+			TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
 
 			battle.Kill(battle.Left(0));
 
@@ -49,7 +49,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee();
 			UnitConfig fighter = _configs.Unit(new[] { melee });
-			using TestBattle battle = new(_configs.Battle(_configs.Team(fighter), _configs.Team(fighter, fighter)));
+			TestBattle battle = new(_configs.Battle(_configs.Team(fighter), _configs.Team(fighter, fighter)));
 
 			Assert.That(battle.Rules.GetTargets(battle.Left(0), melee), Is.EqualTo(new[] { battle.Right(0) }));
 
@@ -63,7 +63,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig ranged = _configs.Ranged();
 			UnitConfig archer = _configs.Unit(new[] { ranged });
-			using TestBattle battle = new(_configs.Battle(_configs.Team(archer), _configs.Team(archer, archer, archer)));
+			TestBattle battle = new(_configs.Battle(_configs.Team(archer), _configs.Team(archer, archer, archer)));
 
 			battle.Kill(battle.Right(1));
 
@@ -74,7 +74,7 @@ namespace DDTest.Tests
 		public void HitChance_IsBase_WhenAttackEqualsDefense()
 		{
 			AbilityConfig ranged = _configs.Ranged();
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(), _configs.Unit(new[] { ranged }, attack: 5)),
 				_configs.Team(_configs.Unit(defense: 5))));
 
@@ -87,7 +87,7 @@ namespace DDTest.Tests
 		public void HitChance_IsClampedToBounds()
 		{
 			AbilityConfig ranged = _configs.Ranged();
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(), _configs.Unit(new[] { ranged }, attack: 50), _configs.Unit(new[] { ranged }, attack: 0)),
 				_configs.Team(_configs.Unit(defense: 0), _configs.Unit(defense: 50))));
 
@@ -100,7 +100,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig ranged = _configs.Ranged(frontlineAttackPenalty: 3);
 			UnitConfig archer = _configs.Unit(new[] { ranged }, attack: 5);
-			using TestBattle battle = new(_configs.Battle(_configs.Team(archer, archer), _configs.Team(_configs.Unit(defense: 5))));
+			TestBattle battle = new(_configs.Battle(_configs.Team(archer, archer), _configs.Team(_configs.Unit(defense: 5))));
 			float expectedPenalty = 3 * battle.Config.HitChancePerPoint;
 
 			float frontlineChance = battle.Rules.GetHitChance(battle.Left(0), battle.Right(0), ranged);
@@ -113,7 +113,7 @@ namespace DDTest.Tests
 		public void Resolve_Misses_WhenRollIsNotBelowHitChance()
 		{
 			AbilityConfig melee = _configs.Melee();
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit())), new StubRandom(nextDouble: 0.99));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit())), new StubRandom(nextDouble: 0.99));
 
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
@@ -126,7 +126,7 @@ namespace DDTest.Tests
 		public void Resolve_Hits_WhenRollIsBelowHitChance()
 		{
 			AbilityConfig melee = _configs.Melee(power: 8);
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit(maxHp: 20))), new StubRandom(nextDouble: 0));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit(maxHp: 20))), new StubRandom(nextDouble: 0));
 
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
@@ -139,7 +139,7 @@ namespace DDTest.Tests
 		public void Heal_TargetsLivingAlliesIncludingSelf()
 		{
 			AbilityConfig heal = _configs.Heal();
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(), _configs.Unit(new[] { heal }), _configs.Unit()),
 				_configs.Team(_configs.Unit())));
 
@@ -152,7 +152,7 @@ namespace DDTest.Tests
 		public void Heal_IsCappedAtMaxHp_AndDoesNotRoll()
 		{
 			AbilityConfig heal = _configs.Heal(power: 10);
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(maxHp: 20), _configs.Unit(new[] { heal })),
 				_configs.Team(_configs.Unit())), new StubRandom(nextDouble: 0.99));
 			battle.Left(0).TakeDamage(5);
@@ -168,7 +168,7 @@ namespace DDTest.Tests
 		[Test]
 		public void Skip_IsAvailableToEveryone_AndHasNoTargets()
 		{
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit()), _configs.Team(_configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit()), _configs.Team(_configs.Unit())));
 			AbilityConfig skip = battle.Config.SkipAbility;
 
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(1), skip, null));
@@ -182,7 +182,7 @@ namespace DDTest.Tests
 		public void Resolve_Throws_WhenTargetIsInvalid()
 		{
 			AbilityConfig melee = _configs.Melee();
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit(), _configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit(), _configs.Unit())));
 
 			Assert.Throws<InvalidOperationException>(() => battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(1))));
 		}
@@ -191,7 +191,7 @@ namespace DDTest.Tests
 		public void Resolve_Throws_WhenUnitDoesNotHaveAbility()
 		{
 			AbilityConfig melee = _configs.Melee();
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit())));
 
 			Assert.Throws<InvalidOperationException>(() => battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0))));
 		}
@@ -201,7 +201,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee();
 			AbilityConfig ranged = _configs.Ranged();
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee, ranged })), _configs.Team(_configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee, ranged })), _configs.Team(_configs.Unit())));
 
 			AbilityConfig[] abilities = battle.Rules.GetAbilities(battle.Left(0)).ToArray();
 

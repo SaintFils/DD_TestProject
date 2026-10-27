@@ -22,7 +22,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig heal = _configs.Heal();
 			AbilityConfig weakRanged = _configs.Ranged(power: 3);
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(maxHp: 20), _configs.Unit(new[] { heal, weakRanged }), _configs.Unit(maxHp: 20)),
 				_configs.Team(_configs.Unit())));
 			battle.Left(0).TakeDamage(12);
@@ -39,7 +39,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig heal = _configs.Heal();
 			AbilityConfig weakRanged = _configs.Ranged(power: 3);
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(), _configs.Unit(new[] { heal, weakRanged })),
 				_configs.Team(_configs.Unit())));
 
@@ -54,7 +54,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee(power: 10);
 			AbilityConfig ranged = _configs.Ranged(power: 4);
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { ranged, melee })), _configs.Team(_configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { ranged, melee })), _configs.Team(_configs.Unit())));
 
 			BattleCommand command = ChooseCommand(battle, battle.Left(0));
 
@@ -65,7 +65,7 @@ namespace DDTest.Tests
 		public void ChooseCommand_TargetsEnemyWithLowerHp_WhenExpectedDamageIsEqual()
 		{
 			AbilityConfig ranged = _configs.Ranged();
-			using TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { ranged })), _configs.Team(_configs.Unit(), _configs.Unit())));
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { ranged })), _configs.Team(_configs.Unit(), _configs.Unit())));
 			battle.Right(1).TakeDamage(5);
 
 			BattleCommand command = ChooseCommand(battle, battle.Left(0));
@@ -78,7 +78,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee();
 			UnitConfig fighter = _configs.Unit(new[] { melee });
-			using TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
+			TestBattle battle = new(_configs.Battle(_configs.Team(fighter, fighter), _configs.Team(fighter)));
 
 			BattleCommand command = ChooseCommand(battle, battle.Left(1));
 
@@ -91,7 +91,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig heal = _configs.Heal();
 			AbilityConfig weakRanged = _configs.Ranged(power: 3);
-			using TestBattle battle = new(_configs.Battle(
+			TestBattle battle = new(_configs.Battle(
 				_configs.Team(_configs.Unit(maxHp: 20), _configs.Unit(new[] { heal, weakRanged })),
 				_configs.Team(_configs.Unit())));
 			battle.Left(0).TakeDamage(12);

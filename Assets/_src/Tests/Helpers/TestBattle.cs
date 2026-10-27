@@ -1,11 +1,10 @@
-using System;
 using System.Linq;
 using DDTest.Battle;
 using DDTest.Infrastructure;
 
 namespace DDTest.Tests
 {
-	public sealed class TestBattle : IDisposable
+	public sealed class TestBattle
 	{
 		public BattleConfig Config { get; }
 
@@ -35,8 +34,5 @@ namespace DDTest.Tests
 
 		public BattleLoop CreateLoop(ISideController left, ISideController right, IBattlePresenter presenter)
 			=> new(State, Rules, new SideControllers(left, right), presenter);
-
-		public void Dispose()
-			=> State.Dispose();
 	}
 }

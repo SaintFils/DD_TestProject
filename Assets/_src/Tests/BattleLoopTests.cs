@@ -26,7 +26,7 @@ namespace DDTest.Tests
 		[Test]
 		public void RunAsync_ReturnsWinner_WhenOpposingSideIsDefeated()
 		{
-			using TestBattle battle = CreateHeroAgainstTwoBandits();
+			TestBattle battle = CreateHeroAgainstTwoBandits();
 			RecordingBattlePresenter presenter = new();
 
 			BattleSideId winner = CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
@@ -38,7 +38,7 @@ namespace DDTest.Tests
 		[Test]
 		public void RunAsync_SkipsUnitThatDiedBeforeItsTurn()
 		{
-			using TestBattle battle = CreateHeroAgainstTwoBandits();
+			TestBattle battle = CreateHeroAgainstTwoBandits();
 			RecordingBattlePresenter presenter = new();
 
 			CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
@@ -49,7 +49,7 @@ namespace DDTest.Tests
 		[Test]
 		public void RunAsync_AppliesResultBetweenActionStartAndEnd()
 		{
-			using TestBattle battle = CreateHeroAgainstTwoBandits();
+			TestBattle battle = CreateHeroAgainstTwoBandits();
 			RecordingBattlePresenter presenter = new();
 
 			CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
@@ -61,7 +61,7 @@ namespace DDTest.Tests
 		[Test]
 		public void RunAsync_Throws_WhenCancelled()
 		{
-			using TestBattle battle = CreateHeroAgainstTwoBandits();
+			TestBattle battle = CreateHeroAgainstTwoBandits();
 			using CancellationTokenSource cancellation = new();
 			cancellation.Cancel();
 			BattleLoop loop = CreateLoop(battle, new RecordingBattlePresenter());

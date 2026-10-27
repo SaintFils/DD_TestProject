@@ -21,7 +21,7 @@ namespace DDTest.Tests
 		{
 			AbilityConfig melee = _configs.Melee(power: 50);
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit(new[] { melee })), _configs.Team(_configs.Unit(maxHp: 20), _configs.Unit()));
-			using TestBattle battle = new(config, new StubRandom(nextDouble: 0));
+			TestBattle battle = new(config, new StubRandom(nextDouble: 0));
 
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
@@ -35,7 +35,7 @@ namespace DDTest.Tests
 		public void Battle_IsNotFinished_WhileBothSidesHaveLivingUnits()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit(), _configs.Unit()));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.Kill(battle.Right(0));
 
@@ -47,7 +47,7 @@ namespace DDTest.Tests
 		public void Battle_IsFinished_WhenOneSideHasNoLivingUnits()
 		{
 			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit(), _configs.Unit()));
-			using TestBattle battle = new(config);
+			TestBattle battle = new(config);
 
 			battle.Kill(battle.Right(0));
 			battle.Kill(battle.Right(1));
