@@ -69,7 +69,11 @@ namespace DDTest.Tests
 		}
 
 		public AiConfig Ai(float healThreshold = 0.5f)
-			=> Create<AiConfig>(serialized => serialized.FindProperty("_healThreshold").floatValue = healThreshold);
+			=> Create<AiConfig>(serialized =>
+			{
+				serialized.FindProperty("_healThreshold").floatValue = healThreshold;
+				serialized.FindProperty("_thinkDuration").vector2Value = Vector2.zero;
+			});
 
 		public void Dispose()
 		{

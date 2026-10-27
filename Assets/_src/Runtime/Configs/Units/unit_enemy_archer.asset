@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: unit_enemy_archer
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitConfig
   _displayName: Archer
-  _color: {r: 0.95, g: 0.55, b: 0.2, a: 1}
+  _sprite: {fileID: 21300000, guid: cf23cfe9a9a1fa74ba4f826a943489a5, type: 3}
   _maxHp: 18
   _speed: 5
   _attack: 6

@@ -25,6 +25,17 @@ namespace DDTest.Battle
 		public ReadOnlyReactiveProperty<int> CurrentIndex
 			=> _currentIndex;
 
+		public BattleUnit Current
+		{
+			get
+			{
+				int index = _currentIndex.Value;
+				IReadOnlyList<BattleUnit> order = _order.Value;
+
+				return index >= 0 && index < order.Count ? order[index] : null;
+			}
+		}
+
 
 		public InitiativeQueue(IReadOnlyList<BattleUnit> units, IRandom random, bool reshuffleEqualSpeedEachRound)
 		{

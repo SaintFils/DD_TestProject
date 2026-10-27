@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using DDTest.Infrastructure;
 using UnityEngine;
 using Zenject;
@@ -9,28 +9,27 @@ namespace DDTest.Battle
 {
 	public sealed class BattleEntryPoint : IInitializable, IDisposable
 	{
-		private const int DryRunRounds = 2;
-
-
 		private readonly IRandom _random;
-		private readonly BattleState _battle;
+		private readonly BattlefieldView _battlefield;
+		private readonly BattleLoop _loop;
 		private readonly CancellationTokenSource _lifetime = new();
 
 
-		public BattleEntryPoint(IRandom random, BattleState battle)
+		public BattleEntryPoint(IRandom random, BattlefieldView battlefield, BattleLoop loop)
 		{
 			_random = random;
-			_battle = battle;
+			_battlefield = battlefield;
+			_loop = loop;
 		}
 
 
 		public void Initialize()
 		{
 			Debug.Log($"Battle, seed test: {_random.Seed}");
-			Debug.Log($"Frontline: {_battle.LeftSide.Frontline} vs {_battle.RightSide.Frontline}");
 
-			for (int round = 0; round < DryRunRounds; round++)
-				LogNextRound();
+			_battlefield.Build();
+			
+			RunAsync(_lifetime.Token).Forget();
 		}
 
 		public void Dispose()
@@ -39,13 +38,11 @@ namespace DDTest.Battle
 			_lifetime.Dispose();
 		}
 
-		private void LogNextRound()
+		private async UniTask RunAsync(CancellationToken cancellationToken)
 		{
-			InitiativeQueue queue = _battle.Queue;
-			queue.StartRound();
+			BattleSideId winner = await _loop.RunAsync(cancellationToken);
 
-			string order = string.Join(" -> ", queue.Order.CurrentValue.Select(unit => $"{unit} speed {unit.Speed}"));
-			Debug.Log($"Round {queue.Round.CurrentValue}: {order}");
+			Debug.Log($"Battle finished, winner: {winner}");
 		}
 	}
 }

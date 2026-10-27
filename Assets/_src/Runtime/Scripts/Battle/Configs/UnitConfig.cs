@@ -11,8 +11,8 @@ namespace DDTest.Battle
 		[SerializeField, GenPublicGetter]
 		private string _displayName;
 
-		[SerializeField, GenPublicGetter]
-		private Color _color = Color.white;
+		[SerializeField, ShowAssetPreview, GenPublicGetter]
+		private Sprite _sprite;
 
 		[SerializeField, MinValue(1), GenPublicGetter]
 		private int _maxHp = 20;

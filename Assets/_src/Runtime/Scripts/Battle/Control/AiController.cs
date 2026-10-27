@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -18,8 +19,22 @@ namespace DDTest.Battle
 		}
 
 
-		public UniTask<BattleCommand> ChooseCommandAsync(BattleUnit actor, CancellationToken cancellationToken)
-			=> UniTask.FromResult(ChooseCommand(actor));
+		public async UniTask<BattleCommand> ChooseCommandAsync(BattleUnit actor, CancellationToken cancellationToken)
+		{
+			await ThinkAsync(cancellationToken);
+
+			return ChooseCommand(actor);
+		}
+
+		private UniTask ThinkAsync(CancellationToken cancellationToken)
+		{
+			float duration = UnityEngine.Random.Range(_config.ThinkDuration.x, _config.ThinkDuration.y);
+
+			if (duration <= 0f)
+				return UniTask.CompletedTask;
+
+			return UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: cancellationToken);
+		}
 
 		private BattleCommand ChooseCommand(BattleUnit actor)
 		{
