@@ -1,3 +1,5 @@
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using NaughtyAttributes;
 using R3;
@@ -40,10 +42,14 @@ namespace DDTest.Battle
 		private Image _hpFill;
 
 		[SerializeField, Required]
+		private Image _hpBackFill;
+
+		[SerializeField, Required]
 		private CanvasGroup _canvasGroup;
 
 
 		private float _targetFrameAlpha;
+		private Vector2 _bodyPosition;
 		private bool _isCurrentTurn;
 		private bool _isHoveredTarget;
 		private bool _isActionTarget;
@@ -52,12 +58,19 @@ namespace DDTest.Battle
 		public BattleUnit Unit
 			=> __unit;
 
+		public Vector3 BodyCenter
+			=> _body.rectTransform.TransformPoint(_body.rectTransform.rect.center);
+
+		private float Facing
+			=> __unit.Side == BattleSideId.Left ? 1f : -1f;
+
 
 		private void Awake()
 		{
 			_body.sprite = __unit.Config.Sprite;
 			_nameText.text = __unit.Config.DisplayName;
 			_targetFrameAlpha = _targetFrame.color.a;
+			_bodyPosition = _body.rectTransform.anchoredPosition;
 
 			SetAlpha(_targetFrame, 0f);
 			SetAlpha(_highlightFrame, 0f);
@@ -89,8 +102,30 @@ namespace DDTest.Battle
 		public void SetTargetable(bool isTargetable)
 			=> FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
 
-		public void SetDead()
-			=> _canvasGroup.alpha = __viewConfig.DeadAlpha;
+		public UniTask PlayLungeAsync(CancellationToken cancellationToken)
+			=> PlayAsync(MoveBody(Facing * __viewConfig.LungeDistance, __viewConfig.LungeDuration), cancellationToken);
+
+		public UniTask PlayLungeReturnAsync(CancellationToken cancellationToken)
+			=> PlayAsync(MoveBody(0f, __viewConfig.LungeDuration), cancellationToken);
+
+		public UniTask PlayRecoilAsync(CancellationToken cancellationToken)
+			=> PlayAsync(SwayBody(-Facing * __viewConfig.RecoilDistance, __viewConfig.RecoilDuration), cancellationToken);
+
+		public UniTask PlayCastAsync(CancellationToken cancellationToken)
+			=> PlayAsync(_body.rectTransform.DOScale(__viewConfig.CastScale, __viewConfig.CastDuration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
+
+		public UniTask PlayHitAsync(CancellationToken cancellationToken)
+			=> UniTask.WhenAll(PlayAsync(_body.rectTransform.DOShakeAnchorPos(__viewConfig.HitDuration, __viewConfig.HitShakeStrength), cancellationToken),
+				FlashAsync(__viewConfig.HitColor, __viewConfig.HitDuration, cancellationToken));
+
+		public UniTask PlayDodgeAsync(CancellationToken cancellationToken)
+			=> PlayAsync(SwayBody(-Facing * __viewConfig.DodgeDistance, __viewConfig.DodgeDuration), cancellationToken);
+
+		public UniTask PlayHealAsync(CancellationToken cancellationToken)
+			=> FlashAsync(__viewConfig.HealColor, __viewConfig.HealDuration, cancellationToken);
+
+		public UniTask PlayDeathAsync(CancellationToken cancellationToken)
+			=> PlayAsync(_canvasGroup.DOFade(__viewConfig.DeadAlpha, __viewConfig.DeathDuration), cancellationToken);
 
 		public void OnPointerEnter(PointerEventData eventData)
 			=> __player.HoverTarget(__unit);
@@ -106,8 +141,13 @@ namespace DDTest.Battle
 
 		private void UpdateHp(int hp)
 		{
+			float fillAmount = (float)hp / __unit.MaxHp;
+			bool isRising = fillAmount > _hpFill.fillAmount;
+
 			_hpText.text = $"{hp}/{__unit.MaxHp}";
-			_hpFill.fillAmount = (float)hp / __unit.MaxHp;
+
+			FillTo(isRising ? _hpBackFill : _hpFill, fillAmount, 0f, __viewConfig.HpFastDuration);
+			FillTo(isRising ? _hpFill : _hpBackFill, fillAmount, __viewConfig.HpSlowDelay, __viewConfig.HpSlowDuration);
 		}
 
 		private void RefreshHighlight()
@@ -124,6 +164,7 @@ namespace DDTest.Battle
 			Color color = isSelected ? __viewConfig.SelectionColor : __viewConfig.CurrentTurnColor;
 
 			_highlightFrame.color = new Color(color.r, color.g, color.b, _highlightFrame.color.a);
+			
 			FadeTo(_highlightFrame, color.a);
 		}
 
@@ -133,6 +174,26 @@ namespace DDTest.Battle
 			image.DOFade(alpha, __viewConfig.HighlightFadeDuration)
 				.SetLink(gameObject);
 		}
+
+		private void FillTo(Image fill, float fillAmount, float delay, float duration)
+		{
+			fill.DOKill();
+			fill.DOFillAmount(fillAmount, duration)
+				.SetDelay(delay)
+				.SetLink(gameObject);
+		}
+
+		private Tween MoveBody(float offset, float duration)
+			=> _body.rectTransform.DOAnchorPosX(_bodyPosition.x + offset, duration);
+
+		private Tween SwayBody(float offset, float duration)
+			=> MoveBody(offset, duration / 2f).SetLoops(2, LoopType.Yoyo);
+
+		private UniTask FlashAsync(Color color, float duration, CancellationToken cancellationToken)
+			=> PlayAsync(_body.DOColor(color, duration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
+
+		private UniTask PlayAsync(Tween tween, CancellationToken cancellationToken)
+			=> tween.SetLink(gameObject).ToUniTask(TweenCancelBehaviour.KillAndCancelAwait, cancellationToken);
 
 		private static void SetAlpha(Image image, float alpha)
 		{

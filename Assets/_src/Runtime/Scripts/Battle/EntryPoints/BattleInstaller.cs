@@ -21,6 +21,9 @@ namespace DDTest.Battle
 		private BattlefieldView _battlefieldView;
 
 		[SerializeField, Required]
+		private ProjectileView _projectileView;
+
+		[SerializeField, Required]
 		private UnitView _unitViewPrefab;
 
 
@@ -61,6 +64,9 @@ namespace DDTest.Battle
 
 			Container.Bind<BattlefieldView>()
 				.FromInstance(_battlefieldView);
+
+			Container.Bind<ProjectileView>()
+				.FromInstance(_projectileView);
 
 			Container.BindFactory<BattleUnit, UnitView, UnitView.Factory>()
 				.FromComponentInNewPrefab(_unitViewPrefab);
