@@ -42,6 +42,9 @@ namespace DDTest.Battle
 			Container.BindInterfacesAndSelfTo<PlayerController>()
 				.AsSingle();
 
+			Container.BindInterfacesTo<SelectionCancelInput>()
+				.AsSingle();
+
 			Container.Bind<AiController>()
 				.AsSingle();
 

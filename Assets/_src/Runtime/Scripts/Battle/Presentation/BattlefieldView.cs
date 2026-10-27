@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -13,6 +14,9 @@ namespace DDTest.Battle
 		[Inject]
 		private readonly UnitView.Factory __unitViewFactory;
 
+		[Inject]
+		private readonly PlayerController __player;
+
 
 		[SerializeField]
 		private RectTransform[] _leftSlots = new RectTransform[TeamConfig.SlotCount];
@@ -23,6 +27,7 @@ namespace DDTest.Battle
 
 		private readonly Dictionary<BattleUnit, UnitView> _views = new();
 		private UnitView _currentTurnView;
+		private UnitView _hoveredTargetView;
 
 
 		public void Build()
@@ -32,6 +37,12 @@ namespace DDTest.Battle
 
 			__battle.Queue.CurrentIndex
 				.Subscribe(_ => HighlightCurrentTurn(__battle.Queue.Current))
+				.AddTo(this);
+
+			__player.TargetableUnits.Subscribe(HighlightTargetable)
+				.AddTo(this);
+
+			__player.HoveredTarget.Subscribe(HighlightHoveredTarget)
 				.AddTo(this);
 		}
 
@@ -57,6 +68,23 @@ namespace DDTest.Battle
 
 			if (_currentTurnView != null)
 				_currentTurnView.SetCurrentTurn(true);
+		}
+
+		private void HighlightTargetable(IReadOnlyList<BattleUnit> targetableUnits)
+		{
+			foreach (KeyValuePair<BattleUnit, UnitView> pair in _views)
+				pair.Value.SetTargetable(targetableUnits.Contains(pair.Key));
+		}
+
+		private void HighlightHoveredTarget(BattleUnit unit)
+		{
+			if (_hoveredTargetView != null)
+				_hoveredTargetView.SetHoveredTarget(false);
+
+			_hoveredTargetView = unit != null ? _views[unit] : null;
+
+			if (_hoveredTargetView != null)
+				_hoveredTargetView.SetHoveredTarget(true);
 		}
 	}
 }

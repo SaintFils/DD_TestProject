@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using R3;
@@ -7,28 +9,140 @@ namespace DDTest.Battle
 {
 	public sealed class PlayerController : ISideController, IDisposable
 	{
+		private readonly BattleRules _rules;
 		private readonly ReactiveProperty<BattleUnit> _awaitingActor = new();
+		private readonly ReactiveProperty<AbilityConfig> _selectedAbility = new();
+		private readonly ReactiveProperty<IReadOnlyList<BattleUnit>> _targetableUnits = new(Array.Empty<BattleUnit>());
+		private readonly ReactiveProperty<BattleUnit> _hoveredTarget = new();
+		private AbilityConfig _previewedAbility;
 		private UniTaskCompletionSource<BattleCommand> _commandSource;
 
 
 		public ReadOnlyReactiveProperty<BattleUnit> AwaitingActor
 			=> _awaitingActor;
 
+		public ReadOnlyReactiveProperty<AbilityConfig> SelectedAbility
+			=> _selectedAbility;
 
-		public async UniTask<BattleCommand> ChooseCommandAsync(BattleUnit actor, CancellationToken cancellationToken)
+		public ReadOnlyReactiveProperty<IReadOnlyList<BattleUnit>> TargetableUnits
+			=> _targetableUnits;
+
+		public ReadOnlyReactiveProperty<BattleUnit> HoveredTarget
+			=> _hoveredTarget;
+
+
+		public PlayerController(BattleRules rules)
+		{
+			_rules = rules;
+		}
+
+
+		public UniTask<BattleCommand> ChooseCommandAsync(BattleUnit actor, CancellationToken cancellationToken)
 		{
 			_commandSource = new UniTaskCompletionSource<BattleCommand>();
 			_awaitingActor.Value = actor;
 
-			BattleCommand command = await _commandSource.Task.AttachExternalCancellation(cancellationToken);
+			return _commandSource.Task.AttachExternalCancellation(cancellationToken);
+		}
 
-			_awaitingActor.Value = null;
-			_commandSource = null;
+		public void PreviewAbility(AbilityConfig ability)
+		{
+			_previewedAbility = ability;
+			RefreshTargetableUnits();
+		}
 
-			return command;
+		public void ClearPreview(AbilityConfig ability)
+		{
+			if (_previewedAbility != ability)
+				return;
+
+			_previewedAbility = null;
+			RefreshTargetableUnits();
+		}
+
+		public void SelectAbility(AbilityConfig ability)
+		{
+			BattleUnit actor = _awaitingActor.Value;
+
+			if (actor == null || !_rules.CanUse(actor, ability))
+				return;
+
+			if (ability.TargetSide == AbilityTargetSide.None)
+			{
+				Submit(new BattleCommand(actor, ability, null));
+
+				return;
+			}
+
+			_selectedAbility.Value = _selectedAbility.Value == ability ? null : ability;
+			_hoveredTarget.Value = null;
+			RefreshTargetableUnits();
+		}
+
+		public void HoverTarget(BattleUnit unit)
+		{
+			if (IsSelectableTarget(unit))
+				_hoveredTarget.Value = unit;
+		}
+
+		public void UnhoverTarget(BattleUnit unit)
+		{
+			if (_hoveredTarget.Value == unit)
+				_hoveredTarget.Value = null;
+		}
+
+		public void SelectTarget(BattleUnit unit)
+		{
+			if (IsSelectableTarget(unit))
+				Submit(new BattleCommand(_awaitingActor.Value, _selectedAbility.Value, unit));
+		}
+
+		public void CancelSelection()
+		{
+			_selectedAbility.Value = null;
+			_hoveredTarget.Value = null;
+			RefreshTargetableUnits();
 		}
 
 		public void Dispose()
-			=> _awaitingActor.Dispose();
+		{
+			_awaitingActor.Dispose();
+			_selectedAbility.Dispose();
+			_targetableUnits.Dispose();
+			_hoveredTarget.Dispose();
+		}
+
+		private bool IsSelectableTarget(BattleUnit unit)
+		{
+			BattleUnit actor = _awaitingActor.Value;
+			AbilityConfig ability = _selectedAbility.Value;
+
+			return actor != null && ability != null && _rules.GetTargets(actor, ability).Contains(unit);
+		}
+
+		private void RefreshTargetableUnits()
+		{
+			BattleUnit actor = _awaitingActor.Value;
+			AbilityConfig ability = _previewedAbility != null ? _previewedAbility : _selectedAbility.Value;
+
+			if (actor == null || ability == null || !_rules.CanUse(actor, ability))
+				_targetableUnits.Value = Array.Empty<BattleUnit>();
+			else
+				_targetableUnits.Value = _rules.GetTargets(actor, ability);
+		}
+
+		private void Submit(BattleCommand command)
+		{
+			UniTaskCompletionSource<BattleCommand> commandSource = _commandSource;
+
+			_previewedAbility = null;
+			_selectedAbility.Value = null;
+			_hoveredTarget.Value = null;
+			_awaitingActor.Value = null;
+			_commandSource = null;
+			RefreshTargetableUnits();
+
+			commandSource.TrySetResult(command);
+		}
 	}
 }

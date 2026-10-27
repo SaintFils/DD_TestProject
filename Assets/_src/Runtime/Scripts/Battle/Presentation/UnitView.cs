@@ -3,18 +3,22 @@ using NaughtyAttributes;
 using R3;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
 namespace DDTest.Battle
 {
-	public class UnitView : MonoBehaviour
+	public class UnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 	{
 		[Inject]
 		private readonly BattleUnit __unit;
 
 		[Inject]
 		private readonly BattleViewConfig __viewConfig;
+
+		[Inject]
+		private readonly PlayerController __player;
 
 
 		[SerializeField, Required]
@@ -47,6 +51,7 @@ namespace DDTest.Battle
 
 		private float _targetFrameAlpha;
 		private bool _isCurrentTurn;
+		private bool _isHoveredTarget;
 		private bool _isActionTarget;
 
 
@@ -74,6 +79,12 @@ namespace DDTest.Battle
 			RefreshHighlight();
 		}
 
+		public void SetHoveredTarget(bool isHoveredTarget)
+		{
+			_isHoveredTarget = isHoveredTarget;
+			RefreshHighlight();
+		}
+
 		public void SetActionTarget(bool isActionTarget)
 		{
 			_isActionTarget = isActionTarget;
@@ -87,6 +98,18 @@ namespace DDTest.Battle
 		public void SetDead()
 			=> _canvasGroup.alpha = _deadAlpha;
 
+		public void OnPointerEnter(PointerEventData eventData)
+			=> __player.HoverTarget(__unit);
+
+		public void OnPointerExit(PointerEventData eventData)
+			=> __player.UnhoverTarget(__unit);
+
+		public void OnPointerClick(PointerEventData eventData)
+		{
+			if (eventData.button == PointerEventData.InputButton.Left)
+				__player.SelectTarget(__unit);
+		}
+
 		private void UpdateHp(int hp)
 		{
 			_hpText.text = $"{hp}/{__unit.MaxHp}";
@@ -95,8 +118,9 @@ namespace DDTest.Battle
 
 		private void RefreshHighlight()
 		{
-			Color color = _isActionTarget ? __viewConfig.SelectionColor : __viewConfig.CurrentTurnColor;
-			bool isVisible = _isCurrentTurn || _isActionTarget;
+			bool isSelected = _isHoveredTarget || _isActionTarget;
+			bool isVisible = _isCurrentTurn || isSelected;
+			Color color = isSelected ? __viewConfig.SelectionColor : __viewConfig.CurrentTurnColor;
 
 			_highlightFrame.color = new Color(color.r, color.g, color.b, _highlightFrame.color.a);
 			FadeTo(_highlightFrame, isVisible ? color.a : 0f);
