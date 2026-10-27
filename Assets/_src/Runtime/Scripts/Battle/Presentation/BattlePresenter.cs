@@ -1,6 +1,5 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace DDTest.Battle
 {
@@ -10,20 +9,25 @@ namespace DDTest.Battle
 		private readonly ProjectileView _projectile;
 		private readonly InitiativeQueueView _initiativeQueue;
 		private readonly RoundBannerView _roundBanner;
+		private readonly BattleLogView _log;
+		private readonly BattleResultView _result;
 
 
-		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner)
+		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner, 
+			BattleLogView log, BattleResultView result)
 		{
 			_battlefield = battlefield;
 			_projectile = projectile;
 			_initiativeQueue = initiativeQueue;
 			_roundBanner = roundBanner;
+			_log = log;
+			_result = result;
 		}
 
 
 		public UniTask PlayRoundStartAsync(int round, CancellationToken cancellationToken)
 		{
-			Debug.Log($"Round {round}");
+			_log.AddRound(round);
 
 			return _roundBanner.PlayAsync(round, cancellationToken);
 		}
@@ -43,7 +47,7 @@ namespace DDTest.Battle
 
 		public async UniTask PlayActionEndAsync(ActionResult result, CancellationToken cancellationToken)
 		{
-			Debug.Log(Describe(result));
+			_log.AddAction(result);
 
 			if (result.Target == null)
 				return;
@@ -59,11 +63,18 @@ namespace DDTest.Battle
 
 			if (!result.Target.IsAlive)
 			{
-				Debug.Log($"{result.Target} dies");
+				_log.AddDeath(result.Target);
 				await UniTask.WhenAll(
 					targetView.PlayDeathAsync(cancellationToken),
 					_initiativeQueue.PlayDeathAsync(result.Target, cancellationToken));
 			}
+		}
+
+		public UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken)
+		{
+			_log.AddWinner(winner);
+
+			return _result.ShowAsync(winner, cancellationToken);
 		}
 
 		private UniTask PlayWindupAsync(ActionResult result, UnitView actorView, UnitView targetView, CancellationToken cancellationToken)
@@ -118,14 +129,5 @@ namespace DDTest.Battle
 
 		private static bool IsRanged(AbilityConfig ability)
 			=> ability.Effect == AbilityEffect.Damage && !ability.RequiresFrontline;
-
-		private string Describe(ActionResult result)
-			=> result.Outcome switch
-			{
-				ActionOutcome.Hit => $"{result.Actor} hits {result.Target} with {result.Ability.DisplayName} for {result.Amount} ({result.HitChance:P0})",
-				ActionOutcome.Missed => $"{result.Actor} misses {result.Target} with {result.Ability.DisplayName} ({result.HitChance:P0})",
-				ActionOutcome.Healed => $"{result.Actor} heals {result.Target} with {result.Ability.DisplayName} for {result.Amount}",
-				_ => $"{result.Actor} uses {result.Ability.DisplayName}"
-			};
 	}
 }

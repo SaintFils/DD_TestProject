@@ -11,14 +11,16 @@ namespace DDTest.Battle
 	{
 		private readonly IRandom _random;
 		private readonly BattlefieldView _battlefield;
+		private readonly BattleLogView _log;
 		private readonly BattleLoop _loop;
 		private readonly CancellationTokenSource _lifetime = new();
 
 
-		public BattleEntryPoint(IRandom random, BattlefieldView battlefield, BattleLoop loop)
+		public BattleEntryPoint(IRandom random, BattlefieldView battlefield, BattleLogView log, BattleLoop loop)
 		{
 			_random = random;
 			_battlefield = battlefield;
+			_log = log;
 			_loop = loop;
 		}
 
@@ -28,7 +30,8 @@ namespace DDTest.Battle
 			Debug.Log($"Battle, seed test: {_random.Seed}");
 
 			_battlefield.Build();
-			
+			_log.AddBattleStart(_random.Seed);
+
 			RunAsync(_lifetime.Token).Forget();
 		}
 

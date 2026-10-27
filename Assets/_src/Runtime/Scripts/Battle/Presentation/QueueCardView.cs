@@ -62,7 +62,7 @@ namespace DDTest.Battle
 			Unit = unit;
 			_portrait.sprite = unit.Config.Sprite;
 			_portrait.color = _portraitColor;
-			_sideMark.color = unit.Side == BattleSideId.Left ? __viewConfig.LeftSideColor : __viewConfig.RightSideColor;
+			_sideMark.color = __viewConfig.GetSideColor(unit.Side);
 			_currentFrame.color = WithAlpha(__viewConfig.CurrentTurnColor, 0f);
 			_content.anchoredPosition = _contentPosition;
 			_content.localScale = Vector3.one;

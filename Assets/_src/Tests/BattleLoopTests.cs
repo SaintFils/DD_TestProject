@@ -36,6 +36,17 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void RunAsync_PlaysBattleEndOnce_WithWinner()
+		{
+			TestBattle battle = CreateHeroAgainstTwoBandits();
+			RecordingBattlePresenter presenter = new();
+
+			CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
+
+			Assert.That(presenter.Winners, Is.EqualTo(new[] { BattleSideId.Left }));
+		}
+
+		[Test]
 		public void RunAsync_SkipsUnitThatDiedBeforeItsTurn()
 		{
 			TestBattle battle = CreateHeroAgainstTwoBandits();

@@ -10,5 +10,7 @@ namespace DDTest.Battle
 		UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken);
 
 		UniTask PlayActionEndAsync(ActionResult result, CancellationToken cancellationToken);
+
+		UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken);
 	}
 }

@@ -33,8 +33,13 @@ namespace DDTest.Battle
 				{
 					await TakeTurnAsync(actor, cancellationToken);
 
-					if (_battle.Winner != null)
-						return _battle.Winner.Value;
+					if (_battle.Winner == null)
+						continue;
+
+					BattleSideId winner = _battle.Winner.Value;
+					await _presenter.PlayBattleEndAsync(winner, cancellationToken);
+
+					return winner;
 				}
 			}
 		}

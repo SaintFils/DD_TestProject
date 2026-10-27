@@ -121,9 +121,24 @@ namespace DDTest.Battle
 
 		[SerializeField, Min(0f), GenPublicGetter]
 		private float _roundBannerHoldDuration = 0.6f;
-		
-		
+
+		[Header("Battle Log")]
+		[SerializeField, GenPublicGetter]
+		private Color _logMutedColor = new(0.6f, 0.6f, 0.6f, 1f);
+
+		[SerializeField, Min(1), GenPublicGetter]
+		private int _logMaxLines = 200;
+
+		[Header("Result")]
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _resultFadeDuration = 0.4f;
+
+
 		public float ProjectileSpeed
 			=> _projectileSpeed * 100f;
+
+
+		public Color GetSideColor(BattleSideId side)
+			=> side == BattleSideId.Left ? _leftSideColor : _rightSideColor;
 	}
 }

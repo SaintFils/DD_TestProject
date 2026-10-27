@@ -30,6 +30,12 @@ namespace DDTest.Battle
 		private RoundBannerView _roundBannerView;
 
 		[SerializeField, Required]
+		private BattleLogView _battleLogView;
+
+		[SerializeField, Required]
+		private BattleResultView _battleResultView;
+
+		[SerializeField, Required]
 		private UnitView _unitViewPrefab;
 
 
@@ -79,6 +85,12 @@ namespace DDTest.Battle
 
 			Container.Bind<RoundBannerView>()
 				.FromInstance(_roundBannerView);
+
+			Container.Bind<BattleLogView>()
+				.FromInstance(_battleLogView);
+
+			Container.Bind<BattleResultView>()
+				.FromInstance(_battleResultView);
 
 			Container.BindFactory<BattleUnit, UnitView, UnitView.Factory>()
 				.FromComponentInNewPrefab(_unitViewPrefab);
