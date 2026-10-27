@@ -32,6 +32,9 @@ namespace DDTest.Battle
 				if (unitConfig != null)
 					_units.Add(new BattleUnit(unitConfig, id, slotIndex));
 			}
+
+			if (_units.Count == 0)
+				throw new ArgumentException($"Team {team.name} for the {id} side has no units", nameof(team));
 		}
 
 

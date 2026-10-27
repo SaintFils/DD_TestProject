@@ -44,9 +44,30 @@ namespace DDTest.Battle
 				.Where(unit => unit.IsAlive)
 				.OrderByDescending(unit => unit.Speed)
 				.ToList();
+			
 			_round.Value++;
 		}
-		
+
+		public bool TryMoveNext(out BattleUnit unit)
+		{
+			IReadOnlyList<BattleUnit> order = _order.Value;
+
+			for (int index = _currentIndex.Value + 1; index < order.Count; index++)
+			{
+				if (!order[index].IsAlive)
+					continue;
+
+				_currentIndex.Value = index;
+				unit = order[index];
+				
+				return true;
+			}
+
+			_currentIndex.Value = order.Count;
+			unit = null;
+			
+			return false;
+		}
 
 		public void Dispose()
 		{

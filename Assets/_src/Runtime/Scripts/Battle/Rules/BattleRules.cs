@@ -12,6 +12,10 @@ namespace DDTest.Battle
 		private readonly IRandom _random;
 
 
+		public AbilityConfig SkipAbility
+			=> _config.SkipAbility;
+
+
 		public BattleRules(BattleState battle, BattleConfig config, IRandom random)
 		{
 			_battle = battle;

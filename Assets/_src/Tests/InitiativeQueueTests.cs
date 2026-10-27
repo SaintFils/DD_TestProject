@@ -83,5 +83,41 @@ namespace DDTest.Tests
 
 			Assert.That(battle.State.Queue.Order.CurrentValue, Is.EqualTo(firstRound.Reverse()));
 		}
+
+		[Test]
+		public void TryMoveNext_SkipsUnitThatDiedThisRound()
+		{
+			BattleConfig config = _configs.Battle(
+				_configs.Team(_configs.Unit(speed: 7)),
+				_configs.Team(_configs.Unit(speed: 5), _configs.Unit(speed: 3)));
+			using TestBattle battle = new(config);
+			InitiativeQueue queue = battle.State.Queue;
+			queue.StartRound();
+
+			queue.TryMoveNext(out BattleUnit first);
+			battle.Kill(battle.Right(0));
+			queue.TryMoveNext(out BattleUnit second);
+
+			Assert.That(first, Is.SameAs(battle.Left(0)));
+			Assert.That(second, Is.SameAs(battle.Right(1)));
+		}
+
+		[Test]
+		public void TryMoveNext_ReturnsFalse_WhenRoundIsOver()
+		{
+			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()));
+			using TestBattle battle = new(config);
+			InitiativeQueue queue = battle.State.Queue;
+			queue.StartRound();
+
+			bool movedToFirst = queue.TryMoveNext(out _);
+			bool movedToSecond = queue.TryMoveNext(out _);
+			bool movedPastEnd = queue.TryMoveNext(out BattleUnit unit);
+
+			Assert.That(movedToFirst && movedToSecond, Is.True);
+			Assert.That(movedPastEnd, Is.False);
+			Assert.That(unit, Is.Null);
+			Assert.That(queue.CurrentIndex.CurrentValue, Is.EqualTo(queue.Order.CurrentValue.Count));
+		}
 	}
 }

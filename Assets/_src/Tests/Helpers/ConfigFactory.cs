@@ -68,6 +68,9 @@ namespace DDTest.Tests
 			});
 		}
 
+		public AiConfig Ai(float healThreshold = 0.5f)
+			=> Create<AiConfig>(serialized => serialized.FindProperty("_healThreshold").floatValue = healThreshold);
+
 		public void Dispose()
 		{
 			foreach (Object created in _created)

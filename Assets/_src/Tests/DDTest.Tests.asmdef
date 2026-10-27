@@ -4,7 +4,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "DDTest.Runtime"
+        "DDTest.Runtime",
+        "UniTask"
     ],
     "includePlatforms": [
         "Editor"

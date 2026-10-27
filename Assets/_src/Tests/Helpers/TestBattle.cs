@@ -33,6 +33,9 @@ namespace DDTest.Tests
 		public void Kill(BattleUnit unit)
 			=> unit.TakeDamage(unit.MaxHp);
 
+		public BattleLoop CreateLoop(ISideController left, ISideController right, IBattlePresenter presenter)
+			=> new(State, Rules, new SideControllers(left, right), presenter);
+
 		public void Dispose()
 			=> State.Dispose();
 	}
