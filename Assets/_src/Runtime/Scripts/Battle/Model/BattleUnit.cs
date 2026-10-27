@@ -4,7 +4,7 @@ using R3;
 
 namespace DDTest.Battle
 {
-	public sealed class BattleUnit : IDisposable
+	public sealed class BattleUnit
 	{
 		private readonly ReactiveProperty<int> _hp;
 
@@ -51,9 +51,6 @@ namespace DDTest.Battle
 
 		public void Heal(int amount)
 			=> _hp.Value = Math.Min(MaxHp, _hp.Value + amount);
-
-		public void Dispose()
-			=> _hp.Dispose();
 
 		public override string ToString()
 			=> $"{Config.DisplayName} ({Side} {SlotIndex})";

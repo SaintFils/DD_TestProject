@@ -33,13 +33,13 @@ namespace DDTest.Battle
 			Container.Bind<IRandom>()
 				.FromInstance(new SystemRandom(ResolveSeed()));
 
-			Container.BindInterfacesAndSelfTo<BattleState>()
+			Container.Bind<BattleState>()
 				.AsSingle();
 
 			Container.Bind<BattleRules>()
 				.AsSingle();
 
-			Container.BindInterfacesAndSelfTo<PlayerController>()
+			Container.Bind<PlayerController>()
 				.AsSingle();
 
 			Container.BindInterfacesTo<SelectionCancelInput>()

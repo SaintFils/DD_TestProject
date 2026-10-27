@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DDTest.Battle
 {
-	public sealed class BattleSide : IDisposable
+	public sealed class BattleSide
 	{
 		private readonly List<BattleUnit> _units = new();
 
@@ -35,13 +35,6 @@ namespace DDTest.Battle
 
 			if (_units.Count == 0)
 				throw new ArgumentException($"Team {team.name} for the {id} side has no units", nameof(team));
-		}
-
-
-		public void Dispose()
-		{
-			foreach (BattleUnit unit in _units)
-				unit.Dispose();
 		}
 	}
 }

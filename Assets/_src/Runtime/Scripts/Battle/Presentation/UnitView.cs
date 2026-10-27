@@ -42,12 +42,6 @@ namespace DDTest.Battle
 		[SerializeField, Required]
 		private CanvasGroup _canvasGroup;
 
-		[SerializeField, Range(1f, 1.5f)]
-		private float _actionTargetScale = 1.1f;
-
-		[SerializeField, Range(0f, 1f)]
-		private float _deadAlpha = 0.3f;
-
 
 		private float _targetFrameAlpha;
 		private bool _isCurrentTurn;
@@ -88,7 +82,7 @@ namespace DDTest.Battle
 		public void SetActionTarget(bool isActionTarget)
 		{
 			_isActionTarget = isActionTarget;
-			transform.localScale = isActionTarget ? Vector3.one * _actionTargetScale : Vector3.one;
+			transform.localScale = isActionTarget ? Vector3.one * __viewConfig.ActionTargetScale : Vector3.one;
 			RefreshHighlight();
 		}
 
@@ -96,7 +90,7 @@ namespace DDTest.Battle
 			=> FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
 
 		public void SetDead()
-			=> _canvasGroup.alpha = _deadAlpha;
+			=> _canvasGroup.alpha = __viewConfig.DeadAlpha;
 
 		public void OnPointerEnter(PointerEventData eventData)
 			=> __player.HoverTarget(__unit);
@@ -119,11 +113,18 @@ namespace DDTest.Battle
 		private void RefreshHighlight()
 		{
 			bool isSelected = _isHoveredTarget || _isActionTarget;
-			bool isVisible = _isCurrentTurn || isSelected;
+
+			if (!_isCurrentTurn && !isSelected)
+			{
+				FadeTo(_highlightFrame, 0f);
+
+				return;
+			}
+
 			Color color = isSelected ? __viewConfig.SelectionColor : __viewConfig.CurrentTurnColor;
 
 			_highlightFrame.color = new Color(color.r, color.g, color.b, _highlightFrame.color.a);
-			FadeTo(_highlightFrame, isVisible ? color.a : 0f);
+			FadeTo(_highlightFrame, color.a);
 		}
 
 		private void FadeTo(Image image, float alpha)

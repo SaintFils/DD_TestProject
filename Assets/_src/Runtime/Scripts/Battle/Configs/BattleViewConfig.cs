@@ -14,5 +14,11 @@ namespace DDTest.Battle
 
 		[SerializeField, Min(0f), GenPublicGetter]
 		private float _highlightFadeDuration = 0.15f;
+
+		[SerializeField, Range(1f, 1.5f), GenPublicGetter]
+		private float _actionTargetScale = 1.1f;
+
+		[SerializeField, Range(0f, 1f), GenPublicGetter]
+		private float _deadAlpha = 0.3f;
 	}
 }

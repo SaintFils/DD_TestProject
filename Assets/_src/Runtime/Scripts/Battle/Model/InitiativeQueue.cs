@@ -6,7 +6,7 @@ using R3;
 
 namespace DDTest.Battle
 {
-	public sealed class InitiativeQueue : IDisposable
+	public sealed class InitiativeQueue
 	{
 		private readonly List<BattleUnit> _tieBreakOrder;
 		private readonly IRandom _random;
@@ -78,13 +78,6 @@ namespace DDTest.Battle
 			unit = null;
 			
 			return false;
-		}
-
-		public void Dispose()
-		{
-			_round.Dispose();
-			_order.Dispose();
-			_currentIndex.Dispose();
 		}
 
 		private void Shuffle(List<BattleUnit> units)

@@ -1,10 +1,9 @@
-using System;
 using System.Linq;
 using DDTest.Infrastructure;
 
 namespace DDTest.Battle
 {
-	public sealed class BattleState : IDisposable
+	public sealed class BattleState
 	{
 		public BattleSide LeftSide { get; }
 
@@ -53,13 +52,6 @@ namespace DDTest.Battle
 					result.Target.Heal(result.Amount);
 					break;
 			}
-		}
-
-		public void Dispose()
-		{
-			Queue.Dispose();
-			LeftSide.Dispose();
-			RightSide.Dispose();
 		}
 	}
 }

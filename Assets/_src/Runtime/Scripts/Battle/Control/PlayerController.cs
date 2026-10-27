@@ -7,7 +7,7 @@ using R3;
 
 namespace DDTest.Battle
 {
-	public sealed class PlayerController : ISideController, IDisposable
+	public sealed class PlayerController : ISideController
 	{
 		private readonly BattleRules _rules;
 		private readonly ReactiveProperty<BattleUnit> _awaitingActor = new();
@@ -102,14 +102,6 @@ namespace DDTest.Battle
 			_selectedAbility.Value = null;
 			_hoveredTarget.Value = null;
 			RefreshTargetableUnits();
-		}
-
-		public void Dispose()
-		{
-			_awaitingActor.Dispose();
-			_selectedAbility.Dispose();
-			_targetableUnits.Dispose();
-			_hoveredTarget.Dispose();
 		}
 
 		private bool IsSelectableTarget(BattleUnit unit)
