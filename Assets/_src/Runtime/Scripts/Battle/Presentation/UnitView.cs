@@ -27,10 +27,13 @@ namespace DDTest.Battle
 		private Image _body;
 
 		[SerializeField, Required]
-		private Image _highlightFrame;
+		private Image _activityFrame;
 
 		[SerializeField, Required]
 		private Image _targetFrame;
+
+		[SerializeField, Required]
+		private Image _influenceFrame;
 
 		[SerializeField, Required]
 		private TMP_Text _nameText;
@@ -49,10 +52,8 @@ namespace DDTest.Battle
 
 
 		private float _targetFrameAlpha;
+		private float _influenceFrameAlpha;
 		private Vector2 _bodyPosition;
-		private bool _isCurrentTurn;
-		private bool _isHoveredTarget;
-		private bool _isActionTarget;
 
 
 		public BattleUnit Unit
@@ -70,37 +71,32 @@ namespace DDTest.Battle
 			_body.sprite = __unit.Config.Sprite;
 			_nameText.text = __unit.Config.DisplayName;
 			_targetFrameAlpha = _targetFrame.color.a;
+			_influenceFrameAlpha = _influenceFrame.color.a;
 			_bodyPosition = _body.rectTransform.anchoredPosition;
 
 			SetAlpha(_targetFrame, 0f);
-			SetAlpha(_highlightFrame, 0f);
+			SetAlpha(_influenceFrame, 0f);
+			_activityFrame.color = Transparent(__viewConfig.ActivityColor);
 
 			__unit.Hp.Subscribe(UpdateHp)
 				.AddTo(this);
 		}
 
 
-		public void SetCurrentTurn(bool isCurrentTurn)
-		{
-			_isCurrentTurn = isCurrentTurn;
-			RefreshHighlight();
-		}
-
-		public void SetHoveredTarget(bool isHoveredTarget)
-		{
-			_isHoveredTarget = isHoveredTarget;
-			RefreshHighlight();
-		}
-
-		public void SetActionTarget(bool isActionTarget)
-		{
-			_isActionTarget = isActionTarget;
-			transform.localScale = isActionTarget ? Vector3.one * __viewConfig.ActionTargetScale : Vector3.one;
-			RefreshHighlight();
-		}
+		public void SetActivity(bool isActive)
+			=> FadeTo(_activityFrame, isActive ? __viewConfig.ActivityColor.a : 0f);
 
 		public void SetTargetable(bool isTargetable)
 			=> FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
+
+		public void SetInfluenced(bool isInfluenced)
+			=> FadeTo(_influenceFrame, isInfluenced ? _influenceFrameAlpha : 0f);
+
+		public UniTask PlayFocusAsync(CancellationToken cancellationToken)
+			=> PlayAsync(ScaleBody(__viewConfig.ParticipantScale), cancellationToken);
+
+		public UniTask PlayUnfocusAsync(CancellationToken cancellationToken)
+			=> PlayAsync(ScaleBody(1f), cancellationToken);
 
 		public UniTask PlayLungeAsync(CancellationToken cancellationToken)
 			=> PlayAsync(MoveBody(Facing * __viewConfig.LungeDistance, __viewConfig.LungeDuration), cancellationToken);
@@ -112,7 +108,7 @@ namespace DDTest.Battle
 			=> PlayAsync(SwayBody(-Facing * __viewConfig.RecoilDistance, __viewConfig.RecoilDuration), cancellationToken);
 
 		public UniTask PlayCastAsync(CancellationToken cancellationToken)
-			=> PlayAsync(_body.rectTransform.DOScale(__viewConfig.CastScale, __viewConfig.CastDuration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
+			=> PlayAsync(_body.rectTransform.DOScale(_body.rectTransform.localScale * __viewConfig.CastScale, __viewConfig.CastDuration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
 
 		public UniTask PlayHitAsync(CancellationToken cancellationToken)
 			=> UniTask.WhenAll(PlayAsync(_body.rectTransform.DOShakeAnchorPos(__viewConfig.HitDuration, __viewConfig.HitShakeStrength), cancellationToken),
@@ -125,7 +121,7 @@ namespace DDTest.Battle
 			=> FlashAsync(__viewConfig.HealColor, __viewConfig.HealDuration, cancellationToken);
 
 		public UniTask PlayDeathAsync(CancellationToken cancellationToken)
-			=> PlayAsync(_canvasGroup.DOFade(__viewConfig.DeadAlpha, __viewConfig.DeathDuration), cancellationToken);
+			=> UniTask.WhenAll(PlayAsync(_canvasGroup.DOFade(__viewConfig.DeadAlpha, __viewConfig.DeathDuration), cancellationToken), PlayUnfocusAsync(cancellationToken));
 
 		public void OnPointerEnter(PointerEventData eventData)
 			=> __player.HoverTarget(__unit);
@@ -150,24 +146,6 @@ namespace DDTest.Battle
 			FillTo(isRising ? _hpFill : _hpBackFill, fillAmount, __viewConfig.HpSlowDelay, __viewConfig.HpSlowDuration);
 		}
 
-		private void RefreshHighlight()
-		{
-			bool isSelected = _isHoveredTarget || _isActionTarget;
-
-			if (!_isCurrentTurn && !isSelected)
-			{
-				FadeTo(_highlightFrame, 0f);
-
-				return;
-			}
-
-			Color color = isSelected ? __viewConfig.SelectionColor : __viewConfig.CurrentTurnColor;
-
-			_highlightFrame.color = new Color(color.r, color.g, color.b, _highlightFrame.color.a);
-			
-			FadeTo(_highlightFrame, color.a);
-		}
-
 		private void FadeTo(Image image, float alpha)
 		{
 			image.DOKill();
@@ -189,6 +167,9 @@ namespace DDTest.Battle
 		private Tween SwayBody(float offset, float duration)
 			=> MoveBody(offset, duration / 2f).SetLoops(2, LoopType.Yoyo);
 
+		private Tween ScaleBody(float scale)
+			=> _body.rectTransform.DOScale(scale, __viewConfig.ParticipantScaleDuration);
+
 		private UniTask FlashAsync(Color color, float duration, CancellationToken cancellationToken)
 			=> PlayAsync(_body.DOColor(color, duration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
 
@@ -200,6 +181,13 @@ namespace DDTest.Battle
 			Color color = image.color;
 			color.a = alpha;
 			image.color = color;
+		}
+
+		private static Color Transparent(Color color)
+		{
+			color.a = 0f;
+
+			return color;
 		}
 
 

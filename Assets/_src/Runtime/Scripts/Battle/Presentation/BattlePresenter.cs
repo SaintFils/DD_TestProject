@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
@@ -32,17 +34,16 @@ namespace DDTest.Battle
 			return _roundBanner.PlayAsync(round, cancellationToken);
 		}
 
-		public UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken)
+		public async UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken)
 		{
 			if (result.Target == null)
-				return UniTask.CompletedTask;
+				return;
 
 			UnitView actorView = _battlefield.GetView(result.Actor);
 			UnitView targetView = _battlefield.GetView(result.Target);
 
-			targetView.SetActionTarget(true);
-
-			return PlayWindupAsync(result, actorView, targetView, cancellationToken);
+			await UniTask.WhenAll(GetParticipants(result).Select(view => view.PlayFocusAsync(cancellationToken)));
+			await PlayWindupAsync(result, actorView, targetView, cancellationToken);
 		}
 
 		public async UniTask PlayActionEndAsync(ActionResult result, CancellationToken cancellationToken)
@@ -59,15 +60,10 @@ namespace DDTest.Battle
 				PlayFollowThroughAsync(result, actorView, cancellationToken),
 				PlayReactionAsync(result, targetView, cancellationToken));
 
-			targetView.SetActionTarget(false);
-
 			if (!result.Target.IsAlive)
-			{
 				_log.AddDeath(result.Target);
-				await UniTask.WhenAll(
-					targetView.PlayDeathAsync(cancellationToken),
-					_initiativeQueue.PlayDeathAsync(result.Target, cancellationToken));
-			}
+
+			await UniTask.WhenAll(GetParticipants(result).Select(view => PlayAftermathAsync(view, cancellationToken)));
 		}
 
 		public UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken)
@@ -123,6 +119,21 @@ namespace DDTest.Battle
 				ActionOutcome.Healed => targetView.PlayHealAsync(cancellationToken),
 				_ => UniTask.CompletedTask
 			};
+
+		private UniTask PlayAftermathAsync(UnitView view, CancellationToken cancellationToken)
+		{
+			if (view.Unit.IsAlive)
+				return view.PlayUnfocusAsync(cancellationToken);
+
+			return UniTask.WhenAll(
+				view.PlayDeathAsync(cancellationToken),
+				_initiativeQueue.PlayDeathAsync(view.Unit, cancellationToken));
+		}
+
+		private IEnumerable<UnitView> GetParticipants(ActionResult result)
+			=> new[] { result.Actor, result.Target }
+				.Distinct()
+				.Select(_battlefield.GetView);
 
 		private static bool IsMelee(AbilityConfig ability)
 			=> ability.Effect == AbilityEffect.Damage && ability.RequiresFrontline;

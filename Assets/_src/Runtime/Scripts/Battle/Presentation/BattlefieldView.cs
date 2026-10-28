@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using R3;
@@ -26,8 +27,7 @@ namespace DDTest.Battle
 
 
 		private readonly Dictionary<BattleUnit, UnitView> _views = new();
-		private UnitView _currentTurnView;
-		private UnitView _hoveredTargetView;
+		private UnitView _activeUnitView;
 
 
 		public void Build()
@@ -35,17 +35,16 @@ namespace DDTest.Battle
 			Spawn(__battle.LeftSide, _leftSlots);
 			Spawn(__battle.RightSide, _rightSlots);
 
-			__battle.Queue.CurrentIndex
-				.Subscribe(_ => HighlightCurrentTurn(__battle.Queue.Current))
+			__battle.Queue.CurrentIndex.Subscribe(_ => RefreshActivity())
 				.AddTo(this);
 
-			__player.TargetableUnits.Subscribe(_ => HighlightTargetFrames())
+			__player.InspectedUnit.Subscribe(_ => RefreshActivity())
 				.AddTo(this);
 
-			__player.InspectedUnit.Subscribe(_ => HighlightTargetFrames())
+			__player.TargetableUnits.Subscribe(_ => RefreshTargetMarkers())
 				.AddTo(this);
 
-			__player.HoveredTarget.Subscribe(HighlightHoveredTarget)
+			__player.AffectedUnits.Subscribe(_ => RefreshTargetMarkers())
 				.AddTo(this);
 		}
 
@@ -62,35 +61,33 @@ namespace DDTest.Battle
 			}
 		}
 
-		private void HighlightCurrentTurn(BattleUnit unit)
+		private void RefreshActivity()
 		{
-			if (_currentTurnView != null)
-				_currentTurnView.SetCurrentTurn(false);
+			BattleUnit unit = __player.InspectedUnit.CurrentValue ?? __battle.Queue.Current;
+			UnitView view = unit != null ? _views[unit] : null;
 
-			_currentTurnView = unit != null ? _views[unit] : null;
+			if (view == _activeUnitView)
+				return;
 
-			if (_currentTurnView != null)
-				_currentTurnView.SetCurrentTurn(true);
+			if (_activeUnitView != null)
+				_activeUnitView.SetActivity(false);
+
+			_activeUnitView = view;
+
+			if (_activeUnitView != null)
+				_activeUnitView.SetActivity(true);
 		}
 
-		private void HighlightTargetFrames()
+		private void RefreshTargetMarkers()
 		{
-			IReadOnlyList<BattleUnit> targetableUnits = __player.TargetableUnits.CurrentValue;
-			BattleUnit inspectedUnit = __player.InspectedUnit.CurrentValue;
+			IReadOnlyList<BattleUnit> affectedUnits = __player.AffectedUnits.CurrentValue;
+			IReadOnlyList<BattleUnit> targetableUnits = affectedUnits.Count > 0 ? Array.Empty<BattleUnit>() : __player.TargetableUnits.CurrentValue;
 
 			foreach (KeyValuePair<BattleUnit, UnitView> pair in _views)
-				pair.Value.SetTargetable(pair.Key == inspectedUnit || targetableUnits.Contains(pair.Key));
-		}
-
-		private void HighlightHoveredTarget(BattleUnit unit)
-		{
-			if (_hoveredTargetView != null)
-				_hoveredTargetView.SetHoveredTarget(false);
-
-			_hoveredTargetView = unit != null ? _views[unit] : null;
-
-			if (_hoveredTargetView != null)
-				_hoveredTargetView.SetHoveredTarget(true);
+			{
+				pair.Value.SetTargetable(targetableUnits.Contains(pair.Key));
+				pair.Value.SetInfluenced(affectedUnits.Contains(pair.Key));
+			}
 		}
 	}
 }
