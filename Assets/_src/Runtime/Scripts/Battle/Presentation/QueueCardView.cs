@@ -63,7 +63,7 @@ namespace DDTest.Battle
 			_portrait.sprite = unit.Config.Sprite;
 			_portrait.color = _portraitColor;
 			_sideMark.color = __viewConfig.GetSideColor(unit.Side);
-			_currentFrame.color = WithAlpha(__viewConfig.CurrentTurnColor, 0f);
+			_currentFrame.color = WithAlpha(__viewConfig.ActivityColor, 0f);
 			_content.anchoredPosition = _contentPosition;
 			_content.localScale = Vector3.one;
 			_canvasGroup.alpha = 1f;
@@ -90,7 +90,7 @@ namespace DDTest.Battle
 			KillTweens();
 			_content.DOScale(isCurrent ? __viewConfig.CurrentCardScale : 1f, duration)
 				.SetLink(gameObject);
-			_currentFrame.DOFade(isCurrent ? __viewConfig.CurrentTurnColor.a : 0f, duration)
+			_currentFrame.DOFade(isCurrent ? __viewConfig.ActivityColor.a : 0f, duration)
 				.SetLink(gameObject);
 			_portrait.DOColor(isActed ? __viewConfig.ActedCardColor : _portraitColor, duration)
 				.SetLink(gameObject);

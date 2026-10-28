@@ -160,10 +160,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1607718131519187055}
   - component: {fileID: 2406089570441461027}
-  - component: {fileID: 4021744130046290175}
   - component: {fileID: 7539643462518333338}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Skip Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,21 +198,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214348056409743633}
   m_CullTransparentMesh: 1
---- !u!114 &4021744130046290175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214348056409743633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f5711211dae034fa7dde12ce769507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityButtonView
-  _button: {fileID: 7539643462518333338}
-  _label: {fileID: 2303035146528630149}
-  _selectedFrame: {fileID: 6340336596661262449}
 --- !u!114 &7539643462518333338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -425,7 +409,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.05
+  m_fontSize: 50
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1317,7 +1301,7 @@ MonoBehaviour:
   - {fileID: 6568268187190534588}
   - {fileID: 6544992653333221856}
   - {fileID: 8917162126343899802}
-  - {fileID: 4021744130046290175}
+  _skipButton: {fileID: 7539643462518333338}
 --- !u!114 &1426691156872975477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,7 +1590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3890684154660821301
 RectTransform:
   m_ObjectHideFlags: 0

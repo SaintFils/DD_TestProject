@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -67,19 +68,28 @@ namespace DDTest.Battle
 		}
 
 		private string Describe(ActionResult result)
-			=> result.Outcome switch
+		{
+			if (result.IsSkip)
+				return $"{Name(result.Actor)}: skips the turn";
+
+			IEnumerable<string> effects = result.Effects.Select(effect => Describe(effect, result.Ability));
+
+			return $"{Name(result.Actor)}: {string.Join(", ", effects)}";
+		}
+
+		private string Describe(ActionEffect effect, AbilityConfig ability)
+			=> effect.Outcome switch
 			{
-				ActionOutcome.Hit => $"{Name(result.Actor)}: {Colorize("hits", __viewConfig.HitColor)} {Name(result.Target)} with {result.Ability.DisplayName} for {result.Amount} {HitChance(result)}",
-				ActionOutcome.Missed => $"{Name(result.Actor)}: {Colorize("misses", __viewConfig.LogMutedColor)} {Name(result.Target)} with {result.Ability.DisplayName} {HitChance(result)}",
-				ActionOutcome.Healed => $"{Name(result.Actor)}: {Colorize("heals", __viewConfig.HealColor)} {Name(result.Target)} with {result.Ability.DisplayName} for {result.Amount}",
-				_ => $"{Name(result.Actor)}: uses {result.Ability.DisplayName}"
+				ActionOutcome.Hit => $"{Colorize("hits", __viewConfig.HitColor)} {Name(effect.Target)} with {ability.DisplayName} for {effect.Amount} {HitChance(effect)}",
+				ActionOutcome.Missed => $"{Colorize("misses", __viewConfig.LogMutedColor)} {Name(effect.Target)} with {ability.DisplayName} {HitChance(effect)}",
+				_ => $"{Colorize("heals", __viewConfig.HealColor)} {Name(effect.Target)} with {ability.DisplayName} for {effect.Amount}"
 			};
 
 		private string Name(BattleUnit unit)
 			=> Colorize($"{unit.Config.DisplayName} {unit.SlotIndex + 1}", __viewConfig.GetSideColor(unit.Side));
 
-		private static string HitChance(ActionResult result)
-			=> $"(Hit chance: {Mathf.RoundToInt(result.HitChance * 100f)}%)";
+		private static string HitChance(ActionEffect effect)
+			=> $"(Hit chance: {Mathf.RoundToInt(effect.HitChance * 100f)}%)";
 
 		private static string Colorize(string text, Color color)
 			=> $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{text}</color>";

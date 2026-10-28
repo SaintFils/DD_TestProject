@@ -1,23 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace DDTest.Battle
 {
 	public sealed class BattlePresenter : IBattlePresenter
 	{
 		private readonly BattlefieldView _battlefield;
-		private readonly ProjectileView _projectile;
+		private readonly ProjectilePoolView _projectiles;
 		private readonly InitiativeQueueView _initiativeQueue;
 		private readonly RoundBannerView _roundBanner;
 		private readonly BattleLogView _log;
 		private readonly BattleResultView _result;
 
 
-		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner, 
+		public BattlePresenter(BattlefieldView battlefield, ProjectilePoolView projectiles, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner,
 			BattleLogView log, BattleResultView result)
 		{
 			_battlefield = battlefield;
-			_projectile = projectile;
+			_projectiles = projectiles;
 			_initiativeQueue = initiativeQueue;
 			_roundBanner = roundBanner;
 			_log = log;
@@ -32,42 +35,30 @@ namespace DDTest.Battle
 			return _roundBanner.PlayAsync(round, cancellationToken);
 		}
 
-		public UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken)
+		public async UniTask PlayActionStartAsync(ActionResult result, CancellationToken cancellationToken)
 		{
-			if (result.Target == null)
-				return UniTask.CompletedTask;
+			if (result.IsSkip)
+				return;
 
-			UnitView actorView = _battlefield.GetView(result.Actor);
-			UnitView targetView = _battlefield.GetView(result.Target);
-
-			targetView.SetActionTarget(true);
-
-			return PlayWindupAsync(result, actorView, targetView, cancellationToken);
+			await UniTask.WhenAll(GetParticipants(result).Select(view => view.PlayFocusAsync(cancellationToken)));
+			await PlayWindupAsync(result, cancellationToken);
 		}
 
 		public async UniTask PlayActionEndAsync(ActionResult result, CancellationToken cancellationToken)
 		{
 			_log.AddAction(result);
 
-			if (result.Target == null)
+			if (result.IsSkip)
 				return;
 
-			UnitView actorView = _battlefield.GetView(result.Actor);
-			UnitView targetView = _battlefield.GetView(result.Target);
-
 			await UniTask.WhenAll(
-				PlayFollowThroughAsync(result, actorView, cancellationToken),
-				PlayReactionAsync(result, targetView, cancellationToken));
+				PlayFollowThroughAsync(result, cancellationToken),
+				UniTask.WhenAll(result.Effects.Select(effect => PlayReactionAsync(effect, cancellationToken))));
 
-			targetView.SetActionTarget(false);
+			foreach (ActionEffect effect in result.Effects.Where(effect => !effect.Target.IsAlive))
+				_log.AddDeath(effect.Target);
 
-			if (!result.Target.IsAlive)
-			{
-				_log.AddDeath(result.Target);
-				await UniTask.WhenAll(
-					targetView.PlayDeathAsync(cancellationToken),
-					_initiativeQueue.PlayDeathAsync(result.Target, cancellationToken));
-			}
+			await UniTask.WhenAll(GetParticipants(result).Select(view => PlayAftermathAsync(view, cancellationToken)));
 		}
 
 		public UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken)
@@ -77,13 +68,15 @@ namespace DDTest.Battle
 			return _result.ShowAsync(winner, cancellationToken);
 		}
 
-		private UniTask PlayWindupAsync(ActionResult result, UnitView actorView, UnitView targetView, CancellationToken cancellationToken)
+		private UniTask PlayWindupAsync(ActionResult result, CancellationToken cancellationToken)
 		{
+			UnitView actorView = _battlefield.GetView(result.Actor);
+
 			if (IsMelee(result.Ability))
 				return actorView.PlayLungeAsync(cancellationToken);
 
 			if (IsRanged(result.Ability))
-				return UniTask.WhenAll(ShootAsync(result, actorView, targetView, cancellationToken), actorView.PlayRecoilAsync(cancellationToken));
+				return UniTask.WhenAll(ShootAsync(actorView, result, cancellationToken), actorView.PlayRecoilAsync(cancellationToken));
 
 			if (result.Ability.Effect == AbilityEffect.Heal)
 				return actorView.PlayCastAsync(cancellationToken);
@@ -91,43 +84,60 @@ namespace DDTest.Battle
 			return UniTask.CompletedTask;
 		}
 
-		private UniTask ShootAsync(ActionResult result, UnitView actorView, UnitView targetView, CancellationToken cancellationToken)
+		private UniTask ShootAsync(UnitView actorView, ActionResult result, CancellationToken cancellationToken)
 		{
-			if (result.Outcome == ActionOutcome.Missed)
-				return _projectile.FlyPastAsync(actorView.BodyCenter, targetView.BodyCenter, cancellationToken);
+			List<(Vector3 Target, bool IsMiss)> shots = result.Effects
+				.Select(effect => (_battlefield.GetView(effect.Target).BodyCenter, effect.Outcome == ActionOutcome.Missed))
+				.ToList();
 
-			return _projectile.FlyToAsync(actorView.BodyCenter, targetView.BodyCenter, cancellationToken);
+			return _projectiles.FireAsync(actorView.BodyCenter, shots, cancellationToken);
 		}
 
-		private UniTask PlayFollowThroughAsync(ActionResult result, UnitView actorView, CancellationToken cancellationToken)
+		private UniTask PlayFollowThroughAsync(ActionResult result, CancellationToken cancellationToken)
 		{
 			if (IsMelee(result.Ability))
-				return actorView.PlayLungeReturnAsync(cancellationToken);
+				return _battlefield.GetView(result.Actor).PlayLungeReturnAsync(cancellationToken);
 
-			if (!IsRanged(result.Ability))
-				return UniTask.CompletedTask;
-
-			if (result.Outcome == ActionOutcome.Missed)
-				return _projectile.FlyAwayAsync(cancellationToken);
-
-			_projectile.Hide();
+			if (IsRanged(result.Ability))
+				return _projectiles.FinishAsync(cancellationToken);
 
 			return UniTask.CompletedTask;
 		}
 
-		private static UniTask PlayReactionAsync(ActionResult result, UnitView targetView, CancellationToken cancellationToken)
-			=> result.Outcome switch
+		private UniTask PlayReactionAsync(ActionEffect effect, CancellationToken cancellationToken)
+		{
+			UnitView targetView = _battlefield.GetView(effect.Target);
+
+			return effect.Outcome switch
 			{
 				ActionOutcome.Hit => targetView.PlayHitAsync(cancellationToken),
 				ActionOutcome.Missed => targetView.PlayDodgeAsync(cancellationToken),
 				ActionOutcome.Healed => targetView.PlayHealAsync(cancellationToken),
 				_ => UniTask.CompletedTask
 			};
+		}
+
+		private UniTask PlayAftermathAsync(UnitView view, CancellationToken cancellationToken)
+		{
+			if (view.Unit.IsAlive)
+				return view.PlayUnfocusAsync(cancellationToken);
+
+			return UniTask.WhenAll(
+				view.PlayDeathAsync(cancellationToken),
+				_initiativeQueue.PlayDeathAsync(view.Unit, cancellationToken));
+		}
+
+		private IEnumerable<UnitView> GetParticipants(ActionResult result)
+			=> result.Effects
+				.Select(effect => effect.Target)
+				.Prepend(result.Actor)
+				.Distinct()
+				.Select(_battlefield.GetView);
 
 		private static bool IsMelee(AbilityConfig ability)
-			=> ability.Effect == AbilityEffect.Damage && ability.RequiresFrontline;
+			=> ability.Effect == AbilityEffect.Damage && ability.HasPositionRequirement && ability.ActorPosition == UnitPosition.Front;
 
 		private static bool IsRanged(AbilityConfig ability)
-			=> ability.Effect == AbilityEffect.Damage && !ability.RequiresFrontline;
+			=> ability.Effect == AbilityEffect.Damage && !IsMelee(ability);
 	}
 }

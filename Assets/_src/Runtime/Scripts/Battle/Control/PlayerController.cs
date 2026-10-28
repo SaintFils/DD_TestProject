@@ -13,9 +13,11 @@ namespace DDTest.Battle
 		private readonly ReactiveProperty<BattleUnit> _awaitingActor = new();
 		private readonly ReactiveProperty<AbilityConfig> _selectedAbility = new();
 		private readonly ReactiveProperty<IReadOnlyList<BattleUnit>> _targetableUnits = new(Array.Empty<BattleUnit>());
-		private readonly ReactiveProperty<BattleUnit> _hoveredTarget = new();
+		private readonly ReactiveProperty<IReadOnlyList<BattleUnit>> _affectedUnits = new(Array.Empty<BattleUnit>());
 		private readonly ReactiveProperty<BattleUnit> _inspectedUnit = new();
+		
 		private AbilityConfig _previewedAbility;
+		private BattleUnit _hoveredTarget;
 		private UniTaskCompletionSource<BattleCommand> _commandSource;
 
 
@@ -28,8 +30,8 @@ namespace DDTest.Battle
 		public ReadOnlyReactiveProperty<IReadOnlyList<BattleUnit>> TargetableUnits
 			=> _targetableUnits;
 
-		public ReadOnlyReactiveProperty<BattleUnit> HoveredTarget
-			=> _hoveredTarget;
+		public ReadOnlyReactiveProperty<IReadOnlyList<BattleUnit>> AffectedUnits
+			=> _affectedUnits;
 
 		public ReadOnlyReactiveProperty<BattleUnit> InspectedUnit
 			=> _inspectedUnit;
@@ -71,28 +73,29 @@ namespace DDTest.Battle
 			if (actor == null || !_rules.CanUse(actor, ability))
 				return;
 
-			if (ability.TargetSide == AbilityTargetSide.None)
-			{
-				Submit(new BattleCommand(actor, ability, null));
-
-				return;
-			}
-
 			_selectedAbility.Value = _selectedAbility.Value == ability ? null : ability;
-			_hoveredTarget.Value = null;
+			SetHoveredTarget(null);
 			RefreshTargetableUnits();
+		}
+
+		public void Skip()
+		{
+			BattleUnit actor = _awaitingActor.Value;
+
+			if (actor != null)
+				Submit(BattleCommand.Skip(actor));
 		}
 
 		public void HoverTarget(BattleUnit unit)
 		{
 			if (IsSelectableTarget(unit))
-				_hoveredTarget.Value = unit;
+				SetHoveredTarget(unit);
 		}
 
 		public void UnhoverTarget(BattleUnit unit)
 		{
-			if (_hoveredTarget.Value == unit)
-				_hoveredTarget.Value = null;
+			if (_hoveredTarget == unit)
+				SetHoveredTarget(null);
 		}
 
 		public void SelectTarget(BattleUnit unit)
@@ -116,8 +119,16 @@ namespace DDTest.Battle
 		public void CancelSelection()
 		{
 			_selectedAbility.Value = null;
-			_hoveredTarget.Value = null;
+			SetHoveredTarget(null);
 			RefreshTargetableUnits();
+		}
+
+		private void SetHoveredTarget(BattleUnit unit)
+		{
+			_hoveredTarget = unit;
+			_affectedUnits.Value = unit != null
+				? _rules.GetAffectedUnits(_awaitingActor.Value, _selectedAbility.Value, unit)
+				: Array.Empty<BattleUnit>();
 		}
 
 		private bool IsSelectableTarget(BattleUnit unit)
@@ -145,7 +156,7 @@ namespace DDTest.Battle
 
 			_previewedAbility = null;
 			_selectedAbility.Value = null;
-			_hoveredTarget.Value = null;
+			SetHoveredTarget(null);
 			_awaitingActor.Value = null;
 			_commandSource = null;
 			RefreshTargetableUnits();

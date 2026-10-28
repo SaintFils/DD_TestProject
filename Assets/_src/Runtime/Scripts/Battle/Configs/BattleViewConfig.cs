@@ -9,19 +9,19 @@ namespace DDTest.Battle
 	{
 		[Foldout("Highlight")]
 		[SerializeField, GenPublicGetter]
-		private Color _currentTurnColor = new(1f, 0.85f, 0.3f, 1f);
-
-		[Foldout("Highlight")]
-		[SerializeField, GenPublicGetter]
-		private Color _selectionColor = new(0.3f, 0.9f, 1f, 1f);
+		private Color _activityColor = new(1f, 0.85f, 0.3f, 1f);
 
 		[Foldout("Highlight")]
 		[SerializeField, Min(0f), GenPublicGetter]
 		private float _highlightFadeDuration = 0.15f;
 
-		[Foldout("Highlight")]
+		[Foldout("Focus")]
 		[SerializeField, Range(1f, 1.5f), GenPublicGetter]
-		private float _actionTargetScale = 1.1f;
+		private float _participantScale = 1.2f;
+
+		[Foldout("Focus")]
+		[SerializeField, Min(0f), GenPublicGetter]
+		private float _participantScaleDuration = 0.15f;
 
 		[Foldout("Death")]
 		[SerializeField, Range(0f, 1f), GenPublicGetter]

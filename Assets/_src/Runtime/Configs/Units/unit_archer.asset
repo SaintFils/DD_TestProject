@@ -20,4 +20,5 @@ MonoBehaviour:
   _defense: 3
   _abilities:
   - {fileID: 11400000, guid: 20c02b1548791327dbf86351e149eb63, type: 2}
+  - {fileID: 11400000, guid: 2074433717bd53841b7ac6facf4062de, type: 2}
   - {fileID: 11400000, guid: 6ea3f909ec86bdd235c9c5d54a98fe75, type: 2}

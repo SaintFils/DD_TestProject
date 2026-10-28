@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c013ac45754bf48fc7b27bcd7ed69f, type: 3}
+  m_Name: ability_aoe_heal
+  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
+  _displayName: AOE Heal
+  _hasPositionRequirement: 0
+  _actorPosition: 0
+  _targetSide: 3
+  _includeActor: 0
+  _targetFilter: 0
+  _targetPosition: 0
+  _aoe: 3
+  _aoeDepth: 1
+  _effect: 2
+  _power: 3
+  _attackPenalty: 0
+  _attackPenaltyPosition: 0

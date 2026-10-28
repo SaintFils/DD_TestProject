@@ -1,3 +1,4 @@
+using System.Linq;
 using DDTest.Battle;
 using NUnit.Framework;
 
@@ -26,7 +27,7 @@ namespace DDTest.Tests
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
 
-			Assert.That(result.Amount, Is.EqualTo(20));
+			Assert.That(result.Effects.Single().Amount, Is.EqualTo(20));
 			Assert.That(battle.Right(0).Hp.CurrentValue, Is.EqualTo(0));
 			Assert.That(battle.Right(0).IsAlive, Is.False);
 		}

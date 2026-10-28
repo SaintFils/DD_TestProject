@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using NaughtyAttributes;
 using R3;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace DDTest.Battle
@@ -18,6 +20,9 @@ namespace DDTest.Battle
 		[SerializeField]
 		private AbilityButtonView[] _buttons;
 
+		[SerializeField, Required]
+		private Button _skipButton;
+
 
 		private void Awake()
 		{
@@ -26,12 +31,16 @@ namespace DDTest.Battle
 
 			__player.SelectedAbility.Subscribe(HighlightSelected)
 				.AddTo(this);
+
+			_skipButton.OnClickAsObservable()
+				.Subscribe(_ => __player.Skip())
+				.AddTo(this);
 		}
 
 
 		private void ShowAbilities(BattleUnit actor)
 		{
-			List<AbilityConfig> abilities = actor != null ? __rules.GetAbilities(actor).ToList() : new List<AbilityConfig>();
+			IReadOnlyList<AbilityConfig> abilities = actor != null ? actor.Abilities : Array.Empty<AbilityConfig>();
 
 			if (abilities.Count > _buttons.Length)
 				Debug.LogWarning($"ActionPanelView | {actor} has {abilities.Count} abilities, only {_buttons.Length} buttons", this);
@@ -43,6 +52,8 @@ namespace DDTest.Battle
 				else
 					_buttons[index].Hide();
 			}
+
+			_skipButton.gameObject.SetActive(actor != null);
 		}
 
 		private void HighlightSelected(AbilityConfig selectedAbility)

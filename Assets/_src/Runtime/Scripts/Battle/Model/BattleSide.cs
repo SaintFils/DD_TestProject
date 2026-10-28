@@ -17,6 +17,9 @@ namespace DDTest.Battle
 		public BattleUnit Frontline
 			=> _units.FirstOrDefault(unit => unit.IsAlive);
 
+		public BattleUnit Backline
+			=> _units.LastOrDefault(unit => unit.IsAlive);
+
 		public bool HasLivingUnits
 			=> _units.Any(unit => unit.IsAlive);
 
@@ -36,5 +39,12 @@ namespace DDTest.Battle
 			if (_units.Count == 0)
 				throw new ArgumentException($"Team {team.name} for the {id} side has no units", nameof(team));
 		}
+
+
+		public BattleUnit GetUnitAt(UnitPosition position)
+			=> position == UnitPosition.Front ? Frontline : Backline;
+
+		public bool IsAt(BattleUnit unit, UnitPosition position)
+			=> GetUnitAt(position) == unit;
 	}
 }

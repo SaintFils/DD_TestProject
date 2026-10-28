@@ -25,7 +25,7 @@ namespace DDTest.Battle
 		private BattlefieldView _battlefieldView;
 
 		[SerializeField, Required]
-		private ProjectileView _projectileView;
+		private ProjectilePoolView _projectilePoolView;
 
 		[SerializeField, Required]
 		private InitiativeQueueView _initiativeQueueView;
@@ -41,6 +41,9 @@ namespace DDTest.Battle
 
 		[SerializeField, Required]
 		private UnitView _unitViewPrefab;
+
+		[SerializeField, Required]
+		private ProjectileView _projectilePrefab;
 
 
 		public override void InstallBindings()
@@ -84,8 +87,8 @@ namespace DDTest.Battle
 			Container.Bind<BattlefieldView>()
 				.FromInstance(_battlefieldView);
 
-			Container.Bind<ProjectileView>()
-				.FromInstance(_projectileView);
+			Container.Bind<ProjectilePoolView>()
+				.FromInstance(_projectilePoolView);
 
 			Container.Bind<InitiativeQueueView>()
 				.FromInstance(_initiativeQueueView);
@@ -101,6 +104,9 @@ namespace DDTest.Battle
 
 			Container.BindFactory<BattleUnit, UnitView, UnitView.Factory>()
 				.FromComponentInNewPrefab(_unitViewPrefab);
+
+			Container.BindFactory<ProjectileView, ProjectileView.Factory>()
+				.FromComponentInNewPrefab(_projectilePrefab);
 
 			Container.BindInterfacesAndSelfTo<BattleSession>()
 				.AsSingle();

@@ -15,5 +15,5 @@ MonoBehaviour:
   _slots:
   - {fileID: 11400000, guid: ca67fa1646eca2a830ace7d84b8e519a, type: 2}
   - {fileID: 11400000, guid: 6e8b177d41844971418ddad2435ee577, type: 2}
-  - {fileID: 11400000, guid: 6e8b177d41844971418ddad2435ee577, type: 2}
   - {fileID: 11400000, guid: 5325071601e4c5a4b4af00ebe80ebe92, type: 2}
+  - {fileID: 11400000, guid: 6e8b177d41844971418ddad2435ee577, type: 2}

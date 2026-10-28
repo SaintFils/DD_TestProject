@@ -13,27 +13,41 @@ namespace DDTest.Tests
 
 
 		public AbilityConfig Melee(int power = 10)
-			=> Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Frontline, AbilityEffect.Damage, power, requiresFrontline: true);
+			=> Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, power, actorPosition: UnitPosition.Front);
 
 		public AbilityConfig Ranged(int power = 10, int frontlineAttackPenalty = 0)
-			=> Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.AnyLiving, AbilityEffect.Damage, power, frontlineAttackPenalty: frontlineAttackPenalty);
+			=> Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.AnyLiving, AbilityEffect.Damage, power, attackPenalty: frontlineAttackPenalty);
 
 		public AbilityConfig Heal(int power = 10)
 			=> Ability(AbilityTargetSide.Ally, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, power);
 
-		public AbilityConfig Skip()
-			=> Ability(AbilityTargetSide.None, AbilityTargetFilter.AnyLiving, AbilityEffect.None, 0);
-
-		public AbilityConfig Ability(AbilityTargetSide targetSide, AbilityTargetFilter targetFilter, AbilityEffect effect, int power, bool requiresFrontline = false, int frontlineAttackPenalty = 0)
+		public AbilityConfig Ability(
+			AbilityTargetSide targetSide,
+			AbilityTargetFilter targetFilter,
+			AbilityEffect effect,
+			int power,
+			UnitPosition? actorPosition = null,
+			UnitPosition targetPosition = UnitPosition.Front,
+			int attackPenalty = 0,
+			UnitPosition attackPenaltyPosition = UnitPosition.Front,
+			bool includeActor = true,
+			AbilityAoe aoe = AbilityAoe.Single,
+			int aoeDepth = 1)
 			=> Create<AbilityConfig>(serialized =>
 			{
 				serialized.FindProperty("_displayName").stringValue = $"{effect} {targetSide} {targetFilter}";
-				serialized.FindProperty("_requiresFrontline").boolValue = requiresFrontline;
+				serialized.FindProperty("_hasPositionRequirement").boolValue = actorPosition.HasValue;
+				serialized.FindProperty("_actorPosition").intValue = (int)actorPosition.GetValueOrDefault();
 				serialized.FindProperty("_targetSide").intValue = (int)targetSide;
+				serialized.FindProperty("_includeActor").boolValue = includeActor;
 				serialized.FindProperty("_targetFilter").intValue = (int)targetFilter;
+				serialized.FindProperty("_targetPosition").intValue = (int)targetPosition;
+				serialized.FindProperty("_aoe").intValue = (int)aoe;
+				serialized.FindProperty("_aoeDepth").intValue = aoeDepth;
 				serialized.FindProperty("_effect").intValue = (int)effect;
 				serialized.FindProperty("_power").intValue = power;
-				serialized.FindProperty("_frontlineAttackPenalty").intValue = frontlineAttackPenalty;
+				serialized.FindProperty("_attackPenalty").intValue = attackPenalty;
+				serialized.FindProperty("_attackPenaltyPosition").intValue = (int)attackPenaltyPosition;
 			});
 
 		public UnitConfig Unit(AbilityConfig[] abilities = null, int maxHp = 20, int speed = 5, int attack = 5, int defense = 5)
@@ -56,17 +70,12 @@ namespace DDTest.Tests
 			});
 
 		public BattleConfig Battle(TeamConfig leftTeam, TeamConfig rightTeam, bool reshuffleEqualSpeedEachRound = false)
-		{
-			AbilityConfig skip = Skip();
-
-			return Create<BattleConfig>(serialized =>
+			=> Create<BattleConfig>(serialized =>
 			{
 				serialized.FindProperty("_leftTeam").objectReferenceValue = leftTeam;
 				serialized.FindProperty("_rightTeam").objectReferenceValue = rightTeam;
 				serialized.FindProperty("_reshuffleEqualSpeedEachRound").boolValue = reshuffleEqualSpeedEachRound;
-				serialized.FindProperty("_skipAbility").objectReferenceValue = skip;
 			});
-		}
 
 		public AiConfig Ai(float healThreshold = 0.5f, float killBonus = 0f, float targetTolerance = 0f)
 			=> Create<AiConfig>(serialized =>

@@ -2,8 +2,7 @@ namespace DDTest.Battle
 {
 	public enum AbilityEffect
 	{
-		None,
-		Damage,
-		Heal
+		Damage = 1,
+		Heal = 2
 	}
 }

@@ -22,9 +22,6 @@ namespace DDTest.Battle
 		[SerializeField, GenPublicGetter]
 		private bool _reshuffleEqualSpeedEachRound;
 
-		[SerializeField, Required, GenPublicGetter]
-		private AbilityConfig _skipAbility;
-
 		[SerializeField, Range(0f, 1f), GenPublicGetter]
 		private float _baseHitChance = 0.75f;
 

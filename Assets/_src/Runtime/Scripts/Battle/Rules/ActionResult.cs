@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace DDTest.Battle
 {
 	public readonly struct ActionResult
@@ -8,34 +11,22 @@ namespace DDTest.Battle
 
 		public BattleUnit Target { get; }
 
-		public ActionOutcome Outcome { get; }
+		public IReadOnlyList<ActionEffect> Effects { get; }
 
-		public int Amount { get; }
+		public bool IsSkip
+			=> Ability == null;
 
-		public float HitChance { get; }
 
-
-		private ActionResult(BattleUnit actor, AbilityConfig ability, BattleUnit target, ActionOutcome outcome, int amount, float hitChance)
+		public ActionResult(BattleUnit actor, AbilityConfig ability, BattleUnit target, IReadOnlyList<ActionEffect> effects)
 		{
 			Actor = actor;
 			Ability = ability;
 			Target = target;
-			Outcome = outcome;
-			Amount = amount;
-			HitChance = hitChance;
+			Effects = effects;
 		}
 
 
-		public static ActionResult NoEffect(BattleUnit actor, AbilityConfig ability, BattleUnit target)
-			=> new(actor, ability, target, ActionOutcome.NoEffect, 0, 1f);
-
-		public static ActionResult Hit(BattleUnit actor, AbilityConfig ability, BattleUnit target, int amount, float hitChance)
-			=> new(actor, ability, target, ActionOutcome.Hit, amount, hitChance);
-
-		public static ActionResult Missed(BattleUnit actor, AbilityConfig ability, BattleUnit target, float hitChance)
-			=> new(actor, ability, target, ActionOutcome.Missed, 0, hitChance);
-
-		public static ActionResult Healed(BattleUnit actor, AbilityConfig ability, BattleUnit target, int amount)
-			=> new(actor, ability, target, ActionOutcome.Healed, amount, 1f);
+		public static ActionResult Skip(BattleUnit actor)
+			=> new(actor, null, null, Array.Empty<ActionEffect>());
 	}
 }

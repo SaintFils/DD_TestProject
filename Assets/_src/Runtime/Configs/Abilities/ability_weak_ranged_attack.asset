@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: ability_weak_ranged_attack
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Weak Ranged Attack
-  _requiresFrontlineUser: 0
+  _hasPositionRequirement: 0
+  _actorPosition: 0
   _targetSide: 1
+  _includeActor: 1
   _targetFilter: 0
+  _targetPosition: 0
+  _aoe: 0
+  _aoeDepth: 1
   _effect: 1
   _power: 3
-  _frontlineAttackPenalty: 3
+  _attackPenalty: 3
+  _attackPenaltyPosition: 0

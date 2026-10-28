@@ -42,15 +42,18 @@ namespace DDTest.Battle
 
 		public void Apply(ActionResult result)
 		{
-			switch (result.Outcome)
+			foreach (ActionEffect effect in result.Effects)
 			{
-				case ActionOutcome.Hit:
-					result.Target.TakeDamage(result.Amount);
-					break;
+				switch (effect.Outcome)
+				{
+					case ActionOutcome.Hit:
+						effect.Target.TakeDamage(effect.Amount);
+						break;
 
-				case ActionOutcome.Healed:
-					result.Target.Heal(result.Amount);
-					break;
+					case ActionOutcome.Healed:
+						effect.Target.Heal(effect.Amount);
+						break;
+				}
 			}
 		}
 	}

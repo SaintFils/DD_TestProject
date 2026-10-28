@@ -12,10 +12,6 @@ namespace DDTest.Battle
 		private readonly IRandom _random;
 
 
-		public AbilityConfig SkipAbility
-			=> _config.SkipAbility;
-
-
 		public BattleRules(BattleState battle, BattleConfig config, IRandom random)
 		{
 			_battle = battle;
@@ -24,38 +20,50 @@ namespace DDTest.Battle
 		}
 
 
-		public IEnumerable<AbilityConfig> GetAbilities(BattleUnit actor)
-			=> actor.Abilities.Append(_config.SkipAbility);
-
 		public bool CanUse(BattleUnit actor, AbilityConfig ability)
 		{
 			if (!actor.IsAlive)
 				return false;
 
-			if (ability.RequiresFrontline && !IsFrontline(actor))
+			if (ability.HasPositionRequirement && !_battle.GetSide(actor.Side).IsAt(actor, ability.ActorPosition))
 				return false;
 
-			return ability.TargetSide == AbilityTargetSide.None || GetTargets(actor, ability).Count > 0;
+			return GetTargets(actor, ability).Count > 0;
 		}
 
 		public IReadOnlyList<BattleUnit> GetTargets(BattleUnit actor, AbilityConfig ability)
+			=> GetCandidates(actor, ability)
+				.Where(target => GetAffectedUnits(actor, ability, target).Count > 0)
+				.ToList();
+
+		public IReadOnlyList<BattleUnit> GetAffectedUnits(BattleUnit actor, AbilityConfig ability, BattleUnit target)
 		{
-			if (ability.TargetSide == AbilityTargetSide.None)
+			List<BattleUnit> livingUnits = _battle.GetSide(target.Side).Units
+				.Where(unit => unit.IsAlive)
+				.ToList();
+			int index = livingUnits.IndexOf(target);
+
+			if (index < 0)
 				return Array.Empty<BattleUnit>();
 
-			BattleSide side = ability.TargetSide == AbilityTargetSide.Enemy
-				? _battle.GetOpposingSide(actor.Side)
-				: _battle.GetSide(actor.Side);
+			(int first, int last) = ability.Aoe switch
+			{
+				AbilityAoe.Behind => (index, index + ability.AoeDepth),
+				AbilityAoe.InFront => (index - ability.AoeDepth, index),
+				AbilityAoe.Around => (index - ability.AoeDepth, index + ability.AoeDepth),
+				AbilityAoe.WholeSide => (0, livingUnits.Count - 1),
+				_ => (index, index)
+			};
 
-			if (ability.TargetFilter == AbilityTargetFilter.Frontline)
-				return side.Frontline != null ? new[] { side.Frontline } : Array.Empty<BattleUnit>();
-
-			return side.Units.Where(unit => unit.IsAlive).ToList();
+			return livingUnits
+				.Where((unit, order) => order >= first && order <= last)
+				.Where(unit => ability.IncludeActor || unit != actor)
+				.ToList();
 		}
 
 		public float GetHitChance(BattleUnit actor, BattleUnit target, AbilityConfig ability)
 		{
-			int attack = IsFrontline(actor) ? actor.Attack - ability.FrontlineAttackPenalty : actor.Attack;
+			int attack = HasAttackPenalty(actor, ability) ? actor.Attack - ability.AttackPenalty : actor.Attack;
 			float chance = _config.BaseHitChance + (attack - target.Defense) * _config.HitChancePerPoint;
 
 			return Math.Clamp(chance, _config.MinHitChance, _config.MaxHitChance);
@@ -67,39 +75,63 @@ namespace DDTest.Battle
 			AbilityConfig ability = command.Ability;
 			BattleUnit target = command.Target;
 
-			if (!GetAbilities(actor).Contains(ability) || !CanUse(actor, ability))
+			if (!actor.IsAlive)
+				throw new InvalidOperationException($"{actor} is dead and can't act");
+
+			if (command.IsSkip)
+				return ActionResult.Skip(actor);
+
+			if (!actor.Abilities.Contains(ability) || !CanUse(actor, ability))
 				throw new InvalidOperationException($"{actor} can't use {ability.DisplayName}");
-
-			if (ability.TargetSide == AbilityTargetSide.None)
-			{
-				if (target != null)
-					throw new InvalidOperationException($"{ability.DisplayName} doesn't affect a target");
-
-				return ActionResult.NoEffect(actor, ability, null);
-			}
 
 			if (!GetTargets(actor, ability).Contains(target))
 				throw new InvalidOperationException($"{target} is not a valid target of {ability.DisplayName} for {actor}");
 
-			return ability.Effect switch
-			{
-				AbilityEffect.Damage => ResolveDamage(actor, ability, target),
-				AbilityEffect.Heal => ActionResult.Healed(actor, ability, target, Math.Min(ability.Power, target.MaxHp - target.Hp.CurrentValue)),
-				_ => ActionResult.NoEffect(actor, ability, target)
-			};
+			List<ActionEffect> effects = GetAffectedUnits(actor, ability, target)
+				.Select(unit => ResolveEffect(actor, ability, unit))
+				.ToList();
+
+			return new ActionResult(actor, ability, target, effects);
 		}
 
-		private ActionResult ResolveDamage(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+		private IReadOnlyList<BattleUnit> GetCandidates(BattleUnit actor, AbilityConfig ability)
+		{
+			if (ability.TargetSide == AbilityTargetSide.Self)
+				return new[] { actor };
+
+			BattleSide side = ability.TargetSide == AbilityTargetSide.Enemy
+				? _battle.GetOpposingSide(actor.Side)
+				: _battle.GetSide(actor.Side);
+
+			if (ability.TargetFilter == AbilityTargetFilter.Placement)
+			{
+				BattleUnit unit = side.GetUnitAt(ability.TargetPosition);
+
+				return unit != null ? new[] { unit } : Array.Empty<BattleUnit>();
+			}
+
+			return side.Units.Where(unit => unit.IsAlive).ToList();
+		}
+
+		private ActionEffect ResolveEffect(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+			=> ability.Effect switch
+			{
+				AbilityEffect.Damage => ResolveDamage(actor, ability, target),
+				AbilityEffect.Heal => ActionEffect.Healed(target, Math.Min(ability.Power, target.MaxHp - target.Hp.CurrentValue)),
+				_ => throw new ArgumentOutOfRangeException(nameof(ability), ability.Effect, $"{ability.DisplayName} has an unknown effect")
+			};
+
+		private ActionEffect ResolveDamage(BattleUnit actor, AbilityConfig ability, BattleUnit target)
 		{
 			float hitChance = GetHitChance(actor, target, ability);
 
 			if (_random.NextDouble() >= hitChance)
-				return ActionResult.Missed(actor, ability, target, hitChance);
+				return ActionEffect.Missed(target, hitChance);
 
-			return ActionResult.Hit(actor, ability, target, Math.Min(ability.Power, target.Hp.CurrentValue), hitChance);
+			return ActionEffect.Hit(target, Math.Min(ability.Power, target.Hp.CurrentValue), hitChance);
 		}
 
-		private bool IsFrontline(BattleUnit unit)
-			=> _battle.GetSide(unit.Side).Frontline == unit;
+		private bool HasAttackPenalty(BattleUnit actor, AbilityConfig ability)
+			=> ability.AttackPenalty > 0 && !ability.HasPositionRequirement && _battle.GetSide(actor.Side).IsAt(actor, ability.AttackPenaltyPosition);
 	}
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ai_config
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AiConfig
   _healThreshold: 0.5
-  _thinkDuration: {x: 0.5, y: 1.5}
+  _thinkDuration: {x: 0.5, y: 1}
   _killBonus: 5
   _targetTolerance: 0.1
