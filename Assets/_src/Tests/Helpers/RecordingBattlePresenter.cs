@@ -15,7 +15,7 @@ namespace DDTest.Tests
 
 		public List<int> TargetHpOnEnd { get; } = new();
 
-		public List<BattleSideId> Winners { get; } = new();
+		public List<BattleSideId?> Winners { get; } = new();
 
 
 		public UniTask PlayRoundStartAsync(int round, CancellationToken cancellationToken)
@@ -37,7 +37,7 @@ namespace DDTest.Tests
 			return UniTask.CompletedTask;
 		}
 
-		public UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken)
+		public UniTask PlayBattleEndAsync(BattleSideId? winner, CancellationToken cancellationToken)
 		{
 			Winners.Add(winner);
 			return UniTask.CompletedTask;

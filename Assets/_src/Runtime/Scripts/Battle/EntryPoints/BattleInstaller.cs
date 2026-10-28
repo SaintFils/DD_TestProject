@@ -8,6 +8,9 @@ namespace DDTest.Battle
 {
 	public class BattleInstaller : MonoInstaller
 	{
+		private const int AiOnlyRoundLimit = 20;
+
+
 		[Inject]
 		private readonly BattleLaunch __battleLaunch;
 
@@ -51,6 +54,7 @@ namespace DDTest.Battle
 			Container.BindInstance(_battleConfig);
 			Container.BindInstance(_aiConfig);
 			Container.BindInstance(_battleViewConfig);
+			Container.BindInstance(ResolveTeams());
 
 			Container.Bind<IRandom>()
 				.FromInstance(new SystemRandom(ResolveSeed()));
@@ -82,7 +86,8 @@ namespace DDTest.Battle
 				.AsSingle();
 
 			Container.Bind<BattleLoop>()
-				.AsSingle();
+				.AsSingle()
+				.WithArguments(ResolveRoundLimit());
 
 			Container.Bind<BattlefieldView>()
 				.FromInstance(_battlefieldView);
@@ -122,7 +127,16 @@ namespace DDTest.Battle
 			return __battleLaunch.Seed.Value;
 		}
 
-		private static SideControllers CreateSideControllers(InjectContext context)
-			=> new(context.Container.Resolve<PlayerController>(), context.Container.Resolve<AiController>());
+		private BattleTeams ResolveTeams()
+			=> __battleLaunch.Teams ?? new BattleTeams(_battleConfig.LeftTeam.Slots, _battleConfig.RightTeam.Slots);
+
+		private int ResolveRoundLimit()
+			=> __battleLaunch.IsLeftAi && __battleLaunch.IsRightAi ? AiOnlyRoundLimit : int.MaxValue;
+
+		private SideControllers CreateSideControllers(InjectContext context)
+			=> new(ResolveController(context, __battleLaunch.IsLeftAi), ResolveController(context, __battleLaunch.IsRightAi));
+
+		private static ISideController ResolveController(InjectContext context, bool isAi)
+			=> isAi ? context.Container.Resolve<AiController>() : context.Container.Resolve<PlayerController>();
 	}
 }

@@ -56,5 +56,17 @@ namespace DDTest.Tests
 			Assert.That(battle.State.IsFinished, Is.True);
 			Assert.That(battle.State.Winner, Is.EqualTo(BattleSideId.Left));
 		}
+
+		[Test]
+		public void DeclareDraw_FinishesBattle_WithoutWinner()
+		{
+			BattleConfig config = _configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit()));
+			TestBattle battle = new(config);
+
+			battle.State.DeclareDraw();
+
+			Assert.That(battle.State.IsFinished, Is.True);
+			Assert.That(battle.State.Winner, Is.Null);
+		}
 	}
 }

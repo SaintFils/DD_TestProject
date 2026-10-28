@@ -9,22 +9,24 @@ namespace DDTest.Battle
 		private readonly BattleRules _rules;
 		private readonly SideControllers _controllers;
 		private readonly IBattlePresenter _presenter;
+		private readonly int _roundLimit;
 
 
-		public BattleLoop(BattleState battle, BattleRules rules, SideControllers controllers, IBattlePresenter presenter)
+		public BattleLoop(BattleState battle, BattleRules rules, SideControllers controllers, IBattlePresenter presenter, int roundLimit)
 		{
 			_battle = battle;
 			_rules = rules;
 			_controllers = controllers;
 			_presenter = presenter;
+			_roundLimit = roundLimit;
 		}
 
 
-		public async UniTask<BattleSideId> RunAsync(CancellationToken cancellationToken)
+		public async UniTask<BattleSideId?> RunAsync(CancellationToken cancellationToken)
 		{
 			InitiativeQueue queue = _battle.Queue;
 
-			while (true)
+			while (queue.Round.CurrentValue < _roundLimit)
 			{
 				queue.StartRound();
 				await _presenter.PlayRoundStartAsync(queue.Round.CurrentValue, cancellationToken);
@@ -33,15 +35,23 @@ namespace DDTest.Battle
 				{
 					await TakeTurnAsync(actor, cancellationToken);
 
-					if (_battle.Winner == null)
-						continue;
-
-					BattleSideId winner = _battle.Winner.Value;
-					await _presenter.PlayBattleEndAsync(winner, cancellationToken);
-
-					return winner;
+					if (_battle.IsFinished)
+						return await EndAsync(cancellationToken);
 				}
 			}
+
+			_battle.DeclareDraw();
+
+			return await EndAsync(cancellationToken);
+		}
+
+		private async UniTask<BattleSideId?> EndAsync(CancellationToken cancellationToken)
+		{
+			BattleSideId? winner = _battle.Winner;
+
+			await _presenter.PlayBattleEndAsync(winner, cancellationToken);
+
+			return winner;
 		}
 
 		private async UniTask TakeTurnAsync(BattleUnit actor, CancellationToken cancellationToken)

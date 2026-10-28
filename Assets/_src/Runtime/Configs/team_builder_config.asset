@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c32bb9942286344af2177566833163, type: 3}
+  m_Name: team_builder_config
+  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Menu.TeamBuilderConfig
+  _roster:
+  - {fileID: 11400000, guid: 77d65174354e8ee7b77e9e03527b06c4, type: 2}
+  - {fileID: 11400000, guid: 6e8b177d41844971418ddad2435ee577, type: 2}
+  - {fileID: 11400000, guid: 5325071601e4c5a4b4af00ebe80ebe92, type: 2}
+  - {fileID: 11400000, guid: ca67fa1646eca2a830ace7d84b8e519a, type: 2}
+  - {fileID: 11400000, guid: 4d09c14cb528fcf5880f714424ab4f11, type: 2}
+  - {fileID: 11400000, guid: bb1369a9a489d8f782a76ec1b6b6acea, type: 2}
+  _dragGhostAlpha: 0.3

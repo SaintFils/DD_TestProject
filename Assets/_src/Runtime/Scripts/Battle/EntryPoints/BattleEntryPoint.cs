@@ -42,9 +42,9 @@ namespace DDTest.Battle
 		{
 			await UniTask.Delay(TimeSpan.FromSeconds(_viewConfig.BattleStartDelay), cancellationToken: cancellationToken);
 
-			BattleSideId winner = await _loop.RunAsync(cancellationToken);
+			BattleSideId? winner = await _loop.RunAsync(cancellationToken);
 
-			Debug.Log($"Battle finished, winner: {winner}");
+			Debug.Log(winner.HasValue ? $"Battle finished, winner: {winner.Value}" : "Battle finished in a draw");
 		}
 	}
 }

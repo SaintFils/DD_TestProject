@@ -32,8 +32,12 @@ namespace DDTest.Battle
 		private Button _menuButton;
 
 
+		private Color _drawColor;
+
+
 		private void Awake()
 		{
+			_drawColor = _text.color;
 			_canvasGroup.alpha = 0f;
 			_canvasGroup.blocksRaycasts = false;
 
@@ -47,11 +51,20 @@ namespace DDTest.Battle
 		}
 
 
-		public UniTask ShowAsync(BattleSideId winner, CancellationToken cancellationToken)
+		public UniTask ShowAsync(BattleSideId? winner, CancellationToken cancellationToken)
 		{
 			_canvasGroup.blocksRaycasts = true;
-			_text.text = $"{winner} side wins";
-			_text.color = __viewConfig.GetSideColor(winner);
+
+			if (winner.HasValue)
+			{
+				_text.text = $"{winner.Value} side wins";
+				_text.color = __viewConfig.GetSideColor(winner.Value);
+			}
+			else
+			{
+				_text.text = "Draw";
+				_text.color = _drawColor;
+			}
 
 			return _canvasGroup.DOFade(1f, __viewConfig.ResultFadeDuration)
 				.SetLink(gameObject)

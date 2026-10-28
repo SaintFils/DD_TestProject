@@ -5,6 +5,9 @@ namespace DDTest.Battle
 {
 	public sealed class BattleState
 	{
+		private bool _isDraw;
+
+
 		public BattleSide LeftSide { get; }
 
 		public BattleSide RightSide { get; }
@@ -12,13 +15,13 @@ namespace DDTest.Battle
 		public InitiativeQueue Queue { get; }
 
 		public bool IsFinished
-			=> !LeftSide.HasLivingUnits || !RightSide.HasLivingUnits;
+			=> _isDraw || !LeftSide.HasLivingUnits || !RightSide.HasLivingUnits;
 
 		public BattleSideId? Winner
 		{
 			get
 			{
-				if (!IsFinished)
+				if (_isDraw || !IsFinished)
 					return null;
 				else
 					return LeftSide.HasLivingUnits ? BattleSideId.Left : BattleSideId.Right;
@@ -26,10 +29,10 @@ namespace DDTest.Battle
 		}
 
 
-		public BattleState(BattleConfig config, IRandom random)
+		public BattleState(BattleConfig config, BattleTeams teams, IRandom random)
 		{
-			LeftSide = new BattleSide(BattleSideId.Left, config.LeftTeam);
-			RightSide = new BattleSide(BattleSideId.Right, config.RightTeam);
+			LeftSide = new BattleSide(BattleSideId.Left, teams.Left);
+			RightSide = new BattleSide(BattleSideId.Right, teams.Right);
 			Queue = new InitiativeQueue(LeftSide.Units.Concat(RightSide.Units).ToList(), random, config.ReshuffleEqualSpeedEachRound);
 		}
 
@@ -39,6 +42,9 @@ namespace DDTest.Battle
 
 		public BattleSide GetOpposingSide(BattleSideId id)
 			=> id == BattleSideId.Left ? RightSide : LeftSide;
+
+		public void DeclareDraw()
+			=> _isDraw = true;
 
 		public void Apply(ActionResult result)
 		{
