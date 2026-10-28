@@ -117,6 +117,9 @@ namespace DDTest.Battle
 
 		[Header("Round Banner")]
 		[SerializeField, Min(0f), GenPublicGetter]
+		private float _battleStartDelay = 0.5f;
+
+		[SerializeField, Min(0f), GenPublicGetter]
 		private float _roundBannerFadeDuration = 0.25f;
 
 		[SerializeField, Min(0f), GenPublicGetter]
