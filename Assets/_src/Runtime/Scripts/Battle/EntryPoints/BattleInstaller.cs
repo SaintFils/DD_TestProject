@@ -8,6 +8,10 @@ namespace DDTest.Battle
 {
 	public class BattleInstaller : MonoInstaller
 	{
+		[Inject]
+		private readonly BattleLaunch __battleLaunch;
+
+
 		[SerializeField, Required]
 		private BattleConfig _battleConfig;
 
@@ -57,7 +61,10 @@ namespace DDTest.Battle
 			Container.Bind<PlayerController>()
 				.AsSingle();
 
-			Container.BindInterfacesTo<SelectionCancelInput>()
+			Container.BindInterfacesAndSelfTo<BattlePause>()
+				.AsSingle();
+
+			Container.BindInterfacesTo<BattleInput>()
 				.AsSingle();
 
 			Container.Bind<AiController>()
@@ -95,12 +102,19 @@ namespace DDTest.Battle
 			Container.BindFactory<BattleUnit, UnitView, UnitView.Factory>()
 				.FromComponentInNewPrefab(_unitViewPrefab);
 
+			Container.BindInterfacesAndSelfTo<BattleSession>()
+				.AsSingle();
+
 			Container.BindInterfacesTo<BattleEntryPoint>()
 				.AsSingle();
 		}
 
 		private int ResolveSeed()
-			=> _battleConfig.UseFixedSeed ? _battleConfig.Seed : Environment.TickCount;
+		{
+			__battleLaunch.Seed ??= _battleConfig.UseFixedSeed ? _battleConfig.Seed : Environment.TickCount;
+
+			return __battleLaunch.Seed.Value;
+		}
 
 		private static SideControllers CreateSideControllers(InjectContext context)
 			=> new(context.Container.Resolve<PlayerController>(), context.Container.Resolve<AiController>());
