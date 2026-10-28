@@ -40,6 +40,8 @@ namespace DDTest.Battle
 		private Vector2 _contentPosition;
 		private Color _portraitColor;
 		private float _width;
+		private bool _isCurrent;
+		private bool _isActed;
 
 
 		public BattleUnit Unit { get; private set; }
@@ -69,6 +71,8 @@ namespace DDTest.Battle
 			_canvasGroup.alpha = 1f;
 			_canvasGroup.blocksRaycasts = true;
 			_layoutElement.preferredWidth = _width;
+			_isCurrent = false;
+			_isActed = false;
 		}
 
 		public void Hide()
@@ -82,8 +86,11 @@ namespace DDTest.Battle
 
 		public void SetState(bool isCurrent, bool isActed)
 		{
-			if (!Unit.IsAlive)
+			if (!Unit.IsAlive || (isCurrent == _isCurrent && isActed == _isActed))
 				return;
+
+			_isCurrent = isCurrent;
+			_isActed = isActed;
 
 			float duration = __viewConfig.HighlightFadeDuration;
 
