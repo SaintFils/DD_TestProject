@@ -46,8 +46,10 @@ MonoBehaviour:
   _cardDeathDrop: 60
   _cardDeathDuration: 0.4
   _cardCollapseDuration: 0.25
+  _battleStartDelay: 0.5
   _roundBannerFadeDuration: 0.25
   _roundBannerHoldDuration: 0.6
   _logMutedColor: {r: 0.7603931, g: 0.3915094, b: 1, a: 1}
   _logMaxLines: 100
   _resultFadeDuration: 0.4
+  _pauseFadeDuration: 0.2
