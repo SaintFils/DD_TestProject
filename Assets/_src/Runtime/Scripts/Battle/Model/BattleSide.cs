@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DDTest.Battle
 {
@@ -15,13 +14,13 @@ namespace DDTest.Battle
 			=> _units;
 
 		public BattleUnit Frontline
-			=> _units.FirstOrDefault(unit => unit.IsAlive);
+			=> _units.Find(unit => unit.IsAlive);
 
 		public BattleUnit Backline
-			=> _units.LastOrDefault(unit => unit.IsAlive);
+			=> _units.FindLast(unit => unit.IsAlive);
 
 		public bool HasLivingUnits
-			=> _units.Any(unit => unit.IsAlive);
+			=> _units.Exists(unit => unit.IsAlive);
 
 
 		public BattleSide(BattleSideId id, TeamConfig team)
