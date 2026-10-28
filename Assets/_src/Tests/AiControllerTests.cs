@@ -133,6 +133,80 @@ namespace DDTest.Tests
 			Assert.That(aggressive.Ability, Is.SameAs(weakRanged));
 		}
 
+		[Test]
+		public void ChooseCommand_PrefersAreaAttack_ThatHitsMoreEnemies()
+		{
+			AbilityConfig strike = _configs.Melee(power: 6);
+			AbilityConfig sweep = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, 6, actorPosition: UnitPosition.Front, aoe: AbilityAoe.Behind);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { strike, sweep })), _configs.Team(_configs.Unit(), _configs.Unit())));
+
+			BattleCommand command = ChooseCommand(battle, battle.Left(0));
+
+			Assert.That(command.Ability, Is.SameAs(sweep));
+			Assert.That(command.Target, Is.SameAs(battle.Right(0)));
+		}
+
+		[Test]
+		public void ChooseCommand_HealsNeighbours_WhenNeighbourIsWounded()
+		{
+			AbilityConfig healNeighbours = _configs.Ability(AbilityTargetSide.Self, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 10, includeActor: false, aoe: AbilityAoe.Around);
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(), _configs.Unit(new[] { healNeighbours }), _configs.Unit()),
+				_configs.Team(_configs.Unit())));
+			battle.Left(0).TakeDamage(15);
+
+			BattleCommand command = ChooseCommand(battle, battle.Left(1));
+
+			Assert.That(command.Ability, Is.SameAs(healNeighbours));
+			Assert.That(command.Target, Is.SameAs(battle.Left(1)));
+		}
+
+		[Test]
+		public void ChooseCommand_DoesNotHealNeighbours_WhenOnlyHealerIsWounded()
+		{
+			AbilityConfig healNeighbours = _configs.Ability(AbilityTargetSide.Self, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 10, includeActor: false, aoe: AbilityAoe.Around);
+			AbilityConfig shot = _configs.Ranged(power: 3);
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(), _configs.Unit(new[] { healNeighbours, shot }), _configs.Unit()),
+				_configs.Team(_configs.Unit())));
+			battle.Left(1).TakeDamage(15);
+
+			BattleCommand command = ChooseCommand(battle, battle.Left(1));
+
+			Assert.That(command.Ability, Is.SameAs(shot));
+		}
+
+		[Test]
+		public void ChooseCommand_HealsLowestHpRatio_EvenIfAnotherAllyMissesMoreHp()
+		{
+			AbilityConfig heal = _configs.Heal(power: 10);
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(maxHp: 10), _configs.Unit(maxHp: 30), _configs.Unit(new[] { heal })),
+				_configs.Team(_configs.Unit())));
+			battle.Left(0).TakeDamage(7);
+			battle.Left(1).TakeDamage(18);
+
+			BattleCommand command = ChooseCommand(battle, battle.Left(2));
+
+			Assert.That(command.Target, Is.SameAs(battle.Left(0)));
+		}
+
+		[Test]
+		public void ChooseCommand_PrefersBiggerHeal_WhenLowestHpRatioIsEqual()
+		{
+			AbilityConfig heal = _configs.Heal(power: 10);
+			AbilityConfig groupHeal = _configs.Ability(AbilityTargetSide.Ally, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 10, aoe: AbilityAoe.WholeSide);
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(), _configs.Unit(), _configs.Unit(new[] { heal, groupHeal })),
+				_configs.Team(_configs.Unit())));
+			battle.Left(0).TakeDamage(14);
+			battle.Left(1).TakeDamage(12);
+
+			BattleCommand command = ChooseCommand(battle, battle.Left(2));
+
+			Assert.That(command.Ability, Is.SameAs(groupHeal));
+		}
+
 		private BattleCommand ChooseCommand(TestBattle battle, BattleUnit actor, float healThreshold = 0.5f, float killBonus = 0f, float targetTolerance = 0f)
 			=> new AiController(battle.Rules, _configs.Ai(healThreshold, killBonus, targetTolerance), battle.Random)
 				.ChooseCommandAsync(actor, CancellationToken.None)

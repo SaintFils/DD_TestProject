@@ -58,25 +58,31 @@ namespace DDTest.Battle
 		{
 			command = default;
 
-			AbilityConfig heal = abilities
+			(AbilityConfig Ability, BattleUnit Target, float LowestHpRatio, int HealedHp) best = abilities
 				.Where(ability => ability.Effect == AbilityEffect.Heal)
-				.OrderByDescending(ability => ability.Power)
+				.SelectMany(ability => _rules.GetTargets(actor, ability).Select(target => EvaluateHeal(actor, ability, target)))
+				.Where(option => option.LowestHpRatio <= _config.HealThreshold)
+				.OrderBy(option => option.LowestHpRatio)
+				.ThenByDescending(option => option.HealedHp)
 				.FirstOrDefault();
 
-			if (heal == null)
+			if (best.Ability == null)
 				return false;
 
-			BattleUnit target = _rules.GetTargets(actor, heal)
-				.Where(unit => GetHpRatio(unit) <= _config.HealThreshold)
-				.OrderBy(GetHpRatio)
-				.FirstOrDefault();
+			command = new BattleCommand(actor, best.Ability, best.Target);
 
-			if (target == null)
-				return false;
-
-			command = new BattleCommand(actor, heal, target);
-			
 			return true;
+		}
+
+		private (AbilityConfig Ability, BattleUnit Target, float LowestHpRatio, int HealedHp) EvaluateHeal(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+		{
+			List<BattleUnit> wounded = _rules.GetAffectedUnits(actor, ability, target)
+				.Where(unit => GetHpRatio(unit) <= _config.HealThreshold)
+				.ToList();
+			float lowestHpRatio = wounded.Count > 0 ? wounded.Min(GetHpRatio) : float.MaxValue;
+			int healedHp = wounded.Sum(unit => Math.Min(ability.Power, unit.MaxHp - unit.Hp.CurrentValue));
+
+			return (ability, target, lowestHpRatio, healedHp);
 		}
 
 		private bool TryChooseAttack(BattleUnit actor, IEnumerable<AbilityConfig> abilities, out BattleCommand command)
@@ -103,14 +109,17 @@ namespace DDTest.Battle
 		}
 
 		private float GetAttackScore(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+			=> _rules.GetAffectedUnits(actor, ability, target).Sum(unit => GetHitScore(actor, ability, unit));
+
+		private float GetHitScore(BattleUnit actor, AbilityConfig ability, BattleUnit unit)
 		{
-			int hp = target.Hp.CurrentValue;
+			int hp = unit.Hp.CurrentValue;
 			float value = Math.Min(ability.Power, hp);
 
 			if (ability.Power >= hp)
 				value += _config.KillBonus;
 
-			return _rules.GetHitChance(actor, target, ability) * value;
+			return _rules.GetHitChance(actor, unit, ability) * value;
 		}
 
 		private static float GetHpRatio(BattleUnit unit)
