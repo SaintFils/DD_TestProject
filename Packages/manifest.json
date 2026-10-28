@@ -57,6 +57,7 @@
         "com.valhalla.public-getters-generator": "https://gitlab.com/valhalla-for-unity/public-getters-generator.git",
         "com.valhalla.source-generators": "https://gitlab.com/valhalla-for-unity/source-generators.git",
         "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
-        "com.cysharp.r3": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity#1.3.1"
+        "com.cysharp.r3": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity#1.3.1",
+        "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git?path=Packages/src#3.5.0"
     }
 }
