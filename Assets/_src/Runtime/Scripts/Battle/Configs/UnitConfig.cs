@@ -8,6 +8,9 @@ namespace DDTest.Battle
 	[CreateAssetMenu(menuName = "DDTest/Battle/Unit Config", fileName = "unit_")]
 	public partial class UnitConfig : ScriptableObject
 	{
+		public const int MaxAbilityCount = 3;
+
+
 		[SerializeField, GenPublicGetter]
 		private string _displayName;
 
@@ -26,11 +29,15 @@ namespace DDTest.Battle
 		[SerializeField, MinValue(0), GenPublicGetter]
 		private int _defense;
 
-		[SerializeField]
+		[SerializeField, ValidateInput(nameof(HasValidAbilityCount), "3 abilities max!")]
 		private List<AbilityConfig> _abilities = new();
 
 
 		public IReadOnlyList<AbilityConfig> Abilities
 			=> _abilities;
+
+
+		private bool HasValidAbilityCount()
+			=> _abilities.Count <= MaxAbilityCount;
 	}
 }
