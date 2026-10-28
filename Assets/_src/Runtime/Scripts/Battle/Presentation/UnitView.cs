@@ -54,6 +54,8 @@ namespace DDTest.Battle
 		private float _targetFrameAlpha;
 		private float _influenceFrameAlpha;
 		private Vector2 _bodyPosition;
+		private bool _isTargetable;
+		private bool _isInfluenced;
 
 
 		public BattleUnit Unit
@@ -87,10 +89,22 @@ namespace DDTest.Battle
 			=> FadeTo(_activityFrame, isActive ? __viewConfig.ActivityColor.a : 0f);
 
 		public void SetTargetable(bool isTargetable)
-			=> FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
+		{
+			if (_isTargetable == isTargetable)
+				return;
+
+			_isTargetable = isTargetable;
+			FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
+		}
 
 		public void SetInfluenced(bool isInfluenced)
-			=> FadeTo(_influenceFrame, isInfluenced ? _influenceFrameAlpha : 0f);
+		{
+			if (_isInfluenced == isInfluenced)
+				return;
+
+			_isInfluenced = isInfluenced;
+			FadeTo(_influenceFrame, isInfluenced ? _influenceFrameAlpha : 0f);
+		}
 
 		public UniTask PlayFocusAsync(CancellationToken cancellationToken)
 			=> PlayAsync(ScaleBody(__viewConfig.ParticipantScale), cancellationToken);
