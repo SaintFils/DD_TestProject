@@ -73,16 +73,17 @@ namespace DDTest.Battle
 			if (actor == null || !_rules.CanUse(actor, ability))
 				return;
 
-			if (ability.TargetSide == AbilityTargetSide.None)
-			{
-				Submit(new BattleCommand(actor, ability, null));
-
-				return;
-			}
-
 			_selectedAbility.Value = _selectedAbility.Value == ability ? null : ability;
 			SetHoveredTarget(null);
 			RefreshTargetableUnits();
+		}
+
+		public void Skip()
+		{
+			BattleUnit actor = _awaitingActor.Value;
+
+			if (actor != null)
+				Submit(BattleCommand.Skip(actor));
 		}
 
 		public void HoverTarget(BattleUnit unit)

@@ -2,7 +2,7 @@ namespace DDTest.Battle
 {
 	public enum ActionOutcome
 	{
-		NoEffect,
+		Skipped,
 		Hit,
 		Missed,
 		Healed

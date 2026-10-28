@@ -112,7 +112,7 @@ namespace DDTest.Tests
 
 			BattleCommand command = ChooseCommand(battle, battle.Left(1));
 
-			Assert.That(command.Ability, Is.SameAs(battle.Rules.SkipAbility));
+			Assert.That(command.IsSkip, Is.True);
 			Assert.That(command.Target, Is.Null);
 		}
 

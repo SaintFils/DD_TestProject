@@ -17,13 +17,13 @@ namespace DDTest.Battle
 		[SerializeField, GenPublicGetter]
 		private AbilityTargetSide _targetSide;
 
-		[SerializeField, HideIf(nameof(_targetSide), AbilityTargetSide.None), GenPublicGetter]
+		[SerializeField, GenPublicGetter]
 		private AbilityTargetFilter _targetFilter;
 
 		[SerializeField, GenPublicGetter]
 		private AbilityEffect _effect;
 
-		[SerializeField, HideIf(nameof(_effect), AbilityEffect.None), MinValue(0), GenPublicGetter]
+		[SerializeField, MinValue(0), GenPublicGetter]
 		private int _power;
 
 		[SerializeField, ShowIf(nameof(_effect), AbilityEffect.Damage), MinValue(0), GenPublicGetter]

@@ -41,7 +41,7 @@ namespace DDTest.Battle
 
 		private BattleCommand ChooseCommand(BattleUnit actor)
 		{
-			List<AbilityConfig> usableAbilities = _rules.GetAbilities(actor)
+			List<AbilityConfig> usableAbilities = actor.Abilities
 				.Where(ability => _rules.CanUse(actor, ability))
 				.ToList();
 
@@ -51,7 +51,7 @@ namespace DDTest.Battle
 			if (TryChooseAttack(actor, usableAbilities, out BattleCommand attack))
 				return attack;
 
-			return new BattleCommand(actor, _rules.SkipAbility, null);
+			return BattleCommand.Skip(actor);
 		}
 
 		private bool TryChooseHeal(BattleUnit actor, IEnumerable<AbilityConfig> abilities, out BattleCommand command)

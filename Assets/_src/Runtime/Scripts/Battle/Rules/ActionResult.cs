@@ -26,8 +26,8 @@ namespace DDTest.Battle
 		}
 
 
-		public static ActionResult NoEffect(BattleUnit actor, AbilityConfig ability, BattleUnit target)
-			=> new(actor, ability, target, ActionOutcome.NoEffect, 0, 1f);
+		public static ActionResult Skipped(BattleUnit actor)
+			=> new(actor, null, null, ActionOutcome.Skipped, 0, 1f);
 
 		public static ActionResult Hit(BattleUnit actor, AbilityConfig ability, BattleUnit target, int amount, float hitChance)
 			=> new(actor, ability, target, ActionOutcome.Hit, amount, hitChance);

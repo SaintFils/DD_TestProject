@@ -72,7 +72,7 @@ namespace DDTest.Battle
 				ActionOutcome.Hit => $"{Name(result.Actor)}: {Colorize("hits", __viewConfig.HitColor)} {Name(result.Target)} with {result.Ability.DisplayName} for {result.Amount} {HitChance(result)}",
 				ActionOutcome.Missed => $"{Name(result.Actor)}: {Colorize("misses", __viewConfig.LogMutedColor)} {Name(result.Target)} with {result.Ability.DisplayName} {HitChance(result)}",
 				ActionOutcome.Healed => $"{Name(result.Actor)}: {Colorize("heals", __viewConfig.HealColor)} {Name(result.Target)} with {result.Ability.DisplayName} for {result.Amount}",
-				_ => $"{Name(result.Actor)}: uses {result.Ability.DisplayName}"
+				_ => $"{Name(result.Actor)}: skips the turn"
 			};
 
 		private string Name(BattleUnit unit)

@@ -8,6 +8,9 @@ namespace DDTest.Battle
 
 		public BattleUnit Target { get; }
 
+		public bool IsSkip
+			=> Ability == null;
+
 
 		public BattleCommand(BattleUnit actor, AbilityConfig ability, BattleUnit target)
 		{
@@ -15,5 +18,9 @@ namespace DDTest.Battle
 			Ability = ability;
 			Target = target;
 		}
+
+
+		public static BattleCommand Skip(BattleUnit actor)
+			=> new(actor, null, null);
 	}
 }

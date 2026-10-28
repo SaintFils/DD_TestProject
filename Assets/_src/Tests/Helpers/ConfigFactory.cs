@@ -21,9 +21,6 @@ namespace DDTest.Tests
 		public AbilityConfig Heal(int power = 10)
 			=> Ability(AbilityTargetSide.Ally, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, power);
 
-		public AbilityConfig Skip()
-			=> Ability(AbilityTargetSide.None, AbilityTargetFilter.AnyLiving, AbilityEffect.None, 0);
-
 		public AbilityConfig Ability(AbilityTargetSide targetSide, AbilityTargetFilter targetFilter, AbilityEffect effect, int power, bool requiresFrontline = false, int frontlineAttackPenalty = 0)
 			=> Create<AbilityConfig>(serialized =>
 			{
@@ -56,17 +53,12 @@ namespace DDTest.Tests
 			});
 
 		public BattleConfig Battle(TeamConfig leftTeam, TeamConfig rightTeam, bool reshuffleEqualSpeedEachRound = false)
-		{
-			AbilityConfig skip = Skip();
-
-			return Create<BattleConfig>(serialized =>
+			=> Create<BattleConfig>(serialized =>
 			{
 				serialized.FindProperty("_leftTeam").objectReferenceValue = leftTeam;
 				serialized.FindProperty("_rightTeam").objectReferenceValue = rightTeam;
 				serialized.FindProperty("_reshuffleEqualSpeedEachRound").boolValue = reshuffleEqualSpeedEachRound;
-				serialized.FindProperty("_skipAbility").objectReferenceValue = skip;
 			});
-		}
 
 		public AiConfig Ai(float healThreshold = 0.5f, float killBonus = 0f, float targetTolerance = 0f)
 			=> Create<AiConfig>(serialized =>

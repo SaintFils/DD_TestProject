@@ -2,8 +2,7 @@ namespace DDTest.Battle
 {
 	public enum AbilityTargetSide
 	{
-		None,
-		Enemy,
-		Ally
+		Enemy = 1,
+		Ally = 2
 	}
 }

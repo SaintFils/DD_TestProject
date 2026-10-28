@@ -166,16 +166,23 @@ namespace DDTest.Tests
 		}
 
 		[Test]
-		public void Skip_IsAvailableToEveryone_AndHasNoTargets()
+		public void Resolve_ReturnsSkipped_WhenUnitSkipsTheTurn()
 		{
 			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit()), _configs.Team(_configs.Unit())));
-			AbilityConfig skip = battle.Config.SkipAbility;
 
-			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(1), skip, null));
+			ActionResult result = battle.Rules.Resolve(BattleCommand.Skip(battle.Left(1)));
 
-			Assert.That(battle.Rules.GetAbilities(battle.Left(1)), Has.Member(skip));
-			Assert.That(battle.Rules.GetTargets(battle.Left(1), skip), Is.Empty);
-			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.NoEffect));
+			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.Skipped));
+			Assert.That(result.Target, Is.Null);
+		}
+
+		[Test]
+		public void Resolve_Throws_WhenActorIsDead()
+		{
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit()), _configs.Team(_configs.Unit())));
+			battle.Kill(battle.Left(1));
+
+			Assert.Throws<InvalidOperationException>(() => battle.Rules.Resolve(BattleCommand.Skip(battle.Left(1))));
 		}
 
 		[Test]
@@ -194,18 +201,6 @@ namespace DDTest.Tests
 			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit()), _configs.Team(_configs.Unit())));
 
 			Assert.Throws<InvalidOperationException>(() => battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0))));
-		}
-
-		[Test]
-		public void GetAbilities_ReturnsUnitAbilitiesAndSkip()
-		{
-			AbilityConfig melee = _configs.Melee();
-			AbilityConfig ranged = _configs.Ranged();
-			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { melee, ranged })), _configs.Team(_configs.Unit())));
-
-			AbilityConfig[] abilities = battle.Rules.GetAbilities(battle.Left(0)).ToArray();
-
-			Assert.That(abilities, Is.EqualTo(new[] { melee, ranged, battle.Config.SkipAbility }));
 		}
 	}
 }

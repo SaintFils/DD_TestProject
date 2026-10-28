@@ -12,10 +12,6 @@ namespace DDTest.Battle
 		private readonly IRandom _random;
 
 
-		public AbilityConfig SkipAbility
-			=> _config.SkipAbility;
-
-
 		public BattleRules(BattleState battle, BattleConfig config, IRandom random)
 		{
 			_battle = battle;
@@ -23,9 +19,6 @@ namespace DDTest.Battle
 			_random = random;
 		}
 
-
-		public IEnumerable<AbilityConfig> GetAbilities(BattleUnit actor)
-			=> actor.Abilities.Append(_config.SkipAbility);
 
 		public bool CanUse(BattleUnit actor, AbilityConfig ability)
 		{
@@ -35,14 +28,11 @@ namespace DDTest.Battle
 			if (ability.RequiresFrontline && !IsFrontline(actor))
 				return false;
 
-			return ability.TargetSide == AbilityTargetSide.None || GetTargets(actor, ability).Count > 0;
+			return GetTargets(actor, ability).Count > 0;
 		}
 
 		public IReadOnlyList<BattleUnit> GetTargets(BattleUnit actor, AbilityConfig ability)
 		{
-			if (ability.TargetSide == AbilityTargetSide.None)
-				return Array.Empty<BattleUnit>();
-
 			BattleSide side = ability.TargetSide == AbilityTargetSide.Enemy
 				? _battle.GetOpposingSide(actor.Side)
 				: _battle.GetSide(actor.Side);
@@ -67,16 +57,14 @@ namespace DDTest.Battle
 			AbilityConfig ability = command.Ability;
 			BattleUnit target = command.Target;
 
-			if (!GetAbilities(actor).Contains(ability) || !CanUse(actor, ability))
+			if (!actor.IsAlive)
+				throw new InvalidOperationException($"{actor} is dead and can't act");
+
+			if (command.IsSkip)
+				return ActionResult.Skipped(actor);
+
+			if (!actor.Abilities.Contains(ability) || !CanUse(actor, ability))
 				throw new InvalidOperationException($"{actor} can't use {ability.DisplayName}");
-
-			if (ability.TargetSide == AbilityTargetSide.None)
-			{
-				if (target != null)
-					throw new InvalidOperationException($"{ability.DisplayName} doesn't affect a target");
-
-				return ActionResult.NoEffect(actor, ability, null);
-			}
 
 			if (!GetTargets(actor, ability).Contains(target))
 				throw new InvalidOperationException($"{target} is not a valid target of {ability.DisplayName} for {actor}");
@@ -85,7 +73,7 @@ namespace DDTest.Battle
 			{
 				AbilityEffect.Damage => ResolveDamage(actor, ability, target),
 				AbilityEffect.Heal => ActionResult.Healed(actor, ability, target, Math.Min(ability.Power, target.MaxHp - target.Hp.CurrentValue)),
-				_ => ActionResult.NoEffect(actor, ability, target)
+				_ => throw new ArgumentOutOfRangeException(nameof(command), ability.Effect, $"{ability.DisplayName} has an unknown effect")
 			};
 		}
 
