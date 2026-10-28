@@ -110,6 +110,48 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void HitChance_AppliesPenalty_OnlyAtConfiguredPosition()
+		{
+			AbilityConfig shot = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.AnyLiving, AbilityEffect.Damage, 10, attackPenalty: 3, attackPenaltyPosition: UnitPosition.Back);
+			UnitConfig archer = _configs.Unit(new[] { shot }, attack: 5);
+			TestBattle battle = new(_configs.Battle(_configs.Team(archer, archer), _configs.Team(_configs.Unit(defense: 5))));
+			float expectedPenalty = 3 * battle.Config.HitChancePerPoint;
+
+			float frontChance = battle.Rules.GetHitChance(battle.Left(0), battle.Right(0), shot);
+			float backChance = battle.Rules.GetHitChance(battle.Left(1), battle.Right(0), shot);
+
+			Assert.That(frontChance - backChance, Is.EqualTo(expectedPenalty).Within(Tolerance));
+		}
+
+		[Test]
+		public void BackPositionRequirement_AllowsOnlyBacklineUnit()
+		{
+			AbilityConfig snipe = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.AnyLiving, AbilityEffect.Damage, 10, actorPosition: UnitPosition.Back);
+			UnitConfig sniper = _configs.Unit(new[] { snipe });
+			TestBattle battle = new(_configs.Battle(_configs.Team(sniper, sniper, sniper), _configs.Team(_configs.Unit())));
+
+			Assert.That(battle.Rules.CanUse(battle.Left(1), snipe), Is.False);
+			Assert.That(battle.Rules.CanUse(battle.Left(2), snipe), Is.True);
+
+			battle.Kill(battle.Left(2));
+
+			Assert.That(battle.Rules.CanUse(battle.Left(1), snipe), Is.True);
+		}
+
+		[Test]
+		public void BackPlacement_TargetsLastLivingEnemy()
+		{
+			AbilityConfig snipe = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, 10, targetPosition: UnitPosition.Back);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { snipe })), _configs.Team(_configs.Unit(), _configs.Unit(), _configs.Unit())));
+
+			Assert.That(battle.Rules.GetTargets(battle.Left(0), snipe), Is.EqualTo(new[] { battle.Right(2) }));
+
+			battle.Kill(battle.Right(2));
+
+			Assert.That(battle.Rules.GetTargets(battle.Left(0), snipe), Is.EqualTo(new[] { battle.Right(1) }));
+		}
+
+		[Test]
 		public void Resolve_Misses_WhenRollIsNotBelowHitChance()
 		{
 			AbilityConfig melee = _configs.Melee();
@@ -118,7 +160,7 @@ namespace DDTest.Tests
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
 
-			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.Missed));
+			Assert.That(result.Effects.Single().Outcome, Is.EqualTo(ActionOutcome.Missed));
 			Assert.That(battle.Right(0).Hp.CurrentValue, Is.EqualTo(battle.Right(0).MaxHp));
 		}
 
@@ -131,7 +173,7 @@ namespace DDTest.Tests
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), melee, battle.Right(0)));
 			battle.State.Apply(result);
 
-			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.Hit));
+			Assert.That(result.Effects.Single().Outcome, Is.EqualTo(ActionOutcome.Hit));
 			Assert.That(battle.Right(0).Hp.CurrentValue, Is.EqualTo(12));
 		}
 
@@ -160,8 +202,8 @@ namespace DDTest.Tests
 			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(1), heal, battle.Left(0)));
 			battle.State.Apply(result);
 
-			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.Healed));
-			Assert.That(result.Amount, Is.EqualTo(5));
+			Assert.That(result.Effects.Single().Outcome, Is.EqualTo(ActionOutcome.Healed));
+			Assert.That(result.Effects.Single().Amount, Is.EqualTo(5));
 			Assert.That(battle.Left(0).Hp.CurrentValue, Is.EqualTo(20));
 		}
 
@@ -172,8 +214,8 @@ namespace DDTest.Tests
 
 			ActionResult result = battle.Rules.Resolve(BattleCommand.Skip(battle.Left(1)));
 
-			Assert.That(result.Outcome, Is.EqualTo(ActionOutcome.Skipped));
-			Assert.That(result.Target, Is.Null);
+			Assert.That(result.IsSkip, Is.True);
+			Assert.That(result.Effects, Is.Empty);
 		}
 
 		[Test]

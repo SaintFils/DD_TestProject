@@ -25,7 +25,7 @@ namespace DDTest.Battle
 			if (!actor.IsAlive)
 				return false;
 
-			if (ability.RequiresFrontline && !IsFrontline(actor))
+			if (ability.HasPositionRequirement && !_battle.GetSide(actor.Side).IsAt(actor, ability.ActorPosition))
 				return false;
 
 			return GetTargets(actor, ability).Count > 0;
@@ -37,15 +37,22 @@ namespace DDTest.Battle
 				? _battle.GetOpposingSide(actor.Side)
 				: _battle.GetSide(actor.Side);
 
-			if (ability.TargetFilter == AbilityTargetFilter.Frontline)
-				return side.Frontline != null ? new[] { side.Frontline } : Array.Empty<BattleUnit>();
+			if (ability.TargetFilter == AbilityTargetFilter.Placement)
+			{
+				BattleUnit unit = side.GetUnitAt(ability.TargetPosition);
+
+				return unit != null ? new[] { unit } : Array.Empty<BattleUnit>();
+			}
 
 			return side.Units.Where(unit => unit.IsAlive).ToList();
 		}
 
+		public IReadOnlyList<BattleUnit> GetAffectedUnits(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+			=> new[] { target };
+
 		public float GetHitChance(BattleUnit actor, BattleUnit target, AbilityConfig ability)
 		{
-			int attack = IsFrontline(actor) ? actor.Attack - ability.FrontlineAttackPenalty : actor.Attack;
+			int attack = HasAttackPenalty(actor, ability) ? actor.Attack - ability.AttackPenalty : actor.Attack;
 			float chance = _config.BaseHitChance + (attack - target.Defense) * _config.HitChancePerPoint;
 
 			return Math.Clamp(chance, _config.MinHitChance, _config.MaxHitChance);
@@ -61,7 +68,7 @@ namespace DDTest.Battle
 				throw new InvalidOperationException($"{actor} is dead and can't act");
 
 			if (command.IsSkip)
-				return ActionResult.Skipped(actor);
+				return ActionResult.Skip(actor);
 
 			if (!actor.Abilities.Contains(ability) || !CanUse(actor, ability))
 				throw new InvalidOperationException($"{actor} can't use {ability.DisplayName}");
@@ -69,25 +76,32 @@ namespace DDTest.Battle
 			if (!GetTargets(actor, ability).Contains(target))
 				throw new InvalidOperationException($"{target} is not a valid target of {ability.DisplayName} for {actor}");
 
-			return ability.Effect switch
-			{
-				AbilityEffect.Damage => ResolveDamage(actor, ability, target),
-				AbilityEffect.Heal => ActionResult.Healed(actor, ability, target, Math.Min(ability.Power, target.MaxHp - target.Hp.CurrentValue)),
-				_ => throw new ArgumentOutOfRangeException(nameof(command), ability.Effect, $"{ability.DisplayName} has an unknown effect")
-			};
+			List<ActionEffect> effects = GetAffectedUnits(actor, ability, target)
+				.Select(unit => ResolveEffect(actor, ability, unit))
+				.ToList();
+
+			return new ActionResult(actor, ability, target, effects);
 		}
 
-		private ActionResult ResolveDamage(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+		private ActionEffect ResolveEffect(BattleUnit actor, AbilityConfig ability, BattleUnit target)
+			=> ability.Effect switch
+			{
+				AbilityEffect.Damage => ResolveDamage(actor, ability, target),
+				AbilityEffect.Heal => ActionEffect.Healed(target, Math.Min(ability.Power, target.MaxHp - target.Hp.CurrentValue)),
+				_ => throw new ArgumentOutOfRangeException(nameof(ability), ability.Effect, $"{ability.DisplayName} has an unknown effect")
+			};
+
+		private ActionEffect ResolveDamage(BattleUnit actor, AbilityConfig ability, BattleUnit target)
 		{
 			float hitChance = GetHitChance(actor, target, ability);
 
 			if (_random.NextDouble() >= hitChance)
-				return ActionResult.Missed(actor, ability, target, hitChance);
+				return ActionEffect.Missed(target, hitChance);
 
-			return ActionResult.Hit(actor, ability, target, Math.Min(ability.Power, target.Hp.CurrentValue), hitChance);
+			return ActionEffect.Hit(target, Math.Min(ability.Power, target.Hp.CurrentValue), hitChance);
 		}
 
-		private bool IsFrontline(BattleUnit unit)
-			=> _battle.GetSide(unit.Side).Frontline == unit;
+		private bool HasAttackPenalty(BattleUnit actor, AbilityConfig ability)
+			=> ability.AttackPenalty > 0 && _battle.GetSide(actor.Side).IsAt(actor, ability.AttackPenaltyPosition);
 	}
 }

@@ -126,7 +126,9 @@ namespace DDTest.Battle
 		private void SetHoveredTarget(BattleUnit unit)
 		{
 			_hoveredTarget = unit;
-			_affectedUnits.Value = unit != null ? new[] { unit } : Array.Empty<BattleUnit>();
+			_affectedUnits.Value = unit != null
+				? _rules.GetAffectedUnits(_awaitingActor.Value, _selectedAbility.Value, unit)
+				: Array.Empty<BattleUnit>();
 		}
 
 		private bool IsSelectableTarget(BattleUnit unit)
