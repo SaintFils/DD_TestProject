@@ -8,7 +8,7 @@ namespace DDTest.Menu
 	public sealed class TeamSelection
 	{
 		private readonly TeamDraft _left = new();
-		private readonly TeamDraft _right = new();
+		private readonly TeamDraft _right = new() { IsAi = true };
 
 
 		public bool CanPlay

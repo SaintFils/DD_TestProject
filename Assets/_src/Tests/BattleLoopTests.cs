@@ -29,7 +29,7 @@ namespace DDTest.Tests
 			TestBattle battle = CreateHeroAgainstTwoBandits();
 			RecordingBattlePresenter presenter = new();
 
-			BattleSideId winner = CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
+			BattleSideId? winner = CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
 
 			Assert.That(winner, Is.EqualTo(BattleSideId.Left));
 			Assert.That(presenter.Rounds, Is.EqualTo(new[] { 1, 2 }));
@@ -43,7 +43,35 @@ namespace DDTest.Tests
 
 			CreateLoop(battle, presenter).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
 
-			Assert.That(presenter.Winners, Is.EqualTo(new[] { BattleSideId.Left }));
+			Assert.That(presenter.Winners, Is.EqualTo(new BattleSideId?[] { BattleSideId.Left }));
+		}
+
+		[Test]
+		public void RunAsync_EndsInDraw_WhenRoundLimitIsReached()
+		{
+			TestBattle battle = CreateHeroAgainstTwoBandits();
+			RecordingBattlePresenter presenter = new();
+			ScriptedController skipper = new(BattleCommand.Skip);
+
+			BattleSideId? winner = battle.CreateLoop(skipper, skipper, presenter, roundLimit: 3).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
+
+			Assert.That(winner, Is.Null);
+			Assert.That(presenter.Rounds, Is.EqualTo(new[] { 1, 2, 3 }));
+			Assert.That(presenter.Winners, Is.EqualTo(new BattleSideId?[] { null }));
+			Assert.That(battle.State.IsFinished, Is.True);
+		}
+
+		[Test]
+		public void RunAsync_ReturnsWinner_WhenSideIsDefeatedInLastAllowedRound()
+		{
+			TestBattle battle = CreateHeroAgainstTwoBandits();
+			RecordingBattlePresenter presenter = new();
+
+			BattleSideId? winner = CreateLoop(battle, presenter, roundLimit: 2).RunAsync(CancellationToken.None).GetAwaiter().GetResult();
+
+			Assert.That(winner, Is.EqualTo(BattleSideId.Left));
+			Assert.That(presenter.Rounds, Is.EqualTo(new[] { 1, 2 }));
+			Assert.That(presenter.Winners, Is.EqualTo(new BattleSideId?[] { BattleSideId.Left }));
 		}
 
 		[Test]
@@ -88,11 +116,11 @@ namespace DDTest.Tests
 			return new TestBattle(_configs.Battle(_configs.Team(hero), _configs.Team(bandit, bandit)), new StubRandom(nextDouble: 0));
 		}
 
-		private BattleLoop CreateLoop(TestBattle battle, IBattlePresenter presenter)
+		private BattleLoop CreateLoop(TestBattle battle, IBattlePresenter presenter, int roundLimit = int.MaxValue)
 		{
 			ScriptedController hero = new(actor => new BattleCommand(actor, _strike, battle.State.RightSide.Frontline));
 
-			return battle.CreateLoop(hero, new AiController(battle.Rules, _configs.Ai(), battle.Random), presenter);
+			return battle.CreateLoop(hero, new AiController(battle.Rules, _configs.Ai(), battle.Random), presenter, roundLimit);
 		}
 	}
 }

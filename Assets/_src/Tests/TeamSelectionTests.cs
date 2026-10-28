@@ -108,6 +108,15 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void Controllers_DefaultToPlayerAgainstAi()
+		{
+			TeamSelection selection = new();
+
+			Assert.That(selection.Get(BattleSideId.Left).IsAi, Is.False);
+			Assert.That(selection.Get(BattleSideId.Right).IsAi, Is.True);
+		}
+
+		[Test]
 		public void ToBattleTeams_ReturnsSlotsOfBothSides()
 		{
 			TeamSelection selection = new();

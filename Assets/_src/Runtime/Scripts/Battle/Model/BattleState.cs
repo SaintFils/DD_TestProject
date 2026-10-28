@@ -5,6 +5,9 @@ namespace DDTest.Battle
 {
 	public sealed class BattleState
 	{
+		private bool _isDraw;
+
+
 		public BattleSide LeftSide { get; }
 
 		public BattleSide RightSide { get; }
@@ -12,13 +15,13 @@ namespace DDTest.Battle
 		public InitiativeQueue Queue { get; }
 
 		public bool IsFinished
-			=> !LeftSide.HasLivingUnits || !RightSide.HasLivingUnits;
+			=> _isDraw || !LeftSide.HasLivingUnits || !RightSide.HasLivingUnits;
 
 		public BattleSideId? Winner
 		{
 			get
 			{
-				if (!IsFinished)
+				if (_isDraw || !IsFinished)
 					return null;
 				else
 					return LeftSide.HasLivingUnits ? BattleSideId.Left : BattleSideId.Right;
@@ -39,6 +42,9 @@ namespace DDTest.Battle
 
 		public BattleSide GetOpposingSide(BattleSideId id)
 			=> id == BattleSideId.Left ? RightSide : LeftSide;
+
+		public void DeclareDraw()
+			=> _isDraw = true;
 
 		public void Apply(ActionResult result)
 		{

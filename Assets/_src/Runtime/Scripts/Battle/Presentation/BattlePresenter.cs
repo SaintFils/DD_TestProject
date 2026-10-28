@@ -61,9 +61,9 @@ namespace DDTest.Battle
 			await UniTask.WhenAll(GetParticipants(result).Select(view => PlayAftermathAsync(view, cancellationToken)));
 		}
 
-		public UniTask PlayBattleEndAsync(BattleSideId winner, CancellationToken cancellationToken)
+		public UniTask PlayBattleEndAsync(BattleSideId? winner, CancellationToken cancellationToken)
 		{
-			_log.AddWinner(winner);
+			_log.AddResult(winner);
 
 			return _result.ShowAsync(winner, cancellationToken);
 		}

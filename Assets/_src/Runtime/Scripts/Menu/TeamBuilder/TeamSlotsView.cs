@@ -1,6 +1,7 @@
 using DDTest.Battle;
 using NaughtyAttributes;
 using R3;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,10 @@ namespace DDTest.Menu
 {
 	public class TeamSlotsView : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 	{
+		private const string PlayerName = "Player";
+		private const string AiName = "Steve";
+
+
 		[Inject]
 		private readonly TeamSelection __selection;
 
@@ -25,6 +30,12 @@ namespace DDTest.Menu
 
 		[SerializeField, Required]
 		private Image _highlightFrame;
+
+		[SerializeField, Required]
+		private Toggle _aiToggle;
+
+		[SerializeField, Required]
+		private TMP_Text _controllerLabel;
 
 
 		private TeamDraft _draft;
@@ -52,6 +63,12 @@ namespace DDTest.Menu
 				.Subscribe(_ => RefreshHighlight())
 				.AddTo(this);
 
+			_aiToggle.SetIsOnWithoutNotify(_draft.IsAi);
+
+			_aiToggle.OnValueChangedAsObservable()
+				.Subscribe(SetAi)
+				.AddTo(this);
+
 			Refresh();
 		}
 
@@ -74,6 +91,12 @@ namespace DDTest.Menu
 		{
 			_isPointerOver = false;
 			RefreshHighlight();
+		}
+
+		private void SetAi(bool isAi)
+		{
+			_draft.IsAi = isAi;
+			_controllerLabel.text = isAi ? AiName : PlayerName;
 		}
 
 		private void Refresh()

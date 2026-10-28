@@ -24,6 +24,8 @@ namespace DDTest.Menu
 		public Observable<Unit> Changed
 			=> _changed;
 
+		public bool IsAi { get; set; }
+
 
 		public bool TryAdd(UnitConfig unit)
 		{

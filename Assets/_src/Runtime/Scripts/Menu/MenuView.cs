@@ -43,7 +43,7 @@ namespace DDTest.Menu
 				.AddTo(this);
 
 			_quickBattleButton.OnClickAsObservable()
-				.Subscribe(_ => StartBattle(null))
+				.Subscribe(_ => StartBattle(null, isLeftAi: false, isRightAi: true))
 				.AddTo(this);
 
 			_quitButton.OnClickAsObservable()
@@ -55,7 +55,7 @@ namespace DDTest.Menu
 				.AddTo(this);
 
 			_teamBuilder.PlayClicked
-				.Subscribe(_ => StartBattle(__teamSelection.ToBattleTeams()))
+				.Subscribe(_ => StartCustomBattle())
 				.AddTo(this);
 
 			SetTeamBuilderShown(false);
@@ -68,10 +68,20 @@ namespace DDTest.Menu
 			_teamBuilder.gameObject.SetActive(isShown);
 		}
 
-		private void StartBattle(BattleTeams teams)
+		private void StartCustomBattle()
+		{
+			bool isLeftAi = __teamSelection.Get(BattleSideId.Left).IsAi;
+			bool isRightAi = __teamSelection.Get(BattleSideId.Right).IsAi;
+
+			StartBattle(__teamSelection.ToBattleTeams(), isLeftAi, isRightAi);
+		}
+
+		private void StartBattle(BattleTeams teams, bool isLeftAi, bool isRightAi)
 		{
 			__battleLaunch.Seed = null;
 			__battleLaunch.Teams = teams;
+			__battleLaunch.IsLeftAi = isLeftAi;
+			__battleLaunch.IsRightAi = isRightAi;
 			__navigator.LoadBattle();
 		}
 

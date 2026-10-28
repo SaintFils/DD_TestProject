@@ -36,8 +36,13 @@ namespace DDTest.Battle
 		public void AddDeath(BattleUnit unit)
 			=> AddLine($"{Name(unit)}: dies", _linePrefab.color);
 
-		public void AddWinner(BattleSideId winner)
-			=> AddLine($"{Colorize($"{winner} side", __viewConfig.GetSideColor(winner))} wins", _linePrefab.color);
+		public void AddResult(BattleSideId? winner)
+		{
+			if (winner.HasValue)
+				AddLine($"{Colorize($"{winner.Value} side", __viewConfig.GetSideColor(winner.Value))} wins", _linePrefab.color);
+			else
+				AddLine("Draw: round limit reached", _linePrefab.color);
+		}
 
 		private void AddLine(string text, Color color)
 		{
