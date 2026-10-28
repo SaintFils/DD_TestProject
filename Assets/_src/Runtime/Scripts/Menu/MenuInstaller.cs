@@ -15,6 +15,9 @@ namespace DDTest.Menu
 		[SerializeField, Required]
 		private RosterCardView _rosterCardPrefab;
 
+		[SerializeField, Required]
+		private DragGhostView _dragGhostView;
+
 
 		public override void InstallBindings()
 		{
@@ -22,6 +25,12 @@ namespace DDTest.Menu
 
 			Container.Bind<IRandom>()
 				.FromInstance(new SystemRandom(Environment.TickCount));
+
+			Container.Bind<UnitDrag>()
+				.AsSingle();
+
+			Container.Bind<DragGhostView>()
+				.FromInstance(_dragGhostView);
 
 			Container.BindFactory<UnitConfig, RosterCardView, RosterCardView.Factory>()
 				.FromComponentInNewPrefab(_rosterCardPrefab);

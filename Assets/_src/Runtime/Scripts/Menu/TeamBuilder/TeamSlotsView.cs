@@ -1,14 +1,20 @@
 using DDTest.Battle;
+using NaughtyAttributes;
 using R3;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 namespace DDTest.Menu
 {
-	public class TeamSlotsView : MonoBehaviour
+	public class TeamSlotsView : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 	{
 		[Inject]
 		private readonly TeamSelection __selection;
+
+		[Inject]
+		private readonly UnitDrag __drag;
 
 
 		[SerializeField]
@@ -17,8 +23,12 @@ namespace DDTest.Menu
 		[SerializeField]
 		private TeamSlotView[] _slots = new TeamSlotView[TeamConfig.SlotCount];
 
+		[SerializeField, Required]
+		private Image _highlightFrame;
+
 
 		private TeamDraft _draft;
+		private bool _isPointerOver;
 
 
 		private void Awake()
@@ -38,14 +48,43 @@ namespace DDTest.Menu
 				.Subscribe(_ => Refresh())
 				.AddTo(this);
 
+			__drag.Unit
+				.Subscribe(_ => RefreshHighlight())
+				.AddTo(this);
+
 			Refresh();
 		}
 
+
+		public void OnDrop(PointerEventData eventData)
+		{
+			UnitConfig unit = __drag.Unit.CurrentValue;
+
+			if (unit != null)
+				_draft.TryAdd(unit);
+		}
+
+		public void OnPointerEnter(PointerEventData eventData)
+		{
+			_isPointerOver = true;
+			RefreshHighlight();
+		}
+
+		public void OnPointerExit(PointerEventData eventData)
+		{
+			_isPointerOver = false;
+			RefreshHighlight();
+		}
 
 		private void Refresh()
 		{
 			for (int slotIndex = 0; slotIndex < _slots.Length; slotIndex++)
 				_slots[slotIndex].Show(_draft.Slots[slotIndex]);
+
+			RefreshHighlight();
 		}
+
+		private void RefreshHighlight()
+			=> _highlightFrame.enabled = _isPointerOver && __drag.Unit.CurrentValue != null && _draft.HasEmptySlots;
 	}
 }

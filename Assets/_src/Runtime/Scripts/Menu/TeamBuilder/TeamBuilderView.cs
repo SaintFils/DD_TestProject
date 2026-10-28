@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DDTest.Battle;
 using DDTest.Infrastructure;
 using NaughtyAttributes;
@@ -39,6 +40,10 @@ namespace DDTest.Menu
 		private Button _playButton;
 
 
+		private readonly List<RosterCardView> _cards = new();
+		private RosterCardView _selectedCard;
+
+
 		public Observable<Unit> BackClicked
 			=> _backButton.OnClickAsObservable();
 
@@ -52,9 +57,10 @@ namespace DDTest.Menu
 			{
 				RosterCardView card = __rosterCardFactory.Create(unit);
 				card.transform.SetParent(_rosterGrid, false);
+				_cards.Add(card);
 
 				card.Clicked
-					.Subscribe(_unitInfo.Show)
+					.Subscribe(_ => Select(card))
 					.AddTo(this);
 			}
 
@@ -69,6 +75,22 @@ namespace DDTest.Menu
 			RefreshButtons();
 		}
 
+		private void Start()
+		{
+			if (_cards.Count > 0)
+				Select(_cards[0]);
+		}
+
+
+		private void Select(RosterCardView card)
+		{
+			if (_selectedCard != null)
+				_selectedCard.SetSelected(false);
+
+			_selectedCard = card;
+			_selectedCard.SetSelected(true);
+			_unitInfo.Show(card.Unit);
+		}
 
 		private void RefreshButtons()
 		{
