@@ -132,6 +132,6 @@ namespace DDTest.Battle
 		}
 
 		private bool HasAttackPenalty(BattleUnit actor, AbilityConfig ability)
-			=> ability.AttackPenalty > 0 && _battle.GetSide(actor.Side).IsAt(actor, ability.AttackPenaltyPosition);
+			=> ability.AttackPenalty > 0 && !ability.HasPositionRequirement && _battle.GetSide(actor.Side).IsAt(actor, ability.AttackPenaltyPosition);
 	}
 }

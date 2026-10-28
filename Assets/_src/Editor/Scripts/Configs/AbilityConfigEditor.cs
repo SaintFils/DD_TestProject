@@ -51,7 +51,7 @@ namespace DDTest.Editor.Configs
 		{
 			string effect = $"{ability.Effect} {ability.Power}";
 
-			if (ability.Effect != AbilityEffect.Damage || ability.AttackPenalty == 0)
+			if (ability.Effect != AbilityEffect.Damage || ability.HasPositionRequirement || ability.AttackPenalty == 0)
 				return effect;
 
 			return $"{effect}, attack penalty {ability.AttackPenalty} at {ability.AttackPenaltyPosition}";

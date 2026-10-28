@@ -40,7 +40,7 @@ namespace DDTest.Battle
 		[SerializeField, MinValue(0), GenPublicGetter]
 		private int _power;
 
-		[SerializeField, ShowIf(nameof(_effect), AbilityEffect.Damage), MinValue(0), GenPublicGetter]
+		[SerializeField, ShowIf(nameof(CanHaveAttackPenalty)), MinValue(0), GenPublicGetter]
 		private int _attackPenalty;
 
 		[SerializeField, ShowIf(nameof(HasAttackPenalty)), GenPublicGetter]
@@ -53,7 +53,10 @@ namespace DDTest.Battle
 		private bool HasAoeDepth()
 			=> _aoe is AbilityAoe.Behind or AbilityAoe.InFront or AbilityAoe.Around;
 
+		private bool CanHaveAttackPenalty()
+			=> _effect == AbilityEffect.Damage && !_hasPositionRequirement;
+
 		private bool HasAttackPenalty()
-			=> _effect == AbilityEffect.Damage && _attackPenalty > 0;
+			=> CanHaveAttackPenalty() && _attackPenalty > 0;
 	}
 }

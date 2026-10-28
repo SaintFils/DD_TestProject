@@ -124,6 +124,17 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void HitChance_IgnoresPenalty_WhenAbilityRequiresActorPosition()
+		{
+			AbilityConfig strike = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, 10, actorPosition: UnitPosition.Front, attackPenalty: 3, attackPenaltyPosition: UnitPosition.Back);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { strike }, attack: 5)), _configs.Team(_configs.Unit(defense: 5))));
+
+			float chance = battle.Rules.GetHitChance(battle.Left(0), battle.Right(0), strike);
+
+			Assert.That(chance, Is.EqualTo(battle.Config.BaseHitChance).Within(Tolerance));
+		}
+
+		[Test]
 		public void BackPositionRequirement_AllowsOnlyBacklineUnit()
 		{
 			AbilityConfig snipe = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.AnyLiving, AbilityEffect.Damage, 10, actorPosition: UnitPosition.Back);
