@@ -21,7 +21,7 @@ namespace DDTest.Tests
 
 			Config = config;
 			Random = random;
-			State = new BattleState(config, random);
+			State = new BattleState(config, new BattleTeams(config.LeftTeam.Slots, config.RightTeam.Slots), random);
 			Rules = new BattleRules(State, config, random);
 		}
 

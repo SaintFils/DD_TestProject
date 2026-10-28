@@ -1,5 +1,6 @@
 using DDTest.Battle;
 using DDTest.Infrastructure;
+using DDTest.Menu;
 using Zenject;
 
 namespace DDTest
@@ -12,6 +13,9 @@ namespace DDTest
 				.AsSingle();
 
 			Container.Bind<BattleLaunch>()
+				.AsSingle();
+
+			Container.Bind<TeamSelection>()
 				.AsSingle();
 		}
 	}

@@ -23,20 +23,20 @@ namespace DDTest.Battle
 			=> _units.Exists(unit => unit.IsAlive);
 
 
-		public BattleSide(BattleSideId id, TeamConfig team)
+		public BattleSide(BattleSideId id, IReadOnlyList<UnitConfig> slots)
 		{
 			Id = id;
 
-			for (int slotIndex = 0; slotIndex < team.Slots.Count; slotIndex++)
+			for (int slotIndex = 0; slotIndex < slots.Count; slotIndex++)
 			{
-				UnitConfig unitConfig = team.Slots[slotIndex];
+				UnitConfig unitConfig = slots[slotIndex];
 
 				if (unitConfig != null)
 					_units.Add(new BattleUnit(unitConfig, id, slotIndex));
 			}
 
 			if (_units.Count == 0)
-				throw new ArgumentException($"Team {team.name} for the {id} side has no units", nameof(team));
+				throw new ArgumentException($"The {id} side has no units", nameof(slots));
 		}
 
 

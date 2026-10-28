@@ -26,10 +26,10 @@ namespace DDTest.Battle
 		}
 
 
-		public BattleState(BattleConfig config, IRandom random)
+		public BattleState(BattleConfig config, BattleTeams teams, IRandom random)
 		{
-			LeftSide = new BattleSide(BattleSideId.Left, config.LeftTeam);
-			RightSide = new BattleSide(BattleSideId.Right, config.RightTeam);
+			LeftSide = new BattleSide(BattleSideId.Left, teams.Left);
+			RightSide = new BattleSide(BattleSideId.Right, teams.Right);
 			Queue = new InitiativeQueue(LeftSide.Units.Concat(RightSide.Units).ToList(), random, config.ReshuffleEqualSpeedEachRound);
 		}
 

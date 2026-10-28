@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using DDTest.Battle;
 using NUnit.Framework;
 
@@ -63,9 +64,19 @@ namespace DDTest.Tests
 		[Test]
 		public void Constructor_Throws_WhenTeamHasNoUnits()
 		{
-			TeamConfig emptyTeam = _configs.Team();
+			UnitConfig[] emptySlots = new UnitConfig[TeamConfig.SlotCount];
 
-			Assert.Throws<ArgumentException>(() => new BattleSide(BattleSideId.Left, emptyTeam));
+			Assert.Throws<ArgumentException>(() => new BattleSide(BattleSideId.Left, emptySlots));
+		}
+
+		[Test]
+		public void Constructor_KeepsSlotIndices_WhenSlotsHaveGaps()
+		{
+			UnitConfig[] slots = { null, _configs.Unit(), null, _configs.Unit() };
+
+			BattleSide side = new(BattleSideId.Left, slots);
+
+			Assert.That(side.Units.Select(unit => unit.SlotIndex), Is.EqualTo(new[] { 1, 3 }));
 		}
 	}
 }

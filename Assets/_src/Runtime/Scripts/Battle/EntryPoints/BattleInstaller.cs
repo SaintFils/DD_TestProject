@@ -51,6 +51,7 @@ namespace DDTest.Battle
 			Container.BindInstance(_battleConfig);
 			Container.BindInstance(_aiConfig);
 			Container.BindInstance(_battleViewConfig);
+			Container.BindInstance(ResolveTeams());
 
 			Container.Bind<IRandom>()
 				.FromInstance(new SystemRandom(ResolveSeed()));
@@ -121,6 +122,9 @@ namespace DDTest.Battle
 
 			return __battleLaunch.Seed.Value;
 		}
+
+		private BattleTeams ResolveTeams()
+			=> __battleLaunch.Teams ?? new BattleTeams(_battleConfig.LeftTeam.Slots, _battleConfig.RightTeam.Slots);
 
 		private static SideControllers CreateSideControllers(InjectContext context)
 			=> new(context.Container.Resolve<PlayerController>(), context.Container.Resolve<AiController>());
