@@ -32,23 +32,34 @@ namespace DDTest.Battle
 		}
 
 		public IReadOnlyList<BattleUnit> GetTargets(BattleUnit actor, AbilityConfig ability)
-		{
-			BattleSide side = ability.TargetSide == AbilityTargetSide.Enemy
-				? _battle.GetOpposingSide(actor.Side)
-				: _battle.GetSide(actor.Side);
-
-			if (ability.TargetFilter == AbilityTargetFilter.Placement)
-			{
-				BattleUnit unit = side.GetUnitAt(ability.TargetPosition);
-
-				return unit != null ? new[] { unit } : Array.Empty<BattleUnit>();
-			}
-
-			return side.Units.Where(unit => unit.IsAlive).ToList();
-		}
+			=> GetCandidates(actor, ability)
+				.Where(target => GetAffectedUnits(actor, ability, target).Count > 0)
+				.ToList();
 
 		public IReadOnlyList<BattleUnit> GetAffectedUnits(BattleUnit actor, AbilityConfig ability, BattleUnit target)
-			=> new[] { target };
+		{
+			List<BattleUnit> livingUnits = _battle.GetSide(target.Side).Units
+				.Where(unit => unit.IsAlive)
+				.ToList();
+			int index = livingUnits.IndexOf(target);
+
+			if (index < 0)
+				return Array.Empty<BattleUnit>();
+
+			(int first, int last) = ability.Aoe switch
+			{
+				AbilityAoe.Behind => (index, index + ability.AoeDepth),
+				AbilityAoe.InFront => (index - ability.AoeDepth, index),
+				AbilityAoe.Around => (index - ability.AoeDepth, index + ability.AoeDepth),
+				AbilityAoe.WholeSide => (0, livingUnits.Count - 1),
+				_ => (index, index)
+			};
+
+			return livingUnits
+				.Where((unit, order) => order >= first && order <= last)
+				.Where(unit => ability.IncludeActor || unit != actor)
+				.ToList();
+		}
 
 		public float GetHitChance(BattleUnit actor, BattleUnit target, AbilityConfig ability)
 		{
@@ -81,6 +92,25 @@ namespace DDTest.Battle
 				.ToList();
 
 			return new ActionResult(actor, ability, target, effects);
+		}
+
+		private IReadOnlyList<BattleUnit> GetCandidates(BattleUnit actor, AbilityConfig ability)
+		{
+			if (ability.TargetSide == AbilityTargetSide.Self)
+				return new[] { actor };
+
+			BattleSide side = ability.TargetSide == AbilityTargetSide.Enemy
+				? _battle.GetOpposingSide(actor.Side)
+				: _battle.GetSide(actor.Side);
+
+			if (ability.TargetFilter == AbilityTargetFilter.Placement)
+			{
+				BattleUnit unit = side.GetUnitAt(ability.TargetPosition);
+
+				return unit != null ? new[] { unit } : Array.Empty<BattleUnit>();
+			}
+
+			return side.Units.Where(unit => unit.IsAlive).ToList();
 		}
 
 		private ActionEffect ResolveEffect(BattleUnit actor, AbilityConfig ability, BattleUnit target)

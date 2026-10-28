@@ -29,11 +29,21 @@ namespace DDTest.Battle
 		}
 
 
-		public UniTask FlyToAsync(Vector3 from, Vector3 to, CancellationToken cancellationToken)
-			=> FlyAsync(ToLocal(from), ToLocal(to), cancellationToken);
+		public UniTask FlyAsync(Vector2 start, Vector2 end, float duration, CancellationToken cancellationToken)
+		{
+			Vector2 path = end - start;
 
-		public UniTask FlyPastAsync(Vector3 from, Vector3 to, CancellationToken cancellationToken)
-			=> FlyAsync(ToLocal(from), ToLocal(to) + __viewConfig.ProjectileMissOffset, cancellationToken);
+			_direction = path.normalized;
+			transform.localPosition = start;
+			transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(path.y, path.x) * Mathf.Rad2Deg);
+			_image.color = _color;
+			_image.enabled = true;
+
+			return transform.DOLocalMove(end, duration)
+				.SetEase(Ease.Linear)
+				.SetLink(gameObject)
+				.ToUniTask(TweenCancelBehaviour.KillAndCancelAwait, cancellationToken);
+		}
 
 		public async UniTask FlyAwayAsync(CancellationToken cancellationToken)
 		{
@@ -51,23 +61,9 @@ namespace DDTest.Battle
 		public void Hide()
 			=> _image.enabled = false;
 
-		private UniTask FlyAsync(Vector2 start, Vector2 end, CancellationToken cancellationToken)
+
+		public class Factory : PlaceholderFactory<ProjectileView>
 		{
-			Vector2 path = end - start;
-
-			_direction = path.normalized;
-			transform.localPosition = start;
-			transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(path.y, path.x) * Mathf.Rad2Deg);
-			_image.color = _color;
-			_image.enabled = true;
-
-			return transform.DOLocalMove(end, path.magnitude / __viewConfig.ProjectileSpeed)
-				.SetEase(Ease.Linear)
-				.SetLink(gameObject)
-				.ToUniTask(TweenCancelBehaviour.KillAndCancelAwait, cancellationToken);
 		}
-
-		private Vector2 ToLocal(Vector3 worldPoint)
-			=> transform.parent.InverseTransformPoint(worldPoint);
 	}
 }

@@ -29,15 +29,21 @@ namespace DDTest.Tests
 			UnitPosition? actorPosition = null,
 			UnitPosition targetPosition = UnitPosition.Front,
 			int attackPenalty = 0,
-			UnitPosition attackPenaltyPosition = UnitPosition.Front)
+			UnitPosition attackPenaltyPosition = UnitPosition.Front,
+			bool includeActor = true,
+			AbilityAoe aoe = AbilityAoe.Single,
+			int aoeDepth = 1)
 			=> Create<AbilityConfig>(serialized =>
 			{
 				serialized.FindProperty("_displayName").stringValue = $"{effect} {targetSide} {targetFilter}";
 				serialized.FindProperty("_hasPositionRequirement").boolValue = actorPosition.HasValue;
 				serialized.FindProperty("_actorPosition").intValue = (int)actorPosition.GetValueOrDefault();
 				serialized.FindProperty("_targetSide").intValue = (int)targetSide;
+				serialized.FindProperty("_includeActor").boolValue = includeActor;
 				serialized.FindProperty("_targetFilter").intValue = (int)targetFilter;
 				serialized.FindProperty("_targetPosition").intValue = (int)targetPosition;
+				serialized.FindProperty("_aoe").intValue = (int)aoe;
+				serialized.FindProperty("_aoeDepth").intValue = aoeDepth;
 				serialized.FindProperty("_effect").intValue = (int)effect;
 				serialized.FindProperty("_power").intValue = power;
 				serialized.FindProperty("_attackPenalty").intValue = attackPenalty;

@@ -2,7 +2,8 @@
     "name": "DDTest.Editor",
     "rootNamespace": "DDTest.Editor",
     "references": [
-        "DDTest.Runtime"
+        "DDTest.Runtime",
+        "NaughtyAttributes.Editor"
     ],
     "includePlatforms": [
         "Editor"

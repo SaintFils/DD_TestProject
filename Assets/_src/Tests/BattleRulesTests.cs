@@ -228,6 +228,77 @@ namespace DDTest.Tests
 		}
 
 		[Test]
+		public void BehindAoe_AffectsTargetAndNextLivingUnitBehindIt()
+		{
+			AbilityConfig sweep = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, 5, actorPosition: UnitPosition.Front, aoe: AbilityAoe.Behind);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(new[] { sweep })), _configs.Team(_configs.Unit(), _configs.Unit(), _configs.Unit())));
+
+			Assert.That(battle.Rules.GetAffectedUnits(battle.Left(0), sweep, battle.Right(0)), Is.EqualTo(new[] { battle.Right(0), battle.Right(1) }));
+
+			battle.Kill(battle.Right(1));
+
+			Assert.That(battle.Rules.GetAffectedUnits(battle.Left(0), sweep, battle.Right(0)), Is.EqualTo(new[] { battle.Right(0), battle.Right(2) }));
+		}
+
+		[Test]
+		public void AroundSelf_WithoutActor_AffectsOnlyNeighbours()
+		{
+			AbilityConfig heal = _configs.Ability(AbilityTargetSide.Self, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 5, includeActor: false, aoe: AbilityAoe.Around);
+			UnitConfig healer = _configs.Unit(new[] { heal });
+			TestBattle battle = new(_configs.Battle(_configs.Team(healer, healer, healer), _configs.Team(_configs.Unit())));
+
+			Assert.That(battle.Rules.GetTargets(battle.Left(1), heal), Is.EqualTo(new[] { battle.Left(1) }));
+			Assert.That(battle.Rules.GetAffectedUnits(battle.Left(1), heal, battle.Left(1)), Is.EqualTo(new[] { battle.Left(0), battle.Left(2) }));
+			Assert.That(battle.Rules.GetAffectedUnits(battle.Left(0), heal, battle.Left(0)), Is.EqualTo(new[] { battle.Left(1) }));
+		}
+
+		[Test]
+		public void AroundSelf_WithoutActor_IsUnavailable_WhenNoNeighboursAreAlive()
+		{
+			AbilityConfig heal = _configs.Ability(AbilityTargetSide.Self, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 5, includeActor: false, aoe: AbilityAoe.Around);
+			UnitConfig healer = _configs.Unit(new[] { heal });
+			TestBattle battle = new(_configs.Battle(_configs.Team(healer, healer), _configs.Team(_configs.Unit())));
+
+			battle.Kill(battle.Left(1));
+
+			Assert.That(battle.Rules.CanUse(battle.Left(0), heal), Is.False);
+		}
+
+		[Test]
+		public void AllyAbility_WithoutActor_DoesNotTargetActor()
+		{
+			AbilityConfig heal = _configs.Ability(AbilityTargetSide.Ally, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 5, includeActor: false);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit(new[] { heal })), _configs.Team(_configs.Unit())));
+
+			Assert.That(battle.Rules.GetTargets(battle.Left(1), heal), Is.EqualTo(new[] { battle.Left(0) }));
+		}
+
+		[Test]
+		public void WholeSideAoe_WithoutActor_AffectsAllOtherLivingAllies()
+		{
+			AbilityConfig heal = _configs.Ability(AbilityTargetSide.Ally, AbilityTargetFilter.AnyLiving, AbilityEffect.Heal, 5, includeActor: false, aoe: AbilityAoe.WholeSide);
+			TestBattle battle = new(_configs.Battle(_configs.Team(_configs.Unit(), _configs.Unit(new[] { heal }), _configs.Unit(), _configs.Unit()), _configs.Team(_configs.Unit())));
+
+			battle.Kill(battle.Left(3));
+
+			Assert.That(battle.Rules.GetAffectedUnits(battle.Left(1), heal, battle.Left(0)), Is.EqualTo(new[] { battle.Left(0), battle.Left(2) }));
+		}
+
+		[Test]
+		public void Resolve_RollsEachAffectedUnitSeparately()
+		{
+			AbilityConfig sweep = _configs.Ability(AbilityTargetSide.Enemy, AbilityTargetFilter.Placement, AbilityEffect.Damage, 5, actorPosition: UnitPosition.Front, aoe: AbilityAoe.Behind);
+			TestBattle battle = new(_configs.Battle(
+				_configs.Team(_configs.Unit(new[] { sweep }, attack: 5)),
+				_configs.Team(_configs.Unit(defense: 5), _configs.Unit(defense: 6))), new StubRandom(nextDouble: 0.72));
+
+			ActionResult result = battle.Rules.Resolve(new BattleCommand(battle.Left(0), sweep, battle.Right(0)));
+
+			Assert.That(result.Effects.Select(effect => effect.Target), Is.EqualTo(new[] { battle.Right(0), battle.Right(1) }));
+			Assert.That(result.Effects.Select(effect => effect.Outcome), Is.EqualTo(new[] { ActionOutcome.Hit, ActionOutcome.Missed }));
+		}
+
+		[Test]
 		public void Resolve_Throws_WhenTargetIsInvalid()
 		{
 			AbilityConfig melee = _configs.Melee();

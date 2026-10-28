@@ -19,11 +19,20 @@ namespace DDTest.Battle
 		[SerializeField, GenPublicGetter]
 		private AbilityTargetSide _targetSide;
 
-		[SerializeField, GenPublicGetter]
+		[SerializeField, HideIf(nameof(_targetSide), AbilityTargetSide.Enemy), GenPublicGetter]
+		private bool _includeActor = true;
+
+		[SerializeField, HideIf(nameof(_targetSide), AbilityTargetSide.Self), GenPublicGetter]
 		private AbilityTargetFilter _targetFilter;
 
-		[SerializeField, ShowIf(nameof(_targetFilter), AbilityTargetFilter.Placement), GenPublicGetter]
+		[SerializeField, ShowIf(nameof(HasTargetPosition)), GenPublicGetter]
 		private UnitPosition _targetPosition;
+
+		[SerializeField, GenPublicGetter]
+		private AbilityAoe _aoe;
+
+		[SerializeField, ShowIf(nameof(HasAoeDepth)), MinValue(1), GenPublicGetter]
+		private int _aoeDepth = 1;
 
 		[SerializeField, GenPublicGetter]
 		private AbilityEffect _effect;
@@ -37,6 +46,12 @@ namespace DDTest.Battle
 		[SerializeField, ShowIf(nameof(HasAttackPenalty)), GenPublicGetter]
 		private UnitPosition _attackPenaltyPosition;
 
+
+		private bool HasTargetPosition()
+			=> _targetSide != AbilityTargetSide.Self && _targetFilter == AbilityTargetFilter.Placement;
+
+		private bool HasAoeDepth()
+			=> _aoe is AbilityAoe.Behind or AbilityAoe.InFront or AbilityAoe.Around;
 
 		private bool HasAttackPenalty()
 			=> _effect == AbilityEffect.Damage && _attackPenalty > 0;

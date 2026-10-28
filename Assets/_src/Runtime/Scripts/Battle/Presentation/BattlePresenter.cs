@@ -2,24 +2,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace DDTest.Battle
 {
 	public sealed class BattlePresenter : IBattlePresenter
 	{
 		private readonly BattlefieldView _battlefield;
-		private readonly ProjectileView _projectile;
+		private readonly ProjectilePoolView _projectiles;
 		private readonly InitiativeQueueView _initiativeQueue;
 		private readonly RoundBannerView _roundBanner;
 		private readonly BattleLogView _log;
 		private readonly BattleResultView _result;
 
 
-		public BattlePresenter(BattlefieldView battlefield, ProjectileView projectile, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner, 
+		public BattlePresenter(BattlefieldView battlefield, ProjectilePoolView projectiles, InitiativeQueueView initiativeQueue, RoundBannerView roundBanner,
 			BattleLogView log, BattleResultView result)
 		{
 			_battlefield = battlefield;
-			_projectile = projectile;
+			_projectiles = projectiles;
 			_initiativeQueue = initiativeQueue;
 			_roundBanner = roundBanner;
 			_log = log;
@@ -75,9 +76,7 @@ namespace DDTest.Battle
 				return actorView.PlayLungeAsync(cancellationToken);
 
 			if (IsRanged(result.Ability))
-				return UniTask.WhenAll(result.Effects
-					.Select(effect => ShootAsync(actorView, effect, cancellationToken))
-					.Append(actorView.PlayRecoilAsync(cancellationToken)));
+				return UniTask.WhenAll(ShootAsync(actorView, result, cancellationToken), actorView.PlayRecoilAsync(cancellationToken));
 
 			if (result.Ability.Effect == AbilityEffect.Heal)
 				return actorView.PlayCastAsync(cancellationToken);
@@ -85,14 +84,13 @@ namespace DDTest.Battle
 			return UniTask.CompletedTask;
 		}
 
-		private UniTask ShootAsync(UnitView actorView, ActionEffect effect, CancellationToken cancellationToken)
+		private UniTask ShootAsync(UnitView actorView, ActionResult result, CancellationToken cancellationToken)
 		{
-			UnitView targetView = _battlefield.GetView(effect.Target);
+			List<(Vector3 Target, bool IsMiss)> shots = result.Effects
+				.Select(effect => (_battlefield.GetView(effect.Target).BodyCenter, effect.Outcome == ActionOutcome.Missed))
+				.ToList();
 
-			if (effect.Outcome == ActionOutcome.Missed)
-				return _projectile.FlyPastAsync(actorView.BodyCenter, targetView.BodyCenter, cancellationToken);
-
-			return _projectile.FlyToAsync(actorView.BodyCenter, targetView.BodyCenter, cancellationToken);
+			return _projectiles.FireAsync(actorView.BodyCenter, shots, cancellationToken);
 		}
 
 		private UniTask PlayFollowThroughAsync(ActionResult result, CancellationToken cancellationToken)
@@ -100,13 +98,8 @@ namespace DDTest.Battle
 			if (IsMelee(result.Ability))
 				return _battlefield.GetView(result.Actor).PlayLungeReturnAsync(cancellationToken);
 
-			if (!IsRanged(result.Ability))
-				return UniTask.CompletedTask;
-
-			if (result.Effects.Any(effect => effect.Outcome == ActionOutcome.Missed))
-				return _projectile.FlyAwayAsync(cancellationToken);
-
-			_projectile.Hide();
+			if (IsRanged(result.Ability))
+				return _projectiles.FinishAsync(cancellationToken);
 
 			return UniTask.CompletedTask;
 		}

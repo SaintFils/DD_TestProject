@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: ability_heal
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Heal
-  _requiresFrontlineUser: 0
+  _hasPositionRequirement: 0
+  _actorPosition: 0
   _targetSide: 2
+  _includeActor: 1
   _targetFilter: 0
+  _targetPosition: 0
+  _aoe: 0
+  _aoeDepth: 1
   _effect: 2
   _power: 7
-  _frontlineAttackPenalty: 0
+  _attackPenalty: 0
+  _attackPenaltyPosition: 0

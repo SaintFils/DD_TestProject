@@ -16,8 +16,11 @@ MonoBehaviour:
   _hasPositionRequirement: 1
   _actorPosition: 0
   _targetSide: 1
+  _includeActor: 1
   _targetFilter: 1
   _targetPosition: 0
+  _aoe: 0
+  _aoeDepth: 1
   _effect: 1
   _power: 8
   _attackPenalty: 0
