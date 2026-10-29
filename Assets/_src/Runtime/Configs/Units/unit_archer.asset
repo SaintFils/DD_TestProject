@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: unit_archer
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitConfig
   _displayName: Archer
-  _sprite: {fileID: 21300000, guid: cf23cfe9a9a1fa74ba4f826a943489a5, type: 3}
+  _sprite: {fileID: 21300000, guid: 313eb4d0157f6ec418d857892d7b44ad, type: 3}
+  _animations: {fileID: 11400000, guid: 76f087eaab0cd024eb33aad1ded08356, type: 2}
   _maxHp: 20
   _speed: 6
   _attack: 7

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d2867c66f2c1449e9534784bf1823, type: 3}
+  m_Name: animations_healer
+  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitAnimationSet
+  _bodySize: {x: 384, y: 288}
+  _bodyOffset: {x: 7.1, y: 94}
+  _idle:
+    _frames:
+    - {fileID: 21300000, guid: 6e4460827a2fe4f43b83b4c9c55ec1dd, type: 3}
+    - {fileID: 21300000, guid: 3499081f32826c44f9c92212e855410d, type: 3}
+    - {fileID: 21300000, guid: ccf98b6d631f2fc46a93f7683ea86482, type: 3}
+    - {fileID: 21300000, guid: 03733ed159cdb8541a3488919b1e6cd5, type: 3}
+    _frameRate: 4
+  _abilityAnimations:
+  - _frames:
+    - {fileID: 21300000, guid: a30bc6eb198f2614e9a0b59208f6d94a, type: 3}
+    - {fileID: 21300000, guid: e1f7fe1f93771b741b55924864dba2d3, type: 3}
+    - {fileID: 21300000, guid: 4786a3341957de84fac51cfcaeef9f29, type: 3}
+    - {fileID: 21300000, guid: 4698c5a1f5a5eca4fb015729046dd6ca, type: 3}
+    - {fileID: 21300000, guid: 0c5f262e972f0e14fa53f809d4ec4f11, type: 3}
+    - {fileID: 21300000, guid: 7f9af0bdf6bed18488b5037877de5627, type: 3}
+    - {fileID: 21300000, guid: 9ed74cf91486f7640b10fbb54e84ae98, type: 3}
+    - {fileID: 21300000, guid: 80c8373041307574b98fb385406fad57, type: 3}
+    _frameRate: 8
+    _impactFrame: 3
+  - _frames:
+    - {fileID: 21300000, guid: a30bc6eb198f2614e9a0b59208f6d94a, type: 3}
+    - {fileID: 21300000, guid: e1f7fe1f93771b741b55924864dba2d3, type: 3}
+    - {fileID: 21300000, guid: 4786a3341957de84fac51cfcaeef9f29, type: 3}
+    - {fileID: 21300000, guid: 4698c5a1f5a5eca4fb015729046dd6ca, type: 3}
+    - {fileID: 21300000, guid: 0c5f262e972f0e14fa53f809d4ec4f11, type: 3}
+    - {fileID: 21300000, guid: 7f9af0bdf6bed18488b5037877de5627, type: 3}
+    - {fileID: 21300000, guid: 9ed74cf91486f7640b10fbb54e84ae98, type: 3}
+    - {fileID: 21300000, guid: 80c8373041307574b98fb385406fad57, type: 3}
+    _frameRate: 8
+    _impactFrame: 3
+  _death:
+    _frames:
+    - {fileID: 21300000, guid: ef4a1cf7ec1c3ef44a0e7f57238afed7, type: 3}
+    - {fileID: 21300000, guid: a3352f354f9492342beb58937cf4baad, type: 3}
+    - {fileID: 21300000, guid: ba0278f0728aa294b818d1d4fd4a7ff9, type: 3}
+    - {fileID: 21300000, guid: 987f678285b8fe84bac093113b0edf80, type: 3}
+    - {fileID: 21300000, guid: 62802fd32fecc9c4b8b1ea6f0902233c, type: 3}
+    _frameRate: 5

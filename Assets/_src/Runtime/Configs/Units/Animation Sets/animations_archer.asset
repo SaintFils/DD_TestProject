@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d2867c66f2c1449e9534784bf1823, type: 3}
+  m_Name: animations_archer
+  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitAnimationSet
+  _bodySize: {x: 384, y: 288}
+  _bodyOffset: {x: 25.1, y: 94}
+  _idle:
+    _frames:
+    - {fileID: 21300000, guid: eb3711790d9a7304992355d8f5f9eeae, type: 3}
+    - {fileID: 21300000, guid: c9625408524ce384f927cdec175e67b2, type: 3}
+    _frameRate: 2
+  _abilityAnimations:
+  - _frames:
+    - {fileID: 21300000, guid: 5b4b5bb559abd044791dedff1b79315e, type: 3}
+    - {fileID: 21300000, guid: 9351e6ac189df5a409a44e7b19fb1308, type: 3}
+    - {fileID: 21300000, guid: 41a89ec87611d144ba345dde9f14eb7f, type: 3}
+    - {fileID: 21300000, guid: 5582bd9b3b2d30041aa476896aca6576, type: 3}
+    - {fileID: 21300000, guid: ad356ffa6d5fb044faa7b7a6441a601b, type: 3}
+    - {fileID: 21300000, guid: bad448c2c13a09947a747764808348b7, type: 3}
+    _frameRate: 6
+    _impactFrame: 2
+  - _frames:
+    - {fileID: 21300000, guid: 5b4b5bb559abd044791dedff1b79315e, type: 3}
+    - {fileID: 21300000, guid: 9351e6ac189df5a409a44e7b19fb1308, type: 3}
+    - {fileID: 21300000, guid: 41a89ec87611d144ba345dde9f14eb7f, type: 3}
+    - {fileID: 21300000, guid: 5582bd9b3b2d30041aa476896aca6576, type: 3}
+    - {fileID: 21300000, guid: ad356ffa6d5fb044faa7b7a6441a601b, type: 3}
+    - {fileID: 21300000, guid: bad448c2c13a09947a747764808348b7, type: 3}
+    _frameRate: 6
+    _impactFrame: 4
+  _death:
+    _frames:
+    - {fileID: 21300000, guid: e1c6bba8449913648a8ea6990d4a9060, type: 3}
+    - {fileID: 21300000, guid: 31f60db64b796164bb8fa35735e9a76f, type: 3}
+    - {fileID: 21300000, guid: 3d7e3a440047dce44be5a1a8789481a0, type: 3}
+    - {fileID: 21300000, guid: 2681b9ea165818a40a0d60507953ce71, type: 3}
+    _frameRate: 4

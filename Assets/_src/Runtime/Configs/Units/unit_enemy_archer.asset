@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a97620c4aeeed4f8627710d0a7bea7, type: 3}
   m_Name: unit_enemy_archer
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitConfig
-  _displayName: Archer
-  _sprite: {fileID: 21300000, guid: cf23cfe9a9a1fa74ba4f826a943489a5, type: 3}
+  _displayName: Archer Jn
+  _sprite: {fileID: 21300000, guid: 313eb4d0157f6ec418d857892d7b44ad, type: 3}
+  _animations: {fileID: 11400000, guid: 843061bf7fa52cb45bf6c267f6942747, type: 2}
   _maxHp: 18
   _speed: 5
   _attack: 6

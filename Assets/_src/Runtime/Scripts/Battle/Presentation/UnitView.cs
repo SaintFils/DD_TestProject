@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -51,8 +52,11 @@ namespace DDTest.Battle
 		private CanvasGroup _canvasGroup;
 
 
+		private UnitAnimationSet _animations;
+		private Tween _idleTween;
 		private float _influenceFrameAlpha;
 		private Vector2 _bodyPosition;
+		private float _bodyFlip = 1f;
 		private bool _isTargetable;
 		private bool _isInfluenced;
 
@@ -61,17 +65,34 @@ namespace DDTest.Battle
 			=> __unit;
 
 		public Vector3 BodyCenter
-			=> _body.rectTransform.TransformPoint(_body.rectTransform.rect.center);
+		{
+			get
+			{
+				RectTransform rectTransform = (RectTransform)transform;
+
+				return rectTransform.TransformPoint(rectTransform.rect.center);
+			}
+		}
 
 		private float Facing
 			=> __unit.Side == BattleSideId.Left ? 1f : -1f;
 
+		private SpriteAnimation IdleAnimation
+			=> _animations != null && _animations.Idle.HasFrames ? _animations.Idle : null;
+
+		private SpriteAnimation DeathAnimation
+			=> _animations != null && _animations.Death.HasFrames ? _animations.Death : null;
+
 
 		private void Awake()
 		{
-			_body.sprite = __unit.Config.Sprite;
+			_animations = __unit.Config.Animations;
 			_nameText.text = __unit.Config.DisplayName;
 			_influenceFrameAlpha = _influenceFrame.color.a;
+
+			if (_animations != null)
+				ApplyAnimationLayout();
+
 			_bodyPosition = _body.rectTransform.anchoredPosition;
 
 			SetAlpha(_influenceFrame, 0f);
@@ -80,6 +101,8 @@ namespace DDTest.Battle
 
 			__unit.Hp.Subscribe(UpdateHp)
 				.AddTo(this);
+
+			PlayIdle();
 		}
 
 
@@ -119,6 +142,34 @@ namespace DDTest.Battle
 		public UniTask PlayRecoilAsync(CancellationToken cancellationToken)
 			=> PlayAsync(SwayBody(-Facing * __viewConfig.RecoilDistance, __viewConfig.RecoilDuration), cancellationToken);
 
+		public bool HasAbilityAnimation(AbilityConfig ability)
+			=> GetAbilityAnimation(ability) != null;
+
+		public UniTask PlayAbilityWindupAsync(AbilityConfig ability, CancellationToken cancellationToken)
+		{
+			AbilityAnimation animation = GetAbilityAnimation(ability);
+
+			if (animation == null)
+				return UniTask.CompletedTask;
+
+			StopIdle();
+
+			return PlayAsync(PlayFrames(animation, 0, animation.ImpactFrame + 1), cancellationToken);
+		}
+
+		public async UniTask PlayAbilityFollowThroughAsync(AbilityConfig ability, CancellationToken cancellationToken)
+		{
+			AbilityAnimation animation = GetAbilityAnimation(ability);
+
+			if (animation == null)
+				return;
+
+			if (animation.ImpactFrame + 1 < animation.Frames.Count)
+				await PlayAsync(PlayFrames(animation, animation.ImpactFrame + 1, animation.Frames.Count), cancellationToken);
+
+			PlayIdle();
+		}
+
 		public UniTask PlayCastAsync(CancellationToken cancellationToken)
 			=> PlayAsync(_body.rectTransform.DOScale(_body.rectTransform.localScale * __viewConfig.CastScale, __viewConfig.CastDuration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);
 
@@ -133,7 +184,17 @@ namespace DDTest.Battle
 			=> FlashAsync(__viewConfig.HealColor, __viewConfig.HealDuration, cancellationToken);
 
 		public UniTask PlayDeathAsync(CancellationToken cancellationToken)
-			=> UniTask.WhenAll(PlayAsync(_canvasGroup.DOFade(__viewConfig.DeadAlpha, __viewConfig.DeathDuration), cancellationToken), PlayUnfocusAsync(cancellationToken));
+		{
+			SpriteAnimation death = DeathAnimation;
+
+			StopIdle();
+
+			Tween dying = death != null
+				? PlayFrames(death, 0, death.Frames.Count)
+				: _canvasGroup.DOFade(__viewConfig.DeadAlpha, __viewConfig.DeathDuration);
+
+			return UniTask.WhenAll(PlayAsync(dying, cancellationToken), PlayUnfocusAsync(cancellationToken));
+		}
 
 		public void OnPointerEnter(PointerEventData eventData)
 			=> __player.HoverTarget(__unit);
@@ -180,7 +241,68 @@ namespace DDTest.Battle
 			=> MoveBody(offset, duration / 2f).SetLoops(2, LoopType.Yoyo);
 
 		private Tween ScaleBody(float scale)
-			=> _body.rectTransform.DOScale(scale, __viewConfig.ParticipantScaleDuration);
+			=> _body.rectTransform.DOScale(new Vector3(scale * _bodyFlip, scale, scale), __viewConfig.ParticipantScaleDuration);
+
+		private void ApplyAnimationLayout()
+		{
+			RectTransform body = _body.rectTransform;
+			Vector2 offset = _animations.BodyOffset;
+
+			_bodyFlip = Facing;
+			body.anchorMin = new Vector2(0.5f, 0.5f);
+			body.anchorMax = new Vector2(0.5f, 0.5f);
+			body.sizeDelta = _animations.BodySize;
+			body.anchoredPosition = new Vector2(offset.x * _bodyFlip, offset.y);
+			body.localScale = new Vector3(_bodyFlip, 1f, 1f);
+		}
+
+		private void PlayIdle()
+		{
+			SpriteAnimation idle = IdleAnimation;
+
+			if (idle == null)
+			{
+				_body.sprite = __unit.Config.Sprite;
+
+				return;
+			}
+
+			_idleTween = PlayFrames(idle, 0, idle.Frames.Count)
+				.SetLoops(-1)
+				.SetLink(gameObject);
+
+			_idleTween.Goto(UnityEngine.Random.Range(0f, _idleTween.Duration(false)), true);
+		}
+
+		private void StopIdle()
+		{
+			_idleTween?.Kill();
+			_idleTween = null;
+		}
+
+		private Tween PlayFrames(SpriteAnimation animation, int firstFrame, int endFrame)
+		{
+			_body.sprite = animation.Frames[firstFrame];
+
+			return DOVirtual.Float(firstFrame, endFrame, (endFrame - firstFrame) / animation.FrameRate, frame => _body.sprite = animation.Frames[Mathf.Min((int)frame, endFrame - 1)])
+				.SetEase(Ease.Linear);
+		}
+
+		private AbilityAnimation GetAbilityAnimation(AbilityConfig ability)
+		{
+			if (_animations == null)
+				return null;
+
+			IReadOnlyList<AbilityConfig> abilities = __unit.Abilities;
+
+			for (int index = 0; index < abilities.Count; index++)
+			{
+				if (abilities[index] == ability)
+					return _animations.GetAbilityAnimation(index);
+			}
+
+			return null;
+		}
 
 		private UniTask FlashAsync(Color color, float duration, CancellationToken cancellationToken)
 			=> PlayAsync(_body.DOColor(color, duration / 2f).SetLoops(2, LoopType.Yoyo), cancellationToken);

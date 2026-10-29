@@ -71,17 +71,28 @@ namespace DDTest.Battle
 		private UniTask PlayWindupAsync(ActionResult result, CancellationToken cancellationToken)
 		{
 			UnitView actorView = _battlefield.GetView(result.Actor);
+			bool isAnimated = actorView.HasAbilityAnimation(result.Ability);
 
 			if (IsMelee(result.Ability))
-				return actorView.PlayLungeAsync(cancellationToken);
+				return UniTask.WhenAll(actorView.PlayLungeAsync(cancellationToken), actorView.PlayAbilityWindupAsync(result.Ability, cancellationToken));
 
 			if (IsRanged(result.Ability))
-				return UniTask.WhenAll(ShootAsync(actorView, result, cancellationToken), actorView.PlayRecoilAsync(cancellationToken));
+			{
+				return isAnimated
+					? PlayAnimatedShotAsync(actorView, result, cancellationToken)
+					: UniTask.WhenAll(ShootAsync(actorView, result, cancellationToken), actorView.PlayRecoilAsync(cancellationToken));
+			}
 
 			if (result.Ability.Effect == AbilityEffect.Heal)
-				return actorView.PlayCastAsync(cancellationToken);
+				return isAnimated ? actorView.PlayAbilityWindupAsync(result.Ability, cancellationToken) : actorView.PlayCastAsync(cancellationToken);
 
 			return UniTask.CompletedTask;
+		}
+
+		private async UniTask PlayAnimatedShotAsync(UnitView actorView, ActionResult result, CancellationToken cancellationToken)
+		{
+			await actorView.PlayAbilityWindupAsync(result.Ability, cancellationToken);
+			await ShootAsync(actorView, result, cancellationToken);
 		}
 
 		private UniTask ShootAsync(UnitView actorView, ActionResult result, CancellationToken cancellationToken)
@@ -95,13 +106,16 @@ namespace DDTest.Battle
 
 		private UniTask PlayFollowThroughAsync(ActionResult result, CancellationToken cancellationToken)
 		{
+			UnitView actorView = _battlefield.GetView(result.Actor);
+			UniTask actorFollowThrough = actorView.PlayAbilityFollowThroughAsync(result.Ability, cancellationToken);
+
 			if (IsMelee(result.Ability))
-				return _battlefield.GetView(result.Actor).PlayLungeReturnAsync(cancellationToken);
+				return UniTask.WhenAll(actorView.PlayLungeReturnAsync(cancellationToken), actorFollowThrough);
 
 			if (IsRanged(result.Ability))
-				return _projectiles.FinishAsync(cancellationToken);
+				return UniTask.WhenAll(_projectiles.FinishAsync(cancellationToken), actorFollowThrough);
 
-			return UniTask.CompletedTask;
+			return actorFollowThrough;
 		}
 
 		private UniTask PlayReactionAsync(ActionEffect effect, CancellationToken cancellationToken)

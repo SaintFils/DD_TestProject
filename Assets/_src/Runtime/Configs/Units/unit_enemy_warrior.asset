@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: unit_enemy_warrior
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitConfig
   _displayName: Warrior
-  _sprite: {fileID: 21300000, guid: 81b3fe7a4a062404eb5c981d6eb98777, type: 3}
+  _sprite: {fileID: 21300000, guid: b066c869b51f9384fa8ac9cce36b4648, type: 3}
+  _animations: {fileID: 11400000, guid: e7afa8cabcc082141ace0ded6cb953d8, type: 2}
   _maxHp: 28
   _speed: 3
   _attack: 6

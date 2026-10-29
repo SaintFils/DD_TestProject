@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d2867c66f2c1449e9534784bf1823, type: 3}
+  m_Name: animations_warrior
+  m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitAnimationSet
+  _bodySize: {x: 384, y: 288}
+  _bodyOffset: {x: 55.4, y: 94}
+  _idle:
+    _frames:
+    - {fileID: 21300000, guid: af16cb225967af543b9c764da4690c2e, type: 3}
+    - {fileID: 21300000, guid: 4521d5d13324d1f4b839e6dbf5bf44a8, type: 3}
+    - {fileID: 21300000, guid: 856d3d74a40940642a0f42b82eb3c8ac, type: 3}
+    - {fileID: 21300000, guid: 12e8bfa74f09e594c912c50916363f4e, type: 3}
+    _frameRate: 4
+  _abilityAnimations:
+  - _frames:
+    - {fileID: 21300000, guid: bd5a4755f009e054a93a833ae69956f7, type: 3}
+    - {fileID: 21300000, guid: b6721e85b1e683c4eb89321015edd6a9, type: 3}
+    - {fileID: 21300000, guid: a823f57d1e9b1f04aaefe79f291c014c, type: 3}
+    - {fileID: 21300000, guid: 3f7ba9abb1f652a47a5aa20ac87d9475, type: 3}
+    - {fileID: 21300000, guid: fe208b5354636174eb44c6e90d8b07fe, type: 3}
+    - {fileID: 21300000, guid: 83af3cf63aa38ea4bac1f82e54d99d36, type: 3}
+    - {fileID: 21300000, guid: 3a742c30c1875074688c6cbd67ed91fe, type: 3}
+    _frameRate: 7
+    _impactFrame: 3
+  - _frames:
+    - {fileID: 21300000, guid: bd5a4755f009e054a93a833ae69956f7, type: 3}
+    - {fileID: 21300000, guid: b6721e85b1e683c4eb89321015edd6a9, type: 3}
+    - {fileID: 21300000, guid: a823f57d1e9b1f04aaefe79f291c014c, type: 3}
+    - {fileID: 21300000, guid: 3f7ba9abb1f652a47a5aa20ac87d9475, type: 3}
+    - {fileID: 21300000, guid: fe208b5354636174eb44c6e90d8b07fe, type: 3}
+    - {fileID: 21300000, guid: 83af3cf63aa38ea4bac1f82e54d99d36, type: 3}
+    - {fileID: 21300000, guid: 3a742c30c1875074688c6cbd67ed91fe, type: 3}
+    _frameRate: 7
+    _impactFrame: 3
+  _death:
+    _frames:
+    - {fileID: 21300000, guid: 9369f7ee9a010de419a19066d7a86ec8, type: 3}
+    - {fileID: 21300000, guid: c5468149325ae5545a5dd17de851b87c, type: 3}
+    - {fileID: 21300000, guid: 583e1a00d40beb146a9d72384ac98adb, type: 3}
+    - {fileID: 21300000, guid: cc4a18e1e2f55e7479dade304adc85cb, type: 3}
+    _frameRate: 4
