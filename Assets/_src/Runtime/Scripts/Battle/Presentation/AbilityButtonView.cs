@@ -18,6 +18,9 @@ namespace DDTest.Battle
 		private Button _button;
 
 		[SerializeField, Required]
+		private Image _icon;
+
+		[SerializeField, Required]
 		private TMP_Text _label;
 
 		[SerializeField, Required]
@@ -38,6 +41,8 @@ namespace DDTest.Battle
 		public void Show(AbilityConfig ability, bool isInteractable)
 		{
 			Ability = ability;
+			_icon.sprite = ability.Icon;
+			_icon.enabled = ability.Icon != null;
 			_label.text = ability.DisplayName;
 			_button.interactable = isInteractable;
 			gameObject.SetActive(true);

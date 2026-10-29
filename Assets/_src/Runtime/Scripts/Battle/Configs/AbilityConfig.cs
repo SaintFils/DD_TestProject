@@ -10,6 +10,9 @@ namespace DDTest.Battle
 		[SerializeField, GenPublicGetter]
 		private string _displayName;
 
+		[SerializeField, ShowAssetPreview, GenPublicGetter]
+		private Sprite _icon;
+
 		[SerializeField, GenPublicGetter]
 		private bool _hasPositionRequirement;
 

@@ -92,7 +92,7 @@ SubShader {
 
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
-		#include "Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc"
+		#include "Assets/Third Party/TextMesh Pro/Shaders/TMPro_Properties.cginc"
 
         // ==== SOFTMASKABLE START ====
         #pragma shader_feature _ SOFTMASK_EDITOR

@@ -1,4 +1,4 @@
-Shader "Hidden/TextMeshPro/Distance Field Overlay (SoftMaskable)" {
+﻿Shader "Hidden/TextMeshPro/Distance Field Overlay (SoftMaskable)" {
 
 Properties {
 	_FaceTex			("Face Texture", 2D) = "white" {}
@@ -132,8 +132,8 @@ SubShader {
 
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
-		#include "Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc"
-		#include "Assets/TextMesh Pro/Shaders/TMPro.cginc"
+		#include "Assets/Third Party/TextMesh Pro/Shaders/TMPro_Properties.cginc"
+		#include "Assets/Third Party/TextMesh Pro/Shaders/TMPro.cginc"
 
 		struct vertex_t
 		{

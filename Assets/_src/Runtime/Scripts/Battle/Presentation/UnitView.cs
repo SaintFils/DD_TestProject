@@ -51,7 +51,6 @@ namespace DDTest.Battle
 		private CanvasGroup _canvasGroup;
 
 
-		private float _targetFrameAlpha;
 		private float _influenceFrameAlpha;
 		private Vector2 _bodyPosition;
 		private bool _isTargetable;
@@ -72,13 +71,12 @@ namespace DDTest.Battle
 		{
 			_body.sprite = __unit.Config.Sprite;
 			_nameText.text = __unit.Config.DisplayName;
-			_targetFrameAlpha = _targetFrame.color.a;
 			_influenceFrameAlpha = _influenceFrame.color.a;
 			_bodyPosition = _body.rectTransform.anchoredPosition;
 
-			SetAlpha(_targetFrame, 0f);
 			SetAlpha(_influenceFrame, 0f);
 			_activityFrame.color = Transparent(__viewConfig.ActivityColor);
+			_targetFrame.color = Transparent(__viewConfig.TargetColor);
 
 			__unit.Hp.Subscribe(UpdateHp)
 				.AddTo(this);
@@ -94,7 +92,7 @@ namespace DDTest.Battle
 				return;
 
 			_isTargetable = isTargetable;
-			FadeTo(_targetFrame, isTargetable ? _targetFrameAlpha : 0f);
+			FadeTo(_targetFrame, isTargetable ? __viewConfig.TargetColor.a : 0f);
 		}
 
 		public void SetInfluenced(bool isInfluenced)

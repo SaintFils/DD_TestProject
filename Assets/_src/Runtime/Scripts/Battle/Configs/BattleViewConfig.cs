@@ -12,6 +12,10 @@ namespace DDTest.Battle
 		private Color _activityColor = new(1f, 0.85f, 0.3f, 1f);
 
 		[Foldout("Highlight")]
+		[SerializeField, GenPublicGetter]
+		private Color _targetColor = Color.white;
+
+		[Foldout("Highlight")]
 		[SerializeField, Min(0f), GenPublicGetter]
 		private float _highlightFadeDuration = 0.15f;
 
