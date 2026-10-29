@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DDTest.Editor._src.Editor.Scripts
+namespace DDTest.Editor
 {
 	[InitializeOnLoad]
 	public class StartupSceneOpener

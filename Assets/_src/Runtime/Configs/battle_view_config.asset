@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd913c1428479a40ae1998d840526e7, type: 3}
   m_Name: battle_view_config
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.BattleViewConfig
-  _activityColor: {r: 0.88394445, g: 0.9811321, b: 0.90533197, a: 0.14901961}
+  _activityColor: {r: 1, g: 1, b: 1, a: 0.2}
   _targetColor: {r: 0.24296904, g: 0.77131885, b: 0.7924528, a: 0.8}
   _highlightFadeDuration: 0.15
   _participantScale: 1.2
