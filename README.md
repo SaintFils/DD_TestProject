@@ -9,6 +9,8 @@ A small turn-based battle prototype in the spirit of Darkest Dungeon, made in Un
 - [v0.0.1](https://github.com/SaintFils/DD_TestProject/releases/tag/v0.0.1): the base version of the task without the visual polish and extra features (branch `dev/oleg/cleanup`).
 - [v1.0.0](https://github.com/SaintFils/DD_TestProject/releases/tag/v1.0.0): the current `master` with a PC build attached as a zip.
 
+- Additionally: [Build](https://saintfils.itch.io/turn-based-battle-prototype) on itch.io  
+
 ## How to run
 
 - Unity **6000.3.12f1**.
