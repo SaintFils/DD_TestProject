@@ -9,6 +9,8 @@
 - [v0.0.1](https://github.com/SaintFils/DD_TestProject/releases/tag/v0.0.1): базовая версия тестового задания без визуальных улучшений и дополнительных фич (ветка `dev/oleg/cleanup`).
 - [v1.0.0](https://github.com/SaintFils/DD_TestProject/releases/tag/v1.0.0): текущий `master` и zip с билдом для ПК.
 
+- Дополнительно: [Билд](https://saintfils.itch.io/turn-based-battle-prototype) на itch.io  
+
 ## Как запустить
 
 - Unity **6000.3.12f1**.
