@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: unit_healer
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.UnitConfig
   _displayName: Healer
-  _sprite: {fileID: 21300000, guid: f3168935c32a3f34cac32f4240cad412, type: 3}
+  _sprite: {fileID: 21300000, guid: 7184252199212cf4a9288a2a2d70dee1, type: 3}
+  _animations: {fileID: 11400000, guid: 8b16d7aa7f59a9e4fbeb8493db907282, type: 2}
   _maxHp: 18
   _speed: 4
   _attack: 4

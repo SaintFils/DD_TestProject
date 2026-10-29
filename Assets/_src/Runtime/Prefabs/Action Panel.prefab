@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 38d5d1f6cb384dc498cddf734e82b820, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 38d5d1f6cb384dc498cddf734e82b820, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 2247205485131285535}
   - component: {fileID: 880342370577723944}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c46be55a65cb30e44b7c89e3c0d531da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -349,10 +349,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1607718131519187055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: -0.23333335, y: -0.52}
+  m_AnchorMax: {x: 1.2333333, y: -0.0333333}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: 0, y: -0.0000076293945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4188072717018929124
 CanvasRenderer:
@@ -384,15 +384,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Skip
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
+  m_sharedMaterial: {fileID: -7253061009744842458, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4288987355
+  m_fontColor: {r: 0.85882354, g: 0.7529412, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -519,8 +519,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 38d5d1f6cb384dc498cddf734e82b820, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityButtonView
   _button: {fileID: 139412752661223648}
+  _icon: {fileID: 518420738765835904}
   _label: {fileID: 3808028715764021522}
   _selectedFrame: {fileID: 3836231009571121432}
 --- !u!114 &139412752661223648
@@ -649,7 +650,7 @@ GameObject:
   - component: {fileID: 4093460799337230993}
   - component: {fileID: 7279357373794530319}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +725,7 @@ GameObject:
   - component: {fileID: 3098591982176170726}
   - component: {fileID: 518420738765835904}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: aeb31def086466745b570d082197ee1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -799,7 +800,7 @@ GameObject:
   - component: {fileID: 7510542812362753217}
   - component: {fileID: 1721849384265512926}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,6 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityButtonView
   _button: {fileID: 6381402443305319662}
+  _icon: {fileID: 7279357373794530319}
   _label: {fileID: 2120113100009562834}
   _selectedFrame: {fileID: 4160365292506503536}
 --- !u!114 &6381402443305319662
@@ -1002,10 +1004,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 542604093946817500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: -0.23333335, y: -0.52}
+  m_AnchorMax: {x: 1.2333333, y: -0.0333333}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &986064469146845245
 CanvasRenderer:
@@ -1037,15 +1039,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
+  m_sharedMaterial: {fileID: -7253061009744842458, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4288987355
+  m_fontColor: {r: 0.85882354, g: 0.7529412, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1062,7 +1064,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.05
+  m_fontSize: 50
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1139,10 +1141,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4774454645914605685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: -0.23333323, y: -0.5204333}
+  m_AnchorMax: {x: 1.2333333, y: -0.033299983}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4881795816338533199
 CanvasRenderer:
@@ -1174,15 +1176,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
+  m_sharedMaterial: {fileID: -7253061009744842458, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4288987355
+  m_fontColor: {r: 0.85882354, g: 0.7529412, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1199,7 +1201,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.05
+  m_fontSize: 50
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1317,7 +1319,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: -50
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
@@ -1360,10 +1362,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7186096229042163838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: -0.23333311, y: -0.52}
+  m_AnchorMax: {x: 1.2333336, y: -0.03333336}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3719691890051687738
 CanvasRenderer:
@@ -1395,15 +1397,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
+  m_sharedMaterial: {fileID: -7253061009744842458, guid: e59920c83f052c24eafa2eeb56e5b10b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4288987355
+  m_fontColor: {r: 0.85882354, g: 0.7529412, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1420,7 +1422,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.05
+  m_fontSize: 50
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1527,6 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityButtonView
   _button: {fileID: 3598489263913677912}
+  _icon: {fileID: 1721849384265512926}
   _label: {fileID: 6028722527082268558}
   _selectedFrame: {fileID: 5299008559711564421}
 --- !u!114 &3598489263913677912

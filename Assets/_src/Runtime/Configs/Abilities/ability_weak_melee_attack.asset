@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ability_weak_melee_attack
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Weak Melee Attack
+  _icon: {fileID: 21300000, guid: aeb31def086466745b570d082197ee1f, type: 3}
   _hasPositionRequirement: 1
   _actorPosition: 0
   _targetSide: 1

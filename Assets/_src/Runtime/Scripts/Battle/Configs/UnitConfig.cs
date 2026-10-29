@@ -17,6 +17,9 @@ namespace DDTest.Battle
 		[SerializeField, ShowAssetPreview, GenPublicGetter]
 		private Sprite _sprite;
 
+		[SerializeField, GenPublicGetter]
+		private UnitAnimationSet _animations;
+
 		[SerializeField, MinValue(1), GenPublicGetter]
 		private int _maxHp = 20;
 

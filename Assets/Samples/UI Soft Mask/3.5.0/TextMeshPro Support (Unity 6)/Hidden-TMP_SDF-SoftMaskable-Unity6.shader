@@ -1,4 +1,4 @@
-Shader "Hidden/TextMeshPro/Distance Field (SoftMaskable)" {
+﻿Shader "Hidden/TextMeshPro/Distance Field (SoftMaskable)" {
 
 Properties {
 	_FaceTex			("Face Texture", 2D) = "white" {}
@@ -124,8 +124,8 @@ SubShader {
 
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
-		#include "Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc"
-		#include "Assets/TextMesh Pro/Shaders/TMPro.cginc"
+		#include "Assets/Third Party/TextMesh Pro/Shaders/TMPro_Properties.cginc"
+		#include "Assets/Third Party/TextMesh Pro/Shaders/TMPro.cginc"
 
         // ==== SOFTMASKABLE START ====
         #pragma shader_feature _ SOFTMASK_EDITOR

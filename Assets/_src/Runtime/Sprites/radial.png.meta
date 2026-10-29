@@ -1,0 +1,7228 @@
+fileFormatVersion: 2
+guid: b4f6f9ac99567014e9972856d34aad6b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5270089401161869774
+    second: radial_0
+  - first:
+      213: -1818054978208330068
+    second: radial_1
+  - first:
+      213: 8705618008833630332
+    second: radial_2
+  - first:
+      213: -9048531707294941473
+    second: radial_3
+  - first:
+      213: -3483909950581296022
+    second: radial_4
+  - first:
+      213: -5797985343748099485
+    second: radial_5
+  - first:
+      213: 1903970363931826390
+    second: radial_6
+  - first:
+      213: 5373753242809754084
+    second: radial_7
+  - first:
+      213: 5651482412621308023
+    second: radial_8
+  - first:
+      213: -8907594056135749143
+    second: radial_9
+  - first:
+      213: 5683851613661955830
+    second: radial_10
+  - first:
+      213: -3683833620357275556
+    second: radial_11
+  - first:
+      213: -5489449532921987543
+    second: radial_12
+  - first:
+      213: 1142958936502576572
+    second: radial_13
+  - first:
+      213: -1052186348260885078
+    second: radial_14
+  - first:
+      213: -6289184419831843014
+    second: radial_15
+  - first:
+      213: 6044207214579969016
+    second: radial_16
+  - first:
+      213: -8514118830668150864
+    second: radial_17
+  - first:
+      213: -7004348690635018402
+    second: radial_18
+  - first:
+      213: 1083008059777796420
+    second: radial_19
+  - first:
+      213: 1773015266550616908
+    second: radial_20
+  - first:
+      213: -3656452572187835065
+    second: radial_21
+  - first:
+      213: 145295835442596583
+    second: radial_22
+  - first:
+      213: 8553785305744911330
+    second: radial_23
+  - first:
+      213: 7433943875585560050
+    second: radial_24
+  - first:
+      213: 2980792612729682932
+    second: radial_25
+  - first:
+      213: -2853880961257834662
+    second: radial_26
+  - first:
+      213: 5692609800313655760
+    second: radial_27
+  - first:
+      213: -7627143812471942302
+    second: radial_28
+  - first:
+      213: -6270001426332142462
+    second: radial_29
+  - first:
+      213: -6163218489147951277
+    second: radial_30
+  - first:
+      213: 7904569363790764989
+    second: radial_31
+  - first:
+      213: -9029401536108793000
+    second: radial_32
+  - first:
+      213: -8755551499639090989
+    second: radial_33
+  - first:
+      213: -5941961906134308776
+    second: radial_34
+  - first:
+      213: 2257300864025561744
+    second: radial_35
+  - first:
+      213: 6111770175996414622
+    second: radial_36
+  - first:
+      213: -8120265656790754365
+    second: radial_37
+  - first:
+      213: 366911601691528773
+    second: radial_38
+  - first:
+      213: -1870576584519600406
+    second: radial_39
+  - first:
+      213: -9128708968448170096
+    second: radial_40
+  - first:
+      213: -6573108962777040856
+    second: radial_41
+  - first:
+      213: 3818800438092583564
+    second: radial_42
+  - first:
+      213: 5526630376660615537
+    second: radial_43
+  - first:
+      213: -402409522419197307
+    second: radial_44
+  - first:
+      213: 5063091337244066173
+    second: radial_45
+  - first:
+      213: -4268033513100988337
+    second: radial_46
+  - first:
+      213: 5619824471365956947
+    second: radial_47
+  - first:
+      213: 4490779889956835528
+    second: radial_48
+  - first:
+      213: -17679653922177895
+    second: radial_49
+  - first:
+      213: 6196377683262816000
+    second: radial_50
+  - first:
+      213: 1122629476289781961
+    second: radial_51
+  - first:
+      213: -7571636951480389747
+    second: radial_52
+  - first:
+      213: 3936486839377649185
+    second: radial_53
+  - first:
+      213: -6310244869602130035
+    second: radial_54
+  - first:
+      213: 2411403017327941419
+    second: radial_55
+  - first:
+      213: -8956296171673956121
+    second: radial_56
+  - first:
+      213: -3020669013804999516
+    second: radial_57
+  - first:
+      213: -6149781484995315116
+    second: radial_58
+  - first:
+      213: -417131784350393400
+    second: radial_59
+  - first:
+      213: -1207437009182986749
+    second: radial_60
+  - first:
+      213: 7497424274100725296
+    second: radial_61
+  - first:
+      213: -3797399843801819269
+    second: radial_62
+  - first:
+      213: 779883940938026406
+    second: radial_63
+  - first:
+      213: 1417511761258640442
+    second: radial_64
+  - first:
+      213: -6448306647765473545
+    second: radial_65
+  - first:
+      213: -1365994370995663421
+    second: radial_66
+  - first:
+      213: -4291180923864531456
+    second: radial_67
+  - first:
+      213: -2227366563165989062
+    second: radial_68
+  - first:
+      213: -4758624374315042045
+    second: radial_69
+  - first:
+      213: 5903634951526067091
+    second: radial_70
+  - first:
+      213: 5850651478010469069
+    second: radial_71
+  - first:
+      213: -859298269992521157
+    second: radial_72
+  - first:
+      213: 6571217221371736537
+    second: radial_73
+  - first:
+      213: -8400426453337099290
+    second: radial_74
+  - first:
+      213: 2474205443130862053
+    second: radial_75
+  - first:
+      213: -5656829407734746537
+    second: radial_76
+  - first:
+      213: 2646461310987374890
+    second: radial_77
+  - first:
+      213: -1436143747249140547
+    second: radial_78
+  - first:
+      213: -1480960431555234137
+    second: radial_79
+  - first:
+      213: -795903598762497383
+    second: radial_80
+  - first:
+      213: 6900211699492903095
+    second: radial_81
+  - first:
+      213: -2048898305360849208
+    second: radial_82
+  - first:
+      213: -8432360960491115278
+    second: radial_83
+  - first:
+      213: 5078003518434851697
+    second: radial_84
+  - first:
+      213: -5340366257119061380
+    second: radial_85
+  - first:
+      213: -867120771623477437
+    second: radial_86
+  - first:
+      213: -8357261664579593985
+    second: radial_87
+  - first:
+      213: -5759813379092038450
+    second: radial_88
+  - first:
+      213: 5373681696448009654
+    second: radial_89
+  - first:
+      213: -5798695894961009758
+    second: radial_90
+  - first:
+      213: -3080615191658832496
+    second: radial_91
+  - first:
+      213: -2810411890289542258
+    second: radial_92
+  - first:
+      213: 7373578165862264491
+    second: radial_93
+  - first:
+      213: -8444499587492681630
+    second: radial_94
+  - first:
+      213: 4479948031527264582
+    second: radial_95
+  - first:
+      213: -2646733190905332805
+    second: radial_96
+  - first:
+      213: 4657196020952184372
+    second: radial_97
+  - first:
+      213: -2033133057186999336
+    second: radial_98
+  - first:
+      213: -5073126450916543937
+    second: radial_99
+  - first:
+      213: 7415597079919724172
+    second: radial_100
+  - first:
+      213: -1727268940239683147
+    second: radial_101
+  - first:
+      213: 5814168247114862669
+    second: radial_102
+  - first:
+      213: -3604066460660051065
+    second: radial_103
+  - first:
+      213: -4569521956538898437
+    second: radial_104
+  - first:
+      213: -5328402910812735577
+    second: radial_105
+  - first:
+      213: 612111180749009832
+    second: radial_106
+  - first:
+      213: 1562303535179647429
+    second: radial_107
+  - first:
+      213: -7071321255093142464
+    second: radial_108
+  - first:
+      213: 6305153929828242340
+    second: radial_109
+  - first:
+      213: 5358875233419924173
+    second: radial_110
+  - first:
+      213: -1318535242400853312
+    second: radial_111
+  - first:
+      213: 127941242678267605
+    second: radial_112
+  - first:
+      213: 2094633837874305234
+    second: radial_113
+  - first:
+      213: 4593674657107277835
+    second: radial_114
+  - first:
+      213: -844777726283990798
+    second: radial_115
+  - first:
+      213: 2908343002612060778
+    second: radial_116
+  - first:
+      213: -6907206660803050062
+    second: radial_117
+  - first:
+      213: 8621176832533700049
+    second: radial_118
+  - first:
+      213: -455237132488310355
+    second: radial_119
+  - first:
+      213: -2725845635201516086
+    second: radial_120
+  - first:
+      213: -1883509077122124742
+    second: radial_121
+  - first:
+      213: -4070962320612890698
+    second: radial_122
+  - first:
+      213: 411367804018463139
+    second: radial_123
+  - first:
+      213: -335777149400524455
+    second: radial_124
+  - first:
+      213: -3464878985665775953
+    second: radial_125
+  - first:
+      213: 2580067223166058332
+    second: radial_126
+  - first:
+      213: -2896619471639084252
+    second: radial_127
+  - first:
+      213: -5120465522931594090
+    second: radial_128
+  - first:
+      213: 7214650852662410039
+    second: radial_129
+  - first:
+      213: -246334412087131013
+    second: radial_130
+  - first:
+      213: -7538491517190214960
+    second: radial_131
+  - first:
+      213: -8301563739676733400
+    second: radial_132
+  - first:
+      213: -8055515649129943051
+    second: radial_133
+  - first:
+      213: 5508646320730049796
+    second: radial_134
+  - first:
+      213: -7402601284668395276
+    second: radial_135
+  - first:
+      213: 245062452101400501
+    second: radial_136
+  - first:
+      213: -5981485704004739570
+    second: radial_137
+  - first:
+      213: 8309849806641117946
+    second: radial_138
+  - first:
+      213: 8492193748529544074
+    second: radial_139
+  - first:
+      213: 2269287803124364306
+    second: radial_140
+  - first:
+      213: 4068545333226477989
+    second: radial_141
+  - first:
+      213: 7255910795204709337
+    second: radial_142
+  - first:
+      213: 8787128164569484929
+    second: radial_143
+  - first:
+      213: -8725932494073192762
+    second: radial_144
+  - first:
+      213: -6006678585237159477
+    second: radial_145
+  - first:
+      213: 6530249428761666854
+    second: radial_146
+  - first:
+      213: -1906292930249377676
+    second: radial_147
+  - first:
+      213: 3785006697109388427
+    second: radial_148
+  - first:
+      213: 1509538197308322819
+    second: radial_149
+  - first:
+      213: -9122295962829282298
+    second: radial_150
+  - first:
+      213: 5899232926674304448
+    second: radial_151
+  - first:
+      213: -5529813353325863247
+    second: radial_152
+  - first:
+      213: 3982245056553363451
+    second: radial_153
+  - first:
+      213: 5874597891270732939
+    second: radial_154
+  - first:
+      213: -6979985022168693816
+    second: radial_155
+  - first:
+      213: 3541393868584995178
+    second: radial_156
+  - first:
+      213: -3828160399671292852
+    second: radial_157
+  - first:
+      213: 1006493204300906636
+    second: radial_158
+  - first:
+      213: -8712129602990633392
+    second: radial_159
+  - first:
+      213: -8061670830405276284
+    second: radial_160
+  - first:
+      213: -6774112071283979207
+    second: radial_161
+  - first:
+      213: 8552006283338870551
+    second: radial_162
+  - first:
+      213: -2453450973386705479
+    second: radial_163
+  - first:
+      213: 7865178340114258068
+    second: radial_164
+  - first:
+      213: -847972141055579054
+    second: radial_165
+  - first:
+      213: -3535171255330265037
+    second: radial_166
+  - first:
+      213: 5725399309885350935
+    second: radial_167
+  - first:
+      213: 5803631095252654518
+    second: radial_168
+  - first:
+      213: 6681246348868334872
+    second: radial_169
+  - first:
+      213: -6050801446198595170
+    second: radial_170
+  - first:
+      213: -2579305203585949616
+    second: radial_171
+  - first:
+      213: 1036517704225479587
+    second: radial_172
+  - first:
+      213: -9035251791172936809
+    second: radial_173
+  - first:
+      213: -6902842107030549891
+    second: radial_174
+  - first:
+      213: -4879645905197620687
+    second: radial_175
+  - first:
+      213: 9020218198014364446
+    second: radial_176
+  - first:
+      213: 5564988385411528961
+    second: radial_177
+  - first:
+      213: 4805876177093777994
+    second: radial_178
+  - first:
+      213: 9017493832276818586
+    second: radial_179
+  - first:
+      213: 2941125410882418579
+    second: radial_180
+  - first:
+      213: -1103969780121808907
+    second: radial_181
+  - first:
+      213: -2975033970517434471
+    second: radial_182
+  - first:
+      213: 2199722688176721292
+    second: radial_183
+  - first:
+      213: 3272835128947234409
+    second: radial_184
+  - first:
+      213: -3823828327800792609
+    second: radial_185
+  - first:
+      213: 5906182318697034892
+    second: radial_186
+  - first:
+      213: 7961331030307937701
+    second: radial_187
+  - first:
+      213: 4902928568401543782
+    second: radial_188
+  - first:
+      213: 2718134764051384039
+    second: radial_189
+  - first:
+      213: -1573030221668721700
+    second: radial_190
+  - first:
+      213: -1168920330820507322
+    second: radial_191
+  - first:
+      213: 2371417013280745651
+    second: radial_192
+  - first:
+      213: 4021271837489279339
+    second: radial_193
+  - first:
+      213: -1413824065320695288
+    second: radial_194
+  - first:
+      213: -7539263710826119714
+    second: radial_195
+  - first:
+      213: -4606775690084107418
+    second: radial_196
+  - first:
+      213: 3368255661545369307
+    second: radial_197
+  - first:
+      213: 2189267732511151730
+    second: radial_198
+  - first:
+      213: -2397921147846615235
+    second: radial_199
+  - first:
+      213: 8517588508240746743
+    second: radial_200
+  - first:
+      213: 558297899226848113
+    second: radial_201
+  - first:
+      213: -3457687041556801986
+    second: radial_202
+  - first:
+      213: 528079985771672914
+    second: radial_203
+  - first:
+      213: -3429667809136666922
+    second: radial_204
+  - first:
+      213: -9419101096088970
+    second: radial_205
+  - first:
+      213: -5090253796871889370
+    second: radial_206
+  - first:
+      213: 169876794632005073
+    second: radial_207
+  - first:
+      213: 5147607735743135720
+    second: radial_208
+  - first:
+      213: 2821368325374169472
+    second: radial_209
+  - first:
+      213: -6311717364830874383
+    second: radial_210
+  - first:
+      213: -8890498792407109178
+    second: radial_211
+  - first:
+      213: 1485455815021943059
+    second: radial_212
+  - first:
+      213: 7136810571130301962
+    second: radial_213
+  - first:
+      213: 2627821947809948717
+    second: radial_214
+  - first:
+      213: -7219749278398318036
+    second: radial_215
+  - first:
+      213: -4739318807623641254
+    second: radial_216
+  - first:
+      213: 8238228889269986203
+    second: radial_217
+  - first:
+      213: 2990361086740685540
+    second: radial_218
+  - first:
+      213: 4594977772443400910
+    second: radial_219
+  - first:
+      213: -2878951844797780231
+    second: radial_220
+  - first:
+      213: 4723170832675079557
+    second: radial_221
+  - first:
+      213: 6361372301651964703
+    second: radial_222
+  - first:
+      213: 5578501376604795155
+    second: radial_223
+  - first:
+      213: 737424445272925780
+    second: radial_224
+  - first:
+      213: -4012091997218885410
+    second: radial_225
+  - first:
+      213: -3952632656715115765
+    second: radial_226
+  - first:
+      213: -7329420898530461799
+    second: radial_227
+  - first:
+      213: 8428565024712645168
+    second: radial_228
+  - first:
+      213: 2322599701655895074
+    second: radial_229
+  - first:
+      213: 8656810380035203442
+    second: radial_230
+  - first:
+      213: -3240743709805047921
+    second: radial_231
+  - first:
+      213: 391832635308034002
+    second: radial_232
+  - first:
+      213: 5621650732456565323
+    second: radial_233
+  - first:
+      213: -4654442788682444673
+    second: radial_234
+  - first:
+      213: -5509259975662381027
+    second: radial_235
+  - first:
+      213: -4702590271624177368
+    second: radial_236
+  - first:
+      213: 5223463744991637767
+    second: radial_237
+  - first:
+      213: 8988957887873724893
+    second: radial_238
+  - first:
+      213: -4399583672027708950
+    second: radial_239
+  - first:
+      213: -602891701880407046
+    second: radial_240
+  - first:
+      213: -7139502768561667858
+    second: radial_241
+  - first:
+      213: 7538253669687089515
+    second: radial_242
+  - first:
+      213: -6415181788086358855
+    second: radial_243
+  - first:
+      213: -7659271745136483341
+    second: radial_244
+  - first:
+      213: -8130442508714380312
+    second: radial_245
+  - first:
+      213: -4421215066863580416
+    second: radial_246
+  - first:
+      213: -73379048921032308
+    second: radial_247
+  - first:
+      213: 6982959842136996658
+    second: radial_248
+  - first:
+      213: 516782050671629284
+    second: radial_249
+  - first:
+      213: -934074079190431530
+    second: radial_250
+  - first:
+      213: 6090424018504524646
+    second: radial_251
+  - first:
+      213: 6573148576482278289
+    second: radial_252
+  - first:
+      213: 8496049967720013329
+    second: radial_253
+  - first:
+      213: 7963750819434615172
+    second: radial_254
+  - first:
+      213: -3564972378870270760
+    second: radial_255
+  - first:
+      213: 6563297252983538190
+    second: radial_256
+  - first:
+      213: -326852903017086169
+    second: radial_257
+  - first:
+      213: -7381855032266900303
+    second: radial_258
+  - first:
+      213: -5818155998281070441
+    second: radial_259
+  - first:
+      213: -7028906728847089559
+    second: radial_260
+  - first:
+      213: 102299054832170579
+    second: radial_261
+  - first:
+      213: 6335583089271872195
+    second: radial_262
+  - first:
+      213: 7856819060611041643
+    second: radial_263
+  - first:
+      213: -3020585737702862161
+    second: radial_264
+  - first:
+      213: 1368584631471534446
+    second: radial_265
+  - first:
+      213: 5236045575849962702
+    second: radial_266
+  - first:
+      213: 732201221035487660
+    second: radial_267
+  - first:
+      213: 2357448659430706138
+    second: radial_268
+  - first:
+      213: 755859447232904741
+    second: radial_269
+  - first:
+      213: 4604262926247491890
+    second: radial_270
+  - first:
+      213: -4332870103773485383
+    second: radial_271
+  - first:
+      213: -6846384219023231331
+    second: radial_272
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: radial_0
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1047
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9edc2636e132940800000000000000
+      internalID: 5270089401161869774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_1
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1046
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae03c931a8f4c6e0800000000000000
+      internalID: -1818054978208330068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_2
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1045
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70a5c6647190d870800000000000000
+      internalID: 8705618008833630332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_3
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 1046
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde73d77a582d6280800000000000000
+      internalID: -9048531707294941473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_4
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 1047
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a643726cb5aa6afc0800000000000000
+      internalID: -3483909950581296022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_5
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 1011
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36239f48c0b698fa0800000000000000
+      internalID: -5797985343748099485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_6
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1010
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8170555f24c6a10800000000000000
+      internalID: 1903970363931826390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_7
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1009
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1674c5a18639a40800000000000000
+      internalID: 5373753242809754084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_8
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1009
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77029aabf491e6e40800000000000000
+      internalID: 5651482412621308023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_9
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 1010
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1d5a0866ed16480800000000000000
+      internalID: -8907594056135749143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_10
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1011
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f60a54ade811ee40800000000000000
+      internalID: 5683851613661955830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_11
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 978
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c50a6fe07d460ecc0800000000000000
+      internalID: -3683833620357275556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_12
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 975
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e30c1fbbe81d3b0800000000000000
+      internalID: -5489449532921987543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_13
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 974
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5281bd81b9cdf00800000000000000
+      internalID: 1142958936502576572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 973
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aadf46a4712e561f0800000000000000
+      internalID: -1052186348260885078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_15
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 972
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a377009771458b8a0800000000000000
+      internalID: -6289184419831843014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_16
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 973
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb64e5207651e350800000000000000
+      internalID: 6044207214579969016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_17
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 974
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b78f828806c7d980800000000000000
+      internalID: -8514118830668150864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_18
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 975
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f2abbf9fd8bce90800000000000000
+      internalID: -7004348690635018402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_19
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 978
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449c0f3a71e970f00800000000000000
+      internalID: 1083008059777796420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 943
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c431818bdf30b9810800000000000000
+      internalID: 1773015266550616908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_21
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 940
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7454ea022cba14dc0800000000000000
+      internalID: -3656452572187835065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_22
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 938
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea46e2eac1340200800000000000000
+      internalID: 145295835442596583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_23
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 936
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eba1e96a6625b670800000000000000
+      internalID: 8553785305744911330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_24
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 936
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdc770719caa2760800000000000000
+      internalID: 7433943875585560050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_25
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 936
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb7cde9617ed5920800000000000000
+      internalID: 2980792612729682932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_26
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 936
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57f9f0e26af468d0800000000000000
+      internalID: -2853880961257834662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_27
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 938
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d15a90e376300f40800000000000000
+      internalID: 5692609800313655760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_28
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 940
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2639ac6ec11f62690800000000000000
+      internalID: -7627143812471942302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_29
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 943
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284b7423cea7cf8a0800000000000000
+      internalID: -6270001426332142462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_30
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 907
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35777313079d77aa0800000000000000
+      internalID: -6163218489147951277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_31
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 904
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb1f27c4fba2bd60800000000000000
+      internalID: 7904569363790764989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_32
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 902
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8537ed9842f11b280800000000000000
+      internalID: -9029401536108793000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_33
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 900
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d09f5bcc480e7680800000000000000
+      internalID: -8755551499639090989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_34
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 899
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85826f3d029e98da0800000000000000
+      internalID: -5941961906134308776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_35
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 899
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a0d671d2b835f10800000000000000
+      internalID: 2257300864025561744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_36
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 899
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ac711f79e51d450800000000000000
+      internalID: 6111770175996414622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_37
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 900
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cbde2d78650f4f80800000000000000
+      internalID: -8120265656790754365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_38
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 902
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e0bc26828871500800000000000000
+      internalID: 366911601691528773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_39
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 904
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6bb82d1806a06e0800000000000000
+      internalID: -1870576584519600406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_40
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 907
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09769b52f8f405180800000000000000
+      internalID: -9128708968448170096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_41
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 873
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828fcb36930a7c4a0800000000000000
+      internalID: -6573108962777040856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_42
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 869
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c825d9cf3ca1ff430800000000000000
+      internalID: 3818800438092583564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_43
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1714db5db0982bc40800000000000000
+      internalID: 5526630376660615537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_44
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 864
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a18f1ebaa5a6af0800000000000000
+      internalID: -402409522419197307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_45
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 862
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d714acdeeb6b34640800000000000000
+      internalID: 5063091337244066173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_46
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 862
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4037220226e4c4c0800000000000000
+      internalID: -4268033513100988337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_47
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 862
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355b0d3e490adfd40800000000000000
+      internalID: 5619824471365956947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_48
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 862
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c058594484725e30800000000000000
+      internalID: 4490779889956835528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_49
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 864
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c773cc27031cff0800000000000000
+      internalID: -17679653922177895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_50
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fb9015ca4fdf550800000000000000
+      internalID: 6196377683262816000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_51
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 869
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0a2ac8f81649f00800000000000000
+      internalID: 1122629476289781961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_52
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 873
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f2ac21f442ce690800000000000000
+      internalID: -7571636951480389747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_53
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 838
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12eda1c8ce531a630800000000000000
+      internalID: 3936486839377649185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_54
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 834
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8742a569b18d68a0800000000000000
+      internalID: -6310244869602130035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_55
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 830
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b271322a446077120800000000000000
+      internalID: 2411403017327941419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_56
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 827
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0de289518d4b380800000000000000
+      internalID: -8956296171673956121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_57
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 826
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac9f10498d6416d0800000000000000
+      internalID: -3020669013804999516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_58
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 825
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a7494825697aaa0800000000000000
+      internalID: -6149781484995315116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_59
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 824
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb15492adc063af0800000000000000
+      internalID: -417131784350393400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_60
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 825
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30eecfaff625e3fe0800000000000000
+      internalID: -1207437009182986749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_61
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 826
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0362a2c77a33c0860800000000000000
+      internalID: 7497424274100725296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_62
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 827
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77911826fcec4bc0800000000000000
+      internalID: -3797399843801819269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_63
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 830
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad84a1ff44b2da00800000000000000
+      internalID: 779883940938026406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_64
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 834
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3472c2cf630ca310800000000000000
+      internalID: 1417511761258640442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_65
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 838
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f62629b4430386a0800000000000000
+      internalID: -6448306647765473545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_66
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 804
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cdce9f5b530b0de0800000000000000
+      internalID: -1365994370995663421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_67
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 800
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e3f167fa9a274c0800000000000000
+      internalID: -4291180923864531456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_68
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 795
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3798e179edc611e0800000000000000
+      internalID: -2227366563165989062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_69
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 791
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30bbf650858f5fdb0800000000000000
+      internalID: -4758624374315042045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_70
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 789
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39baa49a5bcede150800000000000000
+      internalID: 5903634951526067091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_71
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 788
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca9d6b6580b13150800000000000000
+      internalID: 5850651478010469069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_72
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 787
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32fcf4b6c82314f0800000000000000
+      internalID: -859298269992521157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_73
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 787
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1bacd3f37a13b50800000000000000
+      internalID: 6571217221371736537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_74
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 788
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e33c07e5a0bb6b80800000000000000
+      internalID: -8400426453337099290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_75
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 789
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9272bddb4265220800000000000000
+      internalID: 2474205443130862053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_76
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 791
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752bcf4ff97ee71b0800000000000000
+      internalID: -5656829407734746537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_77
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 795
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2197317a8e1ab420800000000000000
+      internalID: 2646461310987374890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_78
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 800
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc01d2fedac11ce0800000000000000
+      internalID: -1436143747249140547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_79
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 804
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6bdbe7552927be0800000000000000
+      internalID: -1480960431555234137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_80
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 765
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a6e40d4e164f4f0800000000000000
+      internalID: -795903598762497383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_81
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 761
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8d4475bf972cf50800000000000000
+      internalID: 6900211699492903095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_82
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 756
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c61118c8d9d093e0800000000000000
+      internalID: -2048898305360849208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_83
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 261
+        width: 540
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc2e0c026c3afa80800000000000000
+      internalID: -8432360960491115278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_84
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 756
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b3e7cab41b87640800000000000000
+      internalID: 5078003518434851697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_85
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 761
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a9fe10f2533e5b0800000000000000
+      internalID: -5340366257119061380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_86
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 765
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f150e904e57f3f0800000000000000
+      internalID: -867120771623477437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_87
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 731
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff85eb37bca050c80800000000000000
+      internalID: -8357261664579593985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_88
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 727
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc3dae9f380110b0800000000000000
+      internalID: -5759813379092038450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_89
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 723
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b55dcc2807239a40800000000000000
+      internalID: 5373681696448009654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_90
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 723
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab455c6ec4e68fa0800000000000000
+      internalID: -5798695894961009758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_91
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 727
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09dd0831ec47f35d0800000000000000
+      internalID: -3080615191658832496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_92
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 731
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bf1c6a6496ff8d0800000000000000
+      internalID: -2810411890289542258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_93
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 697
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baeebc36646345660800000000000000
+      internalID: 7373578165862264491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_94
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 694
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268e095bd5c1fca80800000000000000
+      internalID: -8444499587492681630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_95
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 689
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641a467bff8fb2e30800000000000000
+      internalID: 4479948031527264582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_96
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 684
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbf9d49f2ae44bd0800000000000000
+      internalID: -2646733190905332805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_97
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 684
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436b73e2b1fa1a040800000000000000
+      internalID: 4657196020952184372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_98
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 689
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3d349a14cd8c3e0800000000000000
+      internalID: -2033133057186999336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_99
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 694
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f323b781f52a899b0800000000000000
+      internalID: -5073126450916543937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_100
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 697
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c860a02314e79e660800000000000000
+      internalID: 7415597079919724172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 663
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1c271ec028708e0800000000000000
+      internalID: -1727268940239683147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_102
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 660
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4013a9473310b050800000000000000
+      internalID: 5814168247114862669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_103
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 656
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783557136a8cbfdc0800000000000000
+      internalID: -3604066460660051065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_104
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 651
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7a62badfbc590c0800000000000000
+      internalID: -4569521956538898437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_105
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 651
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a779d0a8c5bd06b0800000000000000
+      internalID: -5328402910812735577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_106
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 656
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3f69330e7ae7800800000000000000
+      internalID: 612111180749009832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_107
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 660
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c948bda9ca6ea510800000000000000
+      internalID: 1562303535179647429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_108
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 663
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04cf081b8ce9ddd90800000000000000
+      internalID: -7071321255093142464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_109
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 626
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a31291d718608750800000000000000
+      internalID: 6305153929828242340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_110
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 622
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc212abd1ac8e5a40800000000000000
+      internalID: 5358875233419924173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_111
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 618
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c21dd4de2f93bde0800000000000000
+      internalID: -1318535242400853312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_112
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 613
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dec5f1e1e986c100800000000000000
+      internalID: 127941242678267605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_113
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 613
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8d201b062a11d10800000000000000
+      internalID: 2094633837874305234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_114
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 618
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08f79623c200cf30800000000000000
+      internalID: 4593674657107277835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_115
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 622
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f83eae322fb644f0800000000000000
+      internalID: -844777726283990798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_116
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 626
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a625fa34d828c5820800000000000000
+      internalID: 2908343002612060778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 592
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b54f90532ca420a0800000000000000
+      internalID: -6907206660803050062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_118
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 589
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd9ff8f6a294a770800000000000000
+      internalID: 8621176832533700049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_119
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 585
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1877d6d3caea9f0800000000000000
+      internalID: -455237132488310355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_120
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 580
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acdb34146d9db2ad0800000000000000
+      internalID: -2725845635201516086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_121
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 580
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3479ee397e6cd5e0800000000000000
+      internalID: -1883509077122124742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_122
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 585
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b76ed996590187c0800000000000000
+      internalID: -4070962320612890698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_123
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 589
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a19d8696d875b500800000000000000
+      internalID: 411367804018463139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_124
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 592
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959d94e2674175bf0800000000000000
+      internalID: -335777149400524455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_125
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 555
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6fca59be64aefc0800000000000000
+      internalID: -3464878985665775953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_126
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 552
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ff07d387d3ec320800000000000000
+      internalID: 2580067223166058332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_127
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 548
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423097fffe32dc7d0800000000000000
+      internalID: -2896619471639084252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_128
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 543
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c070d7cb370f8b0800000000000000
+      internalID: -5120465522931594090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_129
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 543
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b7963c9b69f1460800000000000000
+      internalID: 7214650852662410039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_130
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 548
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7487974828d49cf0800000000000000
+      internalID: -246334412087131013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_131
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 552
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dae49fd7e5e16790800000000000000
+      internalID: -7538491517190214960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_132
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 555
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8201e4823cbeacc80800000000000000
+      internalID: -8301563739676733400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 522
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff6203723f053090800000000000000
+      internalID: -8055515649129943051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_134
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 519
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d806484a4a27c40800000000000000
+      internalID: 5508646320730049796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_135
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 515
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f07d7d2a5da44990800000000000000
+      internalID: -7402601284668395276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_136
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 510
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b74a457003a66300800000000000000
+      internalID: 245062452101400501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_137
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 510
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e58b7817e7dfca0800000000000000
+      internalID: -5981485704004739570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_138
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 515
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa31b52f54825370800000000000000
+      internalID: 8309849806641117946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_139
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 519
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b75e088355ad570800000000000000
+      internalID: 8492193748529544074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_140
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 522
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214ba56db312e7f10800000000000000
+      internalID: 2269287803124364306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_141
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 486
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9998bac60667830800000000000000
+      internalID: 4068545333226477989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_142
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 482
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db491ebc6c22b460800000000000000
+      internalID: 7255910795204709337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_143
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 478
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e8efc628622f970800000000000000
+      internalID: 8787128164569484929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_144
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 473
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce9abce0a247e680800000000000000
+      internalID: -8725932494073192762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_145
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 473
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc14ef6c6adf3aca0800000000000000
+      internalID: -6006678585237159477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_146
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 478
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6256908b14b10aa50800000000000000
+      internalID: 6530249428761666854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_147
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 482
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478b5ae0eac7b85e0800000000000000
+      internalID: -1906292930249377676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_148
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 486
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cfda5898b078430800000000000000
+      internalID: 3785006697109388427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_149
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 452
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30432791ef4f2f410800000000000000
+      internalID: 1509538197308322819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_150
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 449
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604a49f5728176180800000000000000
+      internalID: -9122295962829282298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_151
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 445
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cdb5b167194ed150800000000000000
+      internalID: 5899232926674304448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_152
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 441
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bedcc8ad082243b0800000000000000
+      internalID: -5529813353325863247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_153
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 441
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf72b64b7c6c34730800000000000000
+      internalID: 3982245056553363451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_154
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 445
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c637b38a3c68150800000000000000
+      internalID: 5874597891270732939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_155
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 449
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c386189a9c122f90800000000000000
+      internalID: -6979985022168693816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_156
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 452
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6941cad5fe852130800000000000000
+      internalID: 3541393868584995178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_157
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 417
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c00622664afdac0800000000000000
+      internalID: -3828160399671292852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_158
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 413
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8043379c38c7fd00800000000000000
+      internalID: 1006493204300906636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_159
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 409
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e0490f84c481780800000000000000
+      internalID: -8712129602990633392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_160
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 404
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48da091a7113f1090800000000000000
+      internalID: -8061670830405276284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_161
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 404
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cce6246f48df1a0800000000000000
+      internalID: -6774112071283979207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_162
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 409
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f625b7764dea670800000000000000
+      internalID: 8552006283338870551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_163
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 413
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5f271b65793fdd0800000000000000
+      internalID: -2453450973386705479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_164
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 417
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4985b91670ab62d60800000000000000
+      internalID: 7865178340114258068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_165
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c64f894d56b34f0800000000000000
+      internalID: -847972141055579054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_166
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 381
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3382ed1397c80fec0800000000000000
+      internalID: -3535171255330265037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_167
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 377
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714abfe7654b47f40800000000000000
+      internalID: 5725399309885350935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_168
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 372
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b912ff6bb3aa8050800000000000000
+      internalID: 5803631095252654518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_169
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 372
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8153c21d72e88bc50800000000000000
+      internalID: 6681246348868334872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_170
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 377
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91b9e8a42c370ca0800000000000000
+      internalID: -6050801446198595170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_171
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 381
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05061f44597743cd0800000000000000
+      internalID: -2579305203585949616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_172
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 384
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab53cb3c53726e00800000000000000
+      internalID: 1036517704225479587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_173
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 348
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bdce2ed565c9280800000000000000
+      internalID: -9035251791172936809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_174
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 345
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ac5dd2dad2430a0800000000000000
+      internalID: -6902842107030549891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_175
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 340
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132a10717e3084cb0800000000000000
+      internalID: -4879645905197620687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_176
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 335
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b0921f8a04e2d70800000000000000
+      internalID: 9020218198014364446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_177
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 335
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109f0a3b37fca3d40800000000000000
+      internalID: 5564988385411528961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_178
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 340
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4adf22abe6e1b240800000000000000
+      internalID: 4805876177093777994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_179
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 345
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9ab22d1dd2942d70800000000000000
+      internalID: 9017493832276818586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_180
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 348
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397758b7af9f0d820800000000000000
+      internalID: 2941125410882418579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_181
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 313
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffc2158559eda0f0800000000000000
+      internalID: -1103969780121808907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_182
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 309
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f9690cd5e86b6d0800000000000000
+      internalID: -2975033970517434471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_183
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 304
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d0429512cf68e10800000000000000
+      internalID: 2199722688176721292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_184
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 304
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966d155a5327b6d20800000000000000
+      internalID: 3272835128947234409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_185
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 309
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd99b5735680feac0800000000000000
+      internalID: -3823828327800792609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_186
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 313
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8431acc689f6f150800000000000000
+      internalID: 5906182318697034892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_187
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 277
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad9cc024645c7e60800000000000000
+      internalID: 7961331030307937701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_188
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 273
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66240be5e83ba0440800000000000000
+      internalID: 4902928568401543782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_189
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 268
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e64ce6aa21c8b520800000000000000
+      internalID: 2718134764051384039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_190
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 268
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb5b7009597b2ae0800000000000000
+      internalID: -1573030221668721700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_191
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 273
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64926bef62927cfe0800000000000000
+      internalID: -1168920330820507322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_192
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 277
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8aae29537f8e020800000000000000
+      internalID: 2371417013280745651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_193
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 245
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61b4da3e6d6ec730800000000000000
+      internalID: 4021271837489279339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_194
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 241
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a49abd086116ce0800000000000000
+      internalID: -1413824065320695288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_195
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 237
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd373889972f5790800000000000000
+      internalID: -7539263710826119714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_196
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 233
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66bb1a8eae17110c0800000000000000
+      internalID: -4606775690084107418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_197
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 231
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde2c1bada27ebe20800000000000000
+      internalID: 3368255661545369307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_198
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 229
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2765d8a4767d16e10800000000000000
+      internalID: 2189267732511151730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_199
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 229
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f9437bb6fd8bed0800000000000000
+      internalID: -2397921147846615235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_200
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 229
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f893a0ce9d843670800000000000000
+      internalID: 8517588508240746743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_201
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 229
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b534a3bf87fb700800000000000000
+      internalID: 558297899226848113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_202
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 231
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e36198f84f3d300d0800000000000000
+      internalID: -3457687041556801986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_203
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 233
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255f9ecf2fd145700800000000000000
+      internalID: 528079985771672914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_204
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 237
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d611da7c4f5760d0800000000000000
+      internalID: -3429667809136666922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_205
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 241
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a6011a0698edff0800000000000000
+      internalID: -9419101096088970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_206
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 245
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e1edc1429cb59b0800000000000000
+      internalID: -5090253796871889370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_207
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 210
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d56f9f6b068b5200800000000000000
+      internalID: 169876794632005073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_208
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 206
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8efb50466f9ff6740800000000000000
+      internalID: 5147607735743135720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_209
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 202
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081577e2b83872720800000000000000
+      internalID: 2821368325374169472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_210
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 199
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f457926f764868a0800000000000000
+      internalID: -6311717364830874383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_211
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 198
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1f882c37a9e9480800000000000000
+      internalID: -8890498792407109178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_212
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 197
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319dbe781366d9410800000000000000
+      internalID: 1485455815021943059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_213
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 196
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e6979e66b0b0360800000000000000
+      internalID: 7136810571130301962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_214
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 197
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24ef248326e77420800000000000000
+      internalID: 2627821947809948717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_215
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 198
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a7fad784c4ecb90800000000000000
+      internalID: -7219749278398318036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_216
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 199
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57d34a87ae8a3eb0800000000000000
+      internalID: -4739318807623641254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_217
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 202
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b936c4bd681145270800000000000000
+      internalID: 8238228889269986203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_218
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 206
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e264559095ef7920800000000000000
+      internalID: 2990361086740685540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_219
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 210
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecafd4550f3a4cf30800000000000000
+      internalID: 4594977772443400910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_220
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 175
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe6f5dec88eb08d0800000000000000
+      internalID: -2878951844797780231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_221
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 171
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 585851f09d21c8140800000000000000
+      internalID: 4723170832675079557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_222
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 168
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1379f38762284850800000000000000
+      internalID: 6361372301651964703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_223
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 166
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3117e832271da6d40800000000000000
+      internalID: 5578501376604795155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_224
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 164
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456ae2d30abdb3a00800000000000000
+      internalID: 737424445272925780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_225
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 164
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0b493e59f2258c0800000000000000
+      internalID: -4012091997218885410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_226
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 164
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0313e86a8d6529c0800000000000000
+      internalID: -3952632656715115765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_227
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 164
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99774c5968aa84a90800000000000000
+      internalID: -7329420898530461799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_228
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 166
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a5748cb3748f470800000000000000
+      internalID: 8428565024712645168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_229
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 168
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22cb0ac7f188b3020800000000000000
+      internalID: 2322599701655895074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_230
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 171
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271a9e5cc2b232870800000000000000
+      internalID: 8656810380035203442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_231
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 175
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f0df024c09603d0800000000000000
+      internalID: -3240743709805047921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_232
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 140
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7c0fea4b1107500800000000000000
+      internalID: 391832635308034002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_233
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 137
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a536f6e8d140e40800000000000000
+      internalID: 5621650732456565323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_234
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 134
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f705439a1f8186fb0800000000000000
+      internalID: -4654442788682444673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_235
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 132
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18dd5fcd3d2b83b0800000000000000
+      internalID: -5509259975662381027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_236
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 131
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82912a7301b0dbeb0800000000000000
+      internalID: -4702590271624177368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_237
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 131
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701bb59d9987d7840800000000000000
+      internalID: 5223463744991637767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_238
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 131
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1b8afc2913fbc70800000000000000
+      internalID: 8988957887873724893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_239
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 132
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae10e25d5f981f2c0800000000000000
+      internalID: -4399583672027708950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_240
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 134
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afb336ff03912a7f0800000000000000
+      internalID: -602891701880407046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_241
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 137
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0c6f60f046bec90800000000000000
+      internalID: -7139502768561667858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_242
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 140
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69db70f5c14d9860800000000000000
+      internalID: 7538253669687089515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_243
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 105
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcae8f1722b8f6a0800000000000000
+      internalID: -6415181788086358855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_244
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 102
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f324f8adecc4b590800000000000000
+      internalID: -7659271745136483341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_245
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 100
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e3f7518d9dda2f80800000000000000
+      internalID: -8130442508714380312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_246
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 99
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00bcdff3250b4a2c0800000000000000
+      internalID: -4421215066863580416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_247
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 98
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c891b1fc42e4bfef0800000000000000
+      internalID: -73379048921032308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_248
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 98
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bb467aaf478e060800000000000000
+      internalID: 6982959842136996658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_249
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 99
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3949c798afb2700800000000000000
+      internalID: 516782050671629284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_250
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 100
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d844fbe2908903f0800000000000000
+      internalID: -934074079190431530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_251
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 102
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663287a5068858450800000000000000
+      internalID: 6090424018504524646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_252
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 105
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b3715edc3883b50800000000000000
+      internalID: 6573148576482278289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_253
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 71
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e9bef7e6808e570800000000000000
+      internalID: 8496049967720013329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_254
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 68
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48150203d2de48e60800000000000000
+      internalID: 7963750819434615172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_255
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 67
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d4bb5b628ca68ec0800000000000000
+      internalID: -3564972378870270760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_256
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 65
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e028167e314851b50800000000000000
+      internalID: 6563297252983538190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_257
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 65
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7238cd53409c67bf0800000000000000
+      internalID: -326852903017086169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_258
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 65
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc3d4a75f16e8990800000000000000
+      internalID: -7381855032266900303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_259
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 67
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79806aa02f1c14fa0800000000000000
+      internalID: -5818155998281070441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_260
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 68
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96067b3229e447e90800000000000000
+      internalID: -7028906728847089559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_261
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 71
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3563128c2707b6100800000000000000
+      internalID: 102299054832170579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_262
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 34
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca950990438ce750800000000000000
+      internalID: 6335583089271872195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_263
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 33
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b694d34fe47090d60800000000000000
+      internalID: 7856819060611041643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_264
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 32
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa21c9a7649b416d0800000000000000
+      internalID: -3020585737702862161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_265
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 32
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e617be3a8703ef210800000000000000
+      internalID: 1368584631471534446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_266
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 33
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eccea40a5bb2aa840800000000000000
+      internalID: 5236045575849962702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_267
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 34
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca17de3912d492a00800000000000000
+      internalID: 732201221035487660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_268
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb8691c01757b020800000000000000
+      internalID: 2357448659430706138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_269
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52eb07c992a5d7a00800000000000000
+      internalID: 755859447232904741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_270
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2397b7bacb0a5ef30800000000000000
+      internalID: 4604262926247491890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_271
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6ebaed89d8ed3c0800000000000000
+      internalID: -4332870103773485383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: radial_272
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96b74593d1ccf0a0800000000000000
+      internalID: -6846384219023231331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      radial_0: 5270089401161869774
+      radial_1: -1818054978208330068
+      radial_10: 5683851613661955830
+      radial_100: 7415597079919724172
+      radial_101: -1727268940239683147
+      radial_102: 5814168247114862669
+      radial_103: -3604066460660051065
+      radial_104: -4569521956538898437
+      radial_105: -5328402910812735577
+      radial_106: 612111180749009832
+      radial_107: 1562303535179647429
+      radial_108: -7071321255093142464
+      radial_109: 6305153929828242340
+      radial_11: -3683833620357275556
+      radial_110: 5358875233419924173
+      radial_111: -1318535242400853312
+      radial_112: 127941242678267605
+      radial_113: 2094633837874305234
+      radial_114: 4593674657107277835
+      radial_115: -844777726283990798
+      radial_116: 2908343002612060778
+      radial_117: -6907206660803050062
+      radial_118: 8621176832533700049
+      radial_119: -455237132488310355
+      radial_12: -5489449532921987543
+      radial_120: -2725845635201516086
+      radial_121: -1883509077122124742
+      radial_122: -4070962320612890698
+      radial_123: 411367804018463139
+      radial_124: -335777149400524455
+      radial_125: -3464878985665775953
+      radial_126: 2580067223166058332
+      radial_127: -2896619471639084252
+      radial_128: -5120465522931594090
+      radial_129: 7214650852662410039
+      radial_13: 1142958936502576572
+      radial_130: -246334412087131013
+      radial_131: -7538491517190214960
+      radial_132: -8301563739676733400
+      radial_133: -8055515649129943051
+      radial_134: 5508646320730049796
+      radial_135: -7402601284668395276
+      radial_136: 245062452101400501
+      radial_137: -5981485704004739570
+      radial_138: 8309849806641117946
+      radial_139: 8492193748529544074
+      radial_14: -1052186348260885078
+      radial_140: 2269287803124364306
+      radial_141: 4068545333226477989
+      radial_142: 7255910795204709337
+      radial_143: 8787128164569484929
+      radial_144: -8725932494073192762
+      radial_145: -6006678585237159477
+      radial_146: 6530249428761666854
+      radial_147: -1906292930249377676
+      radial_148: 3785006697109388427
+      radial_149: 1509538197308322819
+      radial_15: -6289184419831843014
+      radial_150: -9122295962829282298
+      radial_151: 5899232926674304448
+      radial_152: -5529813353325863247
+      radial_153: 3982245056553363451
+      radial_154: 5874597891270732939
+      radial_155: -6979985022168693816
+      radial_156: 3541393868584995178
+      radial_157: -3828160399671292852
+      radial_158: 1006493204300906636
+      radial_159: -8712129602990633392
+      radial_16: 6044207214579969016
+      radial_160: -8061670830405276284
+      radial_161: -6774112071283979207
+      radial_162: 8552006283338870551
+      radial_163: -2453450973386705479
+      radial_164: 7865178340114258068
+      radial_165: -847972141055579054
+      radial_166: -3535171255330265037
+      radial_167: 5725399309885350935
+      radial_168: 5803631095252654518
+      radial_169: 6681246348868334872
+      radial_17: -8514118830668150864
+      radial_170: -6050801446198595170
+      radial_171: -2579305203585949616
+      radial_172: 1036517704225479587
+      radial_173: -9035251791172936809
+      radial_174: -6902842107030549891
+      radial_175: -4879645905197620687
+      radial_176: 9020218198014364446
+      radial_177: 5564988385411528961
+      radial_178: 4805876177093777994
+      radial_179: 9017493832276818586
+      radial_18: -7004348690635018402
+      radial_180: 2941125410882418579
+      radial_181: -1103969780121808907
+      radial_182: -2975033970517434471
+      radial_183: 2199722688176721292
+      radial_184: 3272835128947234409
+      radial_185: -3823828327800792609
+      radial_186: 5906182318697034892
+      radial_187: 7961331030307937701
+      radial_188: 4902928568401543782
+      radial_189: 2718134764051384039
+      radial_19: 1083008059777796420
+      radial_190: -1573030221668721700
+      radial_191: -1168920330820507322
+      radial_192: 2371417013280745651
+      radial_193: 4021271837489279339
+      radial_194: -1413824065320695288
+      radial_195: -7539263710826119714
+      radial_196: -4606775690084107418
+      radial_197: 3368255661545369307
+      radial_198: 2189267732511151730
+      radial_199: -2397921147846615235
+      radial_2: 8705618008833630332
+      radial_20: 1773015266550616908
+      radial_200: 8517588508240746743
+      radial_201: 558297899226848113
+      radial_202: -3457687041556801986
+      radial_203: 528079985771672914
+      radial_204: -3429667809136666922
+      radial_205: -9419101096088970
+      radial_206: -5090253796871889370
+      radial_207: 169876794632005073
+      radial_208: 5147607735743135720
+      radial_209: 2821368325374169472
+      radial_21: -3656452572187835065
+      radial_210: -6311717364830874383
+      radial_211: -8890498792407109178
+      radial_212: 1485455815021943059
+      radial_213: 7136810571130301962
+      radial_214: 2627821947809948717
+      radial_215: -7219749278398318036
+      radial_216: -4739318807623641254
+      radial_217: 8238228889269986203
+      radial_218: 2990361086740685540
+      radial_219: 4594977772443400910
+      radial_22: 145295835442596583
+      radial_220: -2878951844797780231
+      radial_221: 4723170832675079557
+      radial_222: 6361372301651964703
+      radial_223: 5578501376604795155
+      radial_224: 737424445272925780
+      radial_225: -4012091997218885410
+      radial_226: -3952632656715115765
+      radial_227: -7329420898530461799
+      radial_228: 8428565024712645168
+      radial_229: 2322599701655895074
+      radial_23: 8553785305744911330
+      radial_230: 8656810380035203442
+      radial_231: -3240743709805047921
+      radial_232: 391832635308034002
+      radial_233: 5621650732456565323
+      radial_234: -4654442788682444673
+      radial_235: -5509259975662381027
+      radial_236: -4702590271624177368
+      radial_237: 5223463744991637767
+      radial_238: 8988957887873724893
+      radial_239: -4399583672027708950
+      radial_24: 7433943875585560050
+      radial_240: -602891701880407046
+      radial_241: -7139502768561667858
+      radial_242: 7538253669687089515
+      radial_243: -6415181788086358855
+      radial_244: -7659271745136483341
+      radial_245: -8130442508714380312
+      radial_246: -4421215066863580416
+      radial_247: -73379048921032308
+      radial_248: 6982959842136996658
+      radial_249: 516782050671629284
+      radial_25: 2980792612729682932
+      radial_250: -934074079190431530
+      radial_251: 6090424018504524646
+      radial_252: 6573148576482278289
+      radial_253: 8496049967720013329
+      radial_254: 7963750819434615172
+      radial_255: -3564972378870270760
+      radial_256: 6563297252983538190
+      radial_257: -326852903017086169
+      radial_258: -7381855032266900303
+      radial_259: -5818155998281070441
+      radial_26: -2853880961257834662
+      radial_260: -7028906728847089559
+      radial_261: 102299054832170579
+      radial_262: 6335583089271872195
+      radial_263: 7856819060611041643
+      radial_264: -3020585737702862161
+      radial_265: 1368584631471534446
+      radial_266: 5236045575849962702
+      radial_267: 732201221035487660
+      radial_268: 2357448659430706138
+      radial_269: 755859447232904741
+      radial_27: 5692609800313655760
+      radial_270: 4604262926247491890
+      radial_271: -4332870103773485383
+      radial_272: -6846384219023231331
+      radial_28: -7627143812471942302
+      radial_29: -6270001426332142462
+      radial_3: -9048531707294941473
+      radial_30: -6163218489147951277
+      radial_31: 7904569363790764989
+      radial_32: -9029401536108793000
+      radial_33: -8755551499639090989
+      radial_34: -5941961906134308776
+      radial_35: 2257300864025561744
+      radial_36: 6111770175996414622
+      radial_37: -8120265656790754365
+      radial_38: 366911601691528773
+      radial_39: -1870576584519600406
+      radial_4: -3483909950581296022
+      radial_40: -9128708968448170096
+      radial_41: -6573108962777040856
+      radial_42: 3818800438092583564
+      radial_43: 5526630376660615537
+      radial_44: -402409522419197307
+      radial_45: 5063091337244066173
+      radial_46: -4268033513100988337
+      radial_47: 5619824471365956947
+      radial_48: 4490779889956835528
+      radial_49: -17679653922177895
+      radial_5: -5797985343748099485
+      radial_50: 6196377683262816000
+      radial_51: 1122629476289781961
+      radial_52: -7571636951480389747
+      radial_53: 3936486839377649185
+      radial_54: -6310244869602130035
+      radial_55: 2411403017327941419
+      radial_56: -8956296171673956121
+      radial_57: -3020669013804999516
+      radial_58: -6149781484995315116
+      radial_59: -417131784350393400
+      radial_6: 1903970363931826390
+      radial_60: -1207437009182986749
+      radial_61: 7497424274100725296
+      radial_62: -3797399843801819269
+      radial_63: 779883940938026406
+      radial_64: 1417511761258640442
+      radial_65: -6448306647765473545
+      radial_66: -1365994370995663421
+      radial_67: -4291180923864531456
+      radial_68: -2227366563165989062
+      radial_69: -4758624374315042045
+      radial_7: 5373753242809754084
+      radial_70: 5903634951526067091
+      radial_71: 5850651478010469069
+      radial_72: -859298269992521157
+      radial_73: 6571217221371736537
+      radial_74: -8400426453337099290
+      radial_75: 2474205443130862053
+      radial_76: -5656829407734746537
+      radial_77: 2646461310987374890
+      radial_78: -1436143747249140547
+      radial_79: -1480960431555234137
+      radial_8: 5651482412621308023
+      radial_80: -795903598762497383
+      radial_81: 6900211699492903095
+      radial_82: -2048898305360849208
+      radial_83: -8432360960491115278
+      radial_84: 5078003518434851697
+      radial_85: -5340366257119061380
+      radial_86: -867120771623477437
+      radial_87: -8357261664579593985
+      radial_88: -5759813379092038450
+      radial_89: 5373681696448009654
+      radial_9: -8907594056135749143
+      radial_90: -5798695894961009758
+      radial_91: -3080615191658832496
+      radial_92: -2810411890289542258
+      radial_93: 7373578165862264491
+      radial_94: -8444499587492681630
+      radial_95: 4479948031527264582
+      radial_96: -2646733190905332805
+      radial_97: 4657196020952184372
+      radial_98: -2033133057186999336
+      radial_99: -5073126450916543937
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ability_ranged_attack
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Ranged Attack
+  _icon: {fileID: 21300000, guid: 8d95bcf261f259f4786a397bc66e3705, type: 3}
   _hasPositionRequirement: 0
   _actorPosition: 0
   _targetSide: 1

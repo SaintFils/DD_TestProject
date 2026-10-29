@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ability_sweep
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Sweep
+  _icon: {fileID: 21300000, guid: 51dcbb3542a768b49ac5942bd2a0c8bb, type: 3}
   _hasPositionRequirement: 1
   _actorPosition: 0
   _targetSide: 1

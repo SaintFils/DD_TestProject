@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ability_aoe_ranged
   m_EditorClassIdentifier: DDTest.Runtime::DDTest.Battle.AbilityConfig
   _displayName: Arrow Rain
+  _icon: {fileID: 21300000, guid: b123bdad4f47a734c80135e456f2d162, type: 3}
   _hasPositionRequirement: 1
   _actorPosition: 1
   _targetSide: 1
