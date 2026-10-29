@@ -46,9 +46,13 @@ namespace DDTest.Menu
 				.Subscribe(_ => StartBattle(null, isLeftAi: false, isRightAi: true))
 				.AddTo(this);
 
+#if UNITY_WEBGL
+			_quitButton.gameObject.SetActive(false);
+#else
 			_quitButton.OnClickAsObservable()
 				.Subscribe(_ => Quit())
 				.AddTo(this);
+#endif
 
 			_teamBuilder.BackClicked
 				.Subscribe(_ => SetTeamBuilderShown(false))
@@ -85,6 +89,7 @@ namespace DDTest.Menu
 			__navigator.LoadBattle();
 		}
 
+#if !UNITY_WEBGL
 		private static void Quit()
 		{
 #if UNITY_EDITOR
@@ -93,5 +98,6 @@ namespace DDTest.Menu
 			Application.Quit();
 #endif
 		}
+#endif
 	}
 }
